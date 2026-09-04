@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LAHD Borrower Portal - Loan Portfolio Transaction Request</title>
+<style>
+:root{
+  --navy:#1f3566;--navy2:#172c57;--blue:#0b83d5;--orange:#ff7a1a;
+  --border:#cbd3df;--border-dark:#9aa8bb;--text:#1f2937;--muted:#5f6b7a;
+  --bg:#f5f7fa;--danger:#c62828;--danger-bg:#fff5f5;--success:#18794e;
+  --warn:#9a6700;--warn-bg:#fff8db;--shadow:0 2px 8px rgba(31,53,102,.12)
+}
+*{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);font-size:14px}
+.page{max-width:1180px;margin:0 auto;padding:28px}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}
+.topbar h1{margin:0;font-size:30px}
+.btn{border:none;border-radius:5px;padding:11px 18px;font-weight:700;cursor:pointer;font-size:14px}
+.btn-primary{background:var(--navy);color:#fff}.btn-primary:hover{background:var(--navy2)}
+.btn-light{background:#fff;border:1px solid var(--border);color:var(--navy)}
+.btn-small{padding:7px 11px;font-size:12px}
+.panel,.section{background:#fff;border:1px solid var(--border);border-radius:8px;box-shadow:var(--shadow);margin-bottom:18px}
+.panel{padding:20px}
+.label{font-weight:700;display:block;margin-bottom:7px}
+.helper{font-size:12px;color:var(--muted);font-weight:400}
+.multi{position:relative;max-width:760px}
+.multi-display{min-height:44px;border:1px solid var(--border-dark);border-radius:4px;background:#fff;display:flex;justify-content:space-between;align-items:center;padding:8px 11px;cursor:pointer}
+.placeholder{color:#737e8c}
+.count{background:#eaf5fd;color:var(--navy);font-weight:700;padding:4px 8px;border-radius:999px;font-size:12px}
+.menu{display:none;position:absolute;z-index:20;top:49px;left:0;right:0;background:#fff;border:1px solid var(--border-dark);border-radius:5px;box-shadow:0 8px 24px rgba(0,0,0,.14);padding:8px}
+.menu.open{display:block}
+.opt{display:flex;gap:9px;padding:9px 8px;border-radius:4px;cursor:pointer;line-height:1.3}
+.opt:hover{background:#f2f6fb}.opt.reserve{border-top:1px solid #e5e9ef;margin-top:4px;padding-top:12px}
+.typechips,.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.typechip{border:1px solid #b9c7d7;background:#f7fafc;border-radius:999px;padding:5px 9px;font-size:12px}
+.section-head{display:flex;justify-content:space-between;padding:15px 18px;font-weight:700;font-size:16px;cursor:pointer}
+.section-body{padding:0 18px 18px}.section.collapsed .section-body{display:none}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.field label{font-weight:700;display:block;margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;border:1px solid var(--border-dark);border-radius:4px;padding:8px 10px;font:inherit;background:#fff}
+.field input,.field select{height:42px}.field textarea{min-height:92px;resize:vertical}
+.field input[readonly]{background:#f4f6f9}
+.small{margin-top:5px;font-size:12px;color:var(--muted)}
+.context{background:#f0f5fa;border-left:4px solid var(--navy);padding:10px 12px;border-radius:3px;margin-bottom:14px;color:#405269}
+.related{margin-top:12px;border:1px solid #ef9a9a;background:var(--danger-bg);border-radius:4px;overflow:hidden}
+.related-toggle{width:100%;border:0;background:transparent;padding:10px 12px;display:flex;justify-content:space-between;color:var(--danger);text-align:left;cursor:pointer}
+.related-content{border-top:1px solid #f3baba;padding:11px 12px;background:#fff}.hidden{display:none!important}
+.records{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.record{border:1px solid var(--border);border-radius:6px;padding:10px;background:#fafbfc;display:flex;gap:8px}
+.record.initiating{border-color:#91bce2;background:#f1f8fe}.record strong{display:block;font-size:13px;margin-bottom:2px}.record small{color:var(--muted)}
+.chip{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:7px 11px;color:#fff;font-weight:700;font-size:12px}
+.loan{background:var(--blue)}.ground{background:var(--orange)}.required:after{content:"Initiating";background:rgba(255,255,255,.2);padding:2px 6px;border-radius:999px;font-size:10px}
+.info{border:1px solid #81b9e8;background:#eaf5ff;padding:12px 13px;border-radius:4px;margin-top:14px}
+.warning{border:1px solid #e4bd58;background:var(--warn-bg);padding:12px 13px;border-radius:4px;line-height:1.45}
+.success{border:1px solid #9bc9b1;background:#eef8f2;padding:12px 13px;border-radius:4px;line-height:1.45;color:#275c42}
+.radio{display:flex;gap:12px;align-items:center;margin-top:18px;font-weight:700;flex-wrap:wrap}.radio label{font-weight:400}
+.footer{display:flex;justify-content:flex-end;gap:10px}
+.x{cursor:pointer}.required .x{display:none}
+.section-kicker{font-size:12px;color:var(--muted);margin:-4px 0 15px}
+.req{color:#c62828}
+.reserve-only{display:none}
+.policy-box{border:1px solid #d3dbe6;background:#f9fbfd;border-radius:6px;padding:14px;margin-top:15px}
+.policy-title{font-weight:700;color:var(--navy);margin-bottom:8px}
+.policy-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:9px 0}
+.policy-row .q{font-weight:700;min-width:390px}
+.policy-status{margin-top:12px}
+.table-wrap{overflow-x:auto;margin-top:14px}
+table{width:100%;border-collapse:collapse;min-width:980px}
+th{background:#eef3f8;color:#26364b;font-size:12px;text-align:left;padding:9px 8px;border:1px solid #c8d1dc}
+td{padding:7px;border:1px solid #d5dce5;vertical-align:middle}
+td input,td select{width:100%;height:34px;border:1px solid #aeb9c8;border-radius:3px;padding:5px 7px;font:inherit;font-size:12px}
+.amount{text-align:right}
+.total-row td{font-weight:700;background:#f6f8fb}
+.total-label{text-align:right}
+.row-actions{white-space:nowrap;text-align:center}
+.bid-panel{border:1px solid #dfc26c;border-radius:6px;margin-top:16px;overflow:hidden}
+.bid-head{background:#fff8db;padding:11px 13px;font-weight:700;color:#6f5200}
+.bid-body{padding:13px;background:#fff}
+.upload-grid{display:grid;grid-template-columns:1.2fr 1fr .9fr .9fr;gap:10px;align-items:end}
+.upload-box{border:1px dashed #9aa8bb;background:#fafbfc;border-radius:5px;padding:10px;min-height:58px}
+.file-name{font-size:12px;color:#405269;margin-top:5px}
+.badge{display:inline-flex;padding:3px 7px;border-radius:999px;font-size:11px;font-weight:700}
+.badge-required{background:#fff0d6;color:#8c5700}.badge-optional{background:#edf2f7;color:#526171}
+.request-category-label{font-weight:700;margin-bottom:9px;display:block}
+.category-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.category-card{position:relative;display:flex;gap:12px;align-items:flex-start;border:1px solid var(--border);border-radius:7px;padding:14px;background:#fff;cursor:pointer;min-height:86px}
+.category-card:hover{border-color:#8ea5c2;background:#fbfdff}
+.category-card.selected{border:2px solid var(--navy);background:#f3f7fc;padding:13px}
+.category-card input{margin-top:3px;accent-color:var(--navy)}
+.category-title{font-weight:700;color:#17233a;margin-bottom:4px}
+.category-desc{font-size:12px;color:var(--muted);line-height:1.4}
+.transaction-type-block{margin-top:16px;padding-top:15px;border-top:1px solid #e1e7ef}
+.category-rule{margin-top:10px;font-size:12px;color:#526171}
+
+@media(max-width:850px){.grid3,.grid2,.records,.upload-grid,.category-grid{grid-template-columns:1fr}.topbar{flex-direction:column;align-items:flex-start}.page{padding:18px}.policy-row .q{min-width:0}}
+
+/* v7 loan portfolio transaction sections */
+.transaction-only{display:none}.loan-calc-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.property-inputs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.subsection-title{font-weight:700;margin:18px 0 12px;color:#26364a}.debt-table{width:100%;border-collapse:collapse;font-size:11px}.debt-table th,.debt-table td{padding:9px 8px;border-bottom:1px solid #d8dee7;text-align:left}.debt-table th{background:#f5f6f8}.debt-title{background:#ffc20a!important;color:#17233a!important;text-align:center!important;font-weight:800;font-size:12px}.debt-total td{background:#e7e7e7;font-weight:700}.plusbtn{background:#233d78;color:white;border:0;border-radius:4px;width:25px;height:25px;font-weight:700}.trash{color:#d63b46;font-weight:700;text-align:center}.doc-upload-list{display:grid;gap:8px}.doc-upload-row{display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid #d8e0ea;background:#f8fafc;border-radius:5px;padding:9px 11px}.doc-upload-name{font-size:12px}.doc-actions{display:flex;gap:7px}.disclaimer{background:#eaf5ff;border:1px solid #4e8dbb;border-radius:6px;padding:14px 16px;margin-top:14px;font-size:11px;line-height:1.45}.ack{display:flex;gap:8px;align-items:flex-start;margin-top:14px;font-weight:700}.transaction-footer{display:none;justify-content:flex-end;gap:10px;margin-top:18px}@media(max-width:1000px){.loan-calc-grid{grid-template-columns:repeat(3,1fr)}.property-inputs{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="topbar">
+    <h1>Online Request Form</h1>
+    <button class="btn btn-primary" type="button">← Back to Dashboard</button>
+  </div>
+
+  <div class="panel">
+    <span class="request-category-label">What would you like to submit?</span>
+    <div class="category-grid">
+      <label class="category-card" id="transactionCategoryCard">
+        <input type="radio" name="requestCategory" value="transaction">
+        <span>
+          <div class="category-title">Loan Portfolio Transaction</div>
+          <div class="category-desc">Submit one or more related transaction types, such as ownership change, refinancing, subordination, or technical correction.</div>
+        </span>
+      </label>
+
+      <label class="category-card selected" id="reserveCategoryCard">
+        <input type="radio" name="requestCategory" value="reserve" checked>
+        <span>
+          <div class="category-title">Multifamily - Reserve Withdrawal</div>
+          <div class="category-desc">Submit a request to withdraw funds from an Operating Reserve or Replacement Reserve.</div>
+        </span>
+      </label>
+    </div>
+    <div class="category-rule">Reserve Withdrawal is a separate request and cannot be combined with Loan Portfolio Transaction types.</div>
+
+    <div class="transaction-type-block hidden" id="transactionTypeBlock">
+      <label class="label">Select Transaction Type(s) <span class="helper">(Select one or more applicable)</span></label>
+      <div class="multi">
+        <div class="multi-display" id="multiDisplay">
+          <span id="multiText" class="placeholder">Select transaction type(s)</span>
+          <span><span id="typeCount" class="count" style="display:none"></span> ▼</span>
+        </div>
+        <div class="menu" id="multiMenu">
+          <label class="opt"><input type="checkbox" value="Change of Ownership (Sale)">Multi-Family Transaction Application - Change of Ownership (Sale)</label>
+          <label class="opt"><input type="checkbox" value="Change of Sponsor / GP / LP">Multi-Family Transaction Application - Change of Sponsor, General Partner or Limited Partner</label>
+          <label class="opt"><input type="checkbox" value="Estoppel">Multi-Family Transaction Application - Estoppel</label>
+          <label class="opt"><input type="checkbox" value="Loan Refinancing / Restructuring">Multi-Family Transaction Application - Loan Refinancing or Loan Restructuring</label>
+          <label class="opt"><input type="checkbox" value="Subordination Approval">Multi-Family Transaction Application - Subordination Approval</label>
+          <label class="opt"><input type="checkbox" value="Technical Correction">Multi-Family Transaction Application - Technical Corrections to LAHD Loan</label>
+        </div>
+        <div id="typechips" class="typechips"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="borrower">
+    <div class="section-head" onclick="toggleSection('borrower')"><span>1. Borrower Information</span><span>⌃</span></div>
+    <div class="section-body">
+      <div class="context">This request was started from <strong>Loan # 14-12345678</strong>. The initiating loan is automatically included in the request.</div>
+      <div class="grid3">
+        <div class="field"><label>Borrower Entity Name</label><input value="Peak Plaza LLC" readonly></div>
+        <div class="field"><label>Initiating Loan Number</label><input value="14-12345678" readonly><div class="small">Prepopulated from the loan selected in the Borrower Portal.</div></div>
+        <div class="field"><label>Project Name</label><input value="Peak Plaza" readonly></div>
+      </div>
+
+      <div class="related">
+        <button class="related-toggle" id="relatedToggle" type="button">
+          <span>! Other loan and ground lease records are associated with this project. Select any additional records that apply to this request.</span>
+          <span id="relArrow">⌃</span>
+        </button>
+        <div class="related-content" id="relatedContent">
+          <div class="records">
+            <label class="record initiating"><input type="checkbox" checked disabled><span><strong>Loan # 14-12345678</strong><small>Initiating loan • Included automatically</small></span></label>
+            <label class="record"><input class="relatedCheck" type="checkbox" data-type="loan" value="Loan # 14-123111-002"><span><strong>Loan # 14-123111-002</strong><small>Related LAHD loan</small></span></label>
+            <label class="record"><input class="relatedCheck" type="checkbox" data-type="loan" value="Loan # 14-123111-003"><span><strong>Loan # 14-123111-003</strong><small>Related LAHD loan</small></span></label>
+            <label class="record"><input class="relatedCheck" type="checkbox" data-type="ground" value="Ground Lease # 123456"><span><strong>Ground Lease # 123456</strong><small>Related ground lease record</small></span></label>
+          </div>
+          <div class="small">Only select records that are part of this request. Selected records will be associated with the transaction.</div>
+        </div>
+      </div>
+
+      <div class="chips" id="recordChips"><span class="chip loan required">Loan # 14-12345678</span></div>
+      <div class="field" style="margin-top:18px"><label>Property Address</label><input value="1234 Peak Avenue, Los Angeles, CA" readonly></div>
+    </div>
+  </div>
+
+  <div class="section" id="requestor">
+    <div class="section-head" onclick="toggleSection('requestor')"><span>2. Requestor Information</span><span>⌃</span></div>
+    <div class="section-body">
+      <div class="grid3">
+        <div class="field"><label>Requested By</label><input value="John Doe"></div>
+        <div class="field"><label>Phone Number</label><input value="(123) 456-7890"></div>
+        <div class="field"><label>Email Address</label><input value="john.doe@email.com"></div>
+      </div>
+      <div class="radio">
+        <span>Are you submitting on behalf of someone else?</span>
+        <label><input type="radio" name="behalf" checked> No</label>
+        <label><input type="radio" name="behalf"> Yes</label>
+      </div>
+      <div class="info"><strong>Note:</strong> If “Yes” is selected, an Authorization Letter from the Borrower is required at submission. Refer to the Documents section of the request.</div>
+    </div>
+  </div>
+
+  <div class="reserve-only" id="reserveSections">
+    <div class="section" id="reserveInfo">
+      <div class="section-head" onclick="toggleSection('reserveInfo')"><span>3. Reserve Withdrawal Request Information</span><span>⌃</span></div>
+      <div class="section-body">
+        <div class="section-kicker">Complete this section for a Multifamily - Reserve Withdrawals request.</div>
+        <div class="grid3">
+          <div class="field">
+            <label><span class="req">*</span> Reserve Fund</label>
+            <select id="fundType">
+              <option value="">Select reserve fund</option>
+              <option selected>Replacement Reserve</option>
+              <option>Operating Reserve</option>
+            </select>
+          </div>
+          <div class="field">
+            <label><span class="req">*</span> Withdrawal Amount</label>
+            <input id="withdrawalAmount" value="$27,500.00">
+          </div>
+          <div class="field">
+            <label>Current Reserve Balance</label>
+            <input value="$105,404.00" readonly>
+            <div class="small">Current balance shown from Portfolio Management.</div>
+          </div>
+        </div>
+
+        <div class="grid2" style="margin-top:14px">
+          <div class="field">
+            <label><span class="req">*</span> Fiscal Year</label>
+            <select><option>2026</option><option>2025</option><option>2024</option></select>
+          </div>
+          <div class="field">
+            <label>Requested Payment / Need-By Date</label>
+            <input type="date" value="2026-09-30">
+          </div>
+        </div>
+
+        <div class="field" style="margin-top:14px">
+          <label><span class="req">*</span> Description of Work / Reason for Withdrawal</label>
+          <textarea>Replacement of three HVAC units serving occupied residential units and related installation work.</textarea>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section" id="invoiceSection">
+      <div class="section-head" onclick="toggleSection('invoiceSection')"><span>4. Invoice / Work Detail and Bid Information</span><span>⌃</span></div>
+      <div class="section-body">
+        <div class="section-kicker">Enter the invoice or work items included in this reserve withdrawal request.</div>
+
+        <div class="table-wrap">
+          <table id="invoiceTable">
+            <thead>
+              <tr>
+                <th style="width:105px">Invoice Date</th>
+                <th style="width:110px">Invoice #</th>
+                <th style="width:85px">Unit</th>
+                <th>Item / Work Description</th>
+                <th style="width:180px">Contractor / Vendor</th>
+                <th style="width:125px">Requested Amount</th>
+                <th style="width:145px">Invoice / Estimate</th>
+                <th style="width:150px">Notes</th>
+                <th style="width:55px"></th>
+              </tr>
+            </thead>
+            <tbody id="invoiceBody">
+              <tr>
+                <td><input type="date" value="2026-08-20"></td>
+                <td><input value="INV-2841"></td>
+                <td><input value="101-103"></td>
+                <td><input value="Replace three HVAC units"></td>
+                <td><input value="ABC Mechanical"></td>
+                <td><input class="lineAmount" value="27500.00"></td>
+                <td><select><option>Invoice</option><option>Estimate</option></select></td>
+                <td><input value="Occupied units"></td>
+                <td class="row-actions"><button class="btn btn-light btn-small removeRow" type="button">×</button></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr class="total-row">
+                <td colspan="5" class="total-label">Total Requested Amount</td>
+                <td id="invoiceTotal" class="amount">$27,500.00</td>
+                <td colspan="3"></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <button class="btn btn-light btn-small" id="addInvoice" type="button" style="margin-top:10px">+ Add Invoice / Work Item</button>
+
+        <div class="bid-panel" id="bidPanel">
+          <div class="bid-head">
+            Additional Bid Documentation
+            <span id="bidRequirementBadge" class="badge badge-required" style="margin-left:8px">See Policy Requirement</span>
+          </div>
+          <div class="bid-body">
+            <div id="bidInstruction" class="small" style="margin:0 0 12px">Upload applicable invoice/estimate documentation. If the work performed within a relatively short period costs over $20,000 and is not an urgent resident safety or livability need, upload 2 additional bids.</div>
+            <div class="upload-grid">
+              <div class="field"><label>Bid / Estimate</label><div class="upload-box"><button class="btn btn-light btn-small" type="button">Upload Bid 1</button><div class="file-name">No file selected</div></div></div>
+              <div class="field"><label>Contractor / Vendor</label><input placeholder="Vendor name"></div>
+              <div class="field"><label>Bid Amount</label><input placeholder="$0.00"></div>
+              <div class="field"><label>Bid Date</label><input type="date"></div>
+            </div>
+            <div class="upload-grid" id="bid2row" style="margin-top:10px">
+              <div class="field"><label>Bid / Estimate</label><div class="upload-box"><button class="btn btn-light btn-small" type="button">Upload Bid 2</button><div class="file-name">No file selected</div></div></div>
+              <div class="field"><label>Contractor / Vendor</label><input placeholder="Vendor name"></div>
+              <div class="field"><label>Bid Amount</label><input placeholder="$0.00"></div>
+              <div class="field"><label>Bid Date</label><input type="date"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info" style="margin-top:14px">
+          <strong>Policy:</strong> If work performed within a relatively short period of time costs over $20,000 and is not an urgent need for resident safety or livability, submit <strong>2 additional bids</strong>. Work affecting resident safety or livability does not require additional bids, such as a broken boiler or heating/cooling units in occupied units.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="transaction-only" id="transactionSections">
+    <div class="section" id="lenderWorksheet">
+      <div class="section-head" onclick="toggleSection('lenderWorksheet')"><span>3. Borrower - Lender Worksheet</span><span>⌃</span></div>
+      <div class="section-body">
+        <div class="subsection-title">Loan Calculation</div>
+        <div class="loan-calc-grid">
+          <div class="field"><label>Proposed Loan Amt.</label><input value="$600,000.00"></div>
+          <div class="field"><label>Refinance Amt.</label><input value="$350,000.00"></div>
+          <div class="field"><label>Cash Out</label><input value="$203,050.00"></div>
+          <div class="field"><label>Broker Fee</label><input value="$7,500.00"></div>
+          <div class="field"><label>Lender Fee</label><input value="$25,500.00"></div>
+          <div class="field"><label>Closing Costs</label><input value="$7,350.00"></div>
+        </div>
+        <div class="grid2" style="margin-top:12px">
+          <div class="field"><label>Annual Property Taxes</label><input value="$12,700"></div>
+          <div class="field"><label>Annual Insurance</label><input value="$10,106"></div>
+        </div>
+
+        <div class="subsection-title">Appraisal &amp; Property Inputs</div>
+        <div class="property-inputs">
+          <div class="field"><label>Net Operating Income (NOI)</label><input value="$76,000"></div>
+          <div class="field"><label>Cap Rate</label><input value="4.50%"></div>
+          <div class="field"><label>Market / Property Value</label><input value="$1,650,000"></div>
+          <div class="field"><label>Appraisal Date</label><input type="date" value="2025-11-17"></div>
+        </div>
+
+        <div class="table-wrap" style="margin-top:18px">
+          <table class="debt-table"><thead><tr><th colspan="10" class="debt-title">CURRENT STATUS</th></tr><tr><th>Mortgage Holder</th><th>Present Balance</th><th>Monthly Payment</th><th>Loan Term</th><th>Interest Rate</th><th>Loan Index</th><th>ARM Margin</th><th>Annual/Life Caps</th><th>Prepay Penalty</th><th><button class="plusbtn" type="button">+</button></th></tr></thead>
+          <tbody><tr><td><strong>1st. Northeast Bank</strong></td><td>$356,680</td><td>$5,142</td><td>3/1/2030</td><td>9.36%</td><td>-</td><td>-</td><td>-</td><td>TBD</td><td class="trash">▣</td></tr><tr><td><strong>2nd. HCIDLA</strong></td><td>$228,608</td><td>N/A</td><td>12/8/2037</td><td>5.00%</td><td>-</td><td>-</td><td>-</td><td>-</td><td class="trash">▣</td></tr><tr><td><strong>3rd. EC Housing</strong></td><td>$569,833</td><td>N/A</td><td>Matured</td><td>Prime +</td><td>3%</td><td>-</td><td>-</td><td>-</td><td class="trash">▣</td></tr><tr class="debt-total"><td>TOTAL</td><td>$320,121</td><td>$5,142</td><td colspan="7">*Exclude Property Taxes and Homeowner's Insurance from the MONTHLY PAYMENT.</td></tr></tbody></table>
+        </div>
+
+        <div class="table-wrap" style="margin-top:18px">
+          <table class="debt-table"><thead><tr><th colspan="10" class="debt-title">AFTER-SUBORDINATION</th></tr><tr><th>Mortgage Holder</th><th>Present Balance</th><th>Monthly Payment</th><th>Loan Term</th><th>Interest Rate</th><th>Loan Index</th><th>ARM Margin</th><th>Annual/Life Caps</th><th>Prepay Penalty</th><th><button class="plusbtn" type="button">+</button></th></tr></thead>
+          <tbody><tr><td><strong>1st. Lendistry</strong></td><td>$600,000</td><td>$3,862</td><td>10 Years</td><td>Prime +</td><td>2.74%</td><td>-</td><td>-</td><td>2% - Year 2</td><td class="trash">▣</td></tr><tr><td><strong>2nd. HCIDLA</strong></td><td>$228,608</td><td>N/A</td><td>12/8/2037</td><td>5.00%</td><td>-</td><td>-</td><td>-</td><td>-</td><td class="trash">▣</td></tr><tr><td><strong>3rd. EC Housing</strong></td><td>$569,833</td><td>N/A</td><td>Matured</td><td>Prime +</td><td>3%</td><td>-</td><td>-</td><td>-</td><td class="trash">▣</td></tr><tr class="debt-total"><td>TOTAL</td><td>-</td><td>-</td><td colspan="7">*Exclude Property Taxes and Homeowner's Insurance from the MONTHLY PAYMENT.</td></tr></tbody></table>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="requestDetails">
+      <div class="section-head" onclick="toggleSection('requestDetails')"><span>4. Request Details</span><span>⌃</span></div>
+      <div class="section-body">
+        <div class="field" style="max-width:220px"><label>Date Needed</label><input type="date"></div>
+        <div class="field" style="margin-top:12px"><label>Issue / Comment</label><textarea style="min-height:105px"></textarea></div>
+      </div>
+    </div>
+
+    <div class="section" id="transactionDocs">
+      <div class="section-head" onclick="toggleSection('transactionDocs')"><span>5. Document Upload</span><span>⌃</span></div>
+      <div class="section-body">
+        <div class="small" style="margin-bottom:14px">Please upload the required documents. You can download templates by clicking the links below:</div>
+        <div class="doc-upload-list">
+          <div class="doc-upload-row"><span class="doc-upload-name">▧ &nbsp; Application Form &nbsp;ⓘ</span><span class="doc-actions"><button class="btn btn-light btn-small" type="button">⇩ Template</button><button class="btn btn-primary btn-small" type="button">▧ Upload</button></span></div>
+          <div class="doc-upload-row"><span class="doc-upload-name">▧ &nbsp; Background Check Form &nbsp;ⓘ</span><span class="doc-actions"><button class="btn btn-light btn-small" type="button">⇩ Template</button><button class="btn btn-primary btn-small" type="button">▧ Upload</button></span></div>
+          <div class="doc-upload-row"><span class="doc-upload-name">▧ &nbsp; Entity Agreement &amp; Amendments &nbsp;ⓘ</span><span class="doc-actions"><button class="btn btn-light btn-small" type="button">⇩ Template</button><button class="btn btn-primary btn-small" type="button">▧ Upload</button></span></div>
+          <div class="doc-upload-row"><span class="doc-upload-name">▧ &nbsp; Resolution Authority &nbsp;ⓘ</span><span class="doc-actions"><button class="btn btn-light btn-small" type="button">⇩ Template</button><button class="btn btn-primary btn-small" type="button">▧ Upload</button></span></div>
+          <div class="doc-upload-row"><span class="doc-upload-name">▧ &nbsp; Certificate of Good Standing &nbsp;ⓘ</span><span class="doc-actions"><button class="btn btn-light btn-small" type="button">⇩ Template</button><button class="btn btn-primary btn-small" type="button">▧ Upload</button></span></div>
+          <div class="doc-upload-row"><span class="doc-upload-name">▧ &nbsp; Signed Borrower Certification &nbsp;ⓘ</span><span class="doc-actions"><button class="btn btn-light btn-small" type="button">⇩ Template</button><button class="btn btn-primary btn-small" type="button">▧ Upload</button></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="disclaimer"><strong>Disclaimer</strong><p>I, THE UNDERSIGNED, CERTIFY THAT THE INFORMATION PROVIDED IN THIS APPLICATION IS TRUE AND CORRECT AS OF THE DATE SET FORTH OPPOSITE MY SIGNATURE ON THIS APPLICATION. I ACKNOWLEDGE THAT ANY MISREPRESENTATION(S) OF THE INFORMATION CONTAINED HEREIN WHICH RESULTS IN CIVIL LIABILITY AND/OR A LOSS TO THE CITY OF LOS ANGELES HOUSING AND COMMUNITY INVESTMENT DEPARTMENT (HCIDLA), ITS AGENTS, SUCCESSORS, ASSIGNS, INSURERS AND ANY OTHER PARTY WHO MAY SUFFER A LOSS DUE TO RELIANCE UPON ANY INFORMATION CONTAINED HEREIN MAY RESULT IN CIVIL RECOURSE AGAINST THE UNDERSIGNED. I FURTHER ACKNOWLEDGE THAT HCIDLA AT ITS SOLE DISCRETION SHALL HAVE THE RIGHT TO USE THE INFORMATION CONTAINED HEREIN TO REFER THE APPLICANT TO AN ALTERNATE LENDER FOR ANALYSIS AND POTENTIAL OFFERS OF COMPETITIVE FINANCING IN ORDER FOR HCIDLA TO PROTECT ITS SECURITY INTEREST AS A SUBORDINATED LENDER.</p><label class="ack"><input type="checkbox"> <span>I acknowledge and agree to the terms stated in the disclaimer above</span></label></div>
+    <div class="transaction-footer" id="transactionFooter"><button class="btn btn-light" type="button">Cancel</button><button class="btn btn-primary" type="button">Submit Form</button></div>
+  </div>
+
+  <div class="footer" id="reserveFooter">
+    <button class="btn btn-light" type="button">Save Draft</button>
+    <button class="btn btn-primary" type="button">Continue</button>
+  </div>
+</div>
+
+<script>
+const md=document.getElementById('multiDisplay'),
+      mm=document.getElementById('multiMenu'),
+      mt=document.getElementById('multiText'),
+      tc=document.getElementById('typeCount'),
+      tchips=document.getElementById('typechips'),
+      reserveSections=document.getElementById('reserveSections'),
+      transactionTypeBlock=document.getElementById('transactionTypeBlock'),
+      transactionCategoryCard=document.getElementById('transactionCategoryCard'),
+      reserveCategoryCard=document.getElementById('reserveCategoryCard'),
+      transactionSections=document.getElementById('transactionSections'),
+      transactionFooter=document.getElementById('transactionFooter'),
+      reserveFooter=document.getElementById('reserveFooter');
+
+function syncTypes(){
+  const c=[...mm.querySelectorAll('input:checked')];
+  tchips.innerHTML='';
+  c.forEach(x=>{
+    const s=document.createElement('span');
+    s.className='typechip';
+    s.textContent=x.value;
+    tchips.appendChild(s);
+  });
+  if(c.length){
+    mt.textContent=c.length===1?c[0].value:'Multiple transaction types selected';
+    mt.classList.remove('placeholder');
+    tc.style.display='inline-block';
+    tc.textContent=c.length+' selected';
+  }else{
+    mt.textContent='Select transaction type(s)';
+    mt.classList.add('placeholder');
+    tc.style.display='none';
+  }
+}
+
+function syncRequestCategory(){
+  const selected=document.querySelector('input[name="requestCategory"]:checked')?.value || 'reserve';
+  const isReserve=selected==='reserve';
+
+  reserveSections.style.display=isReserve?'block':'none';
+  transactionSections.style.display=isReserve?'none':'block';
+  transactionFooter.style.display=isReserve?'none':'flex';
+  reserveFooter.style.display=isReserve?'flex':'none';
+  transactionTypeBlock.classList.toggle('hidden',isReserve);
+
+  reserveCategoryCard.classList.toggle('selected',isReserve);
+  transactionCategoryCard.classList.toggle('selected',!isReserve);
+
+  if(isReserve){
+    mm.classList.remove('open');
+  }
+}
+
+document.querySelectorAll('input[name="requestCategory"]').forEach(r=>r.addEventListener('change',syncRequestCategory));
+md.onclick=()=>mm.classList.toggle('open');
+mm.querySelectorAll('input').forEach(cb=>cb.onchange=syncTypes);
+document.addEventListener('click',e=>{if(!e.target.closest('.multi'))mm.classList.remove('open')});
+function toggleSection(id){document.getElementById(id).classList.toggle('collapsed')}
+
+const rt=document.getElementById('relatedToggle'),rc=document.getElementById('relatedContent'),ra=document.getElementById('relArrow');
+rt.onclick=()=>{rc.classList.toggle('hidden');ra.textContent=rc.classList.contains('hidden')?'⌄':'⌃'};
+
+function syncRecords(){
+  const w=document.getElementById('recordChips');
+  w.innerHTML='<span class="chip loan required">Loan # 14-12345678</span>';
+  document.querySelectorAll('.relatedCheck:checked').forEach(cb=>{
+    const s=document.createElement('span');
+    s.className='chip '+(cb.dataset.type==='ground'?'ground':'loan');
+    s.innerHTML=cb.value+' <span class="x">×</span>';
+    s.querySelector('.x').onclick=()=>{cb.checked=false;syncRecords()};
+    w.appendChild(s)
+  })
+}
+document.querySelectorAll('.relatedCheck').forEach(cb=>cb.onchange=syncRecords);
+
+
+
+function money(n){return n.toLocaleString('en-US',{style:'currency',currency:'USD'});}
+function syncInvoiceTotal(){
+  let total=0;
+  document.querySelectorAll('.lineAmount').forEach(i=>{
+    const v=parseFloat(String(i.value).replace(/[$,]/g,'')); if(!isNaN(v)) total+=v;
+  });
+  document.getElementById('invoiceTotal').textContent=money(total);
+}
+document.getElementById('invoiceBody').addEventListener('input',e=>{if(e.target.classList.contains('lineAmount'))syncInvoiceTotal()});
+document.getElementById('invoiceBody').addEventListener('click',e=>{
+  if(e.target.classList.contains('removeRow')){
+    const rows=document.querySelectorAll('#invoiceBody tr');
+    if(rows.length>1){e.target.closest('tr').remove();syncInvoiceTotal();}
+  }
+});
+document.getElementById('addInvoice').onclick=()=>{
+  const tr=document.createElement('tr');
+  tr.innerHTML='<td><input type="date"></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input class="lineAmount" placeholder="0.00"></td><td><select><option>Invoice</option><option>Estimate</option></select></td><td><input></td><td class="row-actions"><button class="btn btn-light btn-small removeRow" type="button">×</button></td>';
+  document.getElementById('invoiceBody').appendChild(tr);
+};
+
+// Initialize the UI from the radio button that is already selected on first load.
+// This ensures Reserve Withdrawal shows all reserve-only sections immediately,
+// the same way it does after switching categories.
+syncRequestCategory();
+syncTypes();
+syncRecords();
+syncInvoiceTotal();
+</script>
+</body>
+</html>
