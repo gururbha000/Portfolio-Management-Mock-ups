@@ -84,6 +84,25 @@ textarea{min-height:80px}
 .comment{border:1px solid #e9a1a1;background:#fff8f8;border-radius:10px;padding:12px;margin-top:10px}
 .review-actions{display:flex;gap:8px;margin-top:14px}
 @media(max-width:950px){.stages{grid-template-columns:1fr}.toolbar{flex-direction:column;align-items:flex-start}.viewergrid{grid-template-columns:1fr}.comments{border-left:0;border-top:1px solid var(--border)}.flow{grid-template-columns:1fr}.route{grid-template-columns:1fr}}
+
+.btn-return{background:#fff;color:#b34b24;border:1px solid #d87b55}
+.btn-return:hover{background:#fff7f3}
+.status.returned{background:#fff1e9;color:#a84e27;border-color:#efb294}
+.return-banner{display:none;margin:0 32px 16px;padding:13px 16px;border:1px solid #e4a174;background:#fff7f0;border-radius:8px;color:#75452d}
+.return-banner.show{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.return-banner strong{color:#a34b26}.return-banner span{font-size:12px}
+
+.dynamic-flow-wrap{margin:24px 0 20px;padding:16px 18px 18px;background:#fff;border:1px solid var(--border);border-radius:14px}
+.dynamic-flow-title{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.dynamic-flow-title strong{font-size:13px}.dynamic-flow-title div span{display:block;font-size:10.5px;color:var(--muted);margin-top:3px}
+.flow-status{font-size:10.5px;font-weight:700;padding:5px 9px;border:1px solid #d0dbe6;background:#eef3f8;color:#415b76;border-radius:13px}
+.dynamic-flow{display:flex;align-items:stretch;gap:6px;overflow-x:auto}
+.dfstep{min-width:148px;flex:1;padding:10px 11px;border:1px solid #cbd6e2;border-radius:8px;background:#fafbfd}
+.dfstep .num{width:23px;height:23px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#e5ebf1;color:#52687e;font-size:10.5px;font-weight:700;margin-bottom:7px}
+.dfstep b{display:block;font-size:11px;line-height:1.3}.dfstep small{display:block;font-size:9.7px;line-height:1.3;color:#718398;margin-top:4px}
+.dfstep.done{background:#f3faf6;border-color:#a9d0b5}.dfstep.done .num{background:#dcefe3;color:#2c7650}
+.dfstep.active{background:#eef5fb;border-color:#4f8dbf;box-shadow:inset 0 0 0 1px #4f8dbf}.dfstep.active .num{background:#176ca4;color:#fff}
+.dfstep.returned{background:#fff5ed;border-color:#df9360;box-shadow:inset 0 0 0 1px #df9360}.dfstep.returned .num{background:#cf6834;color:#fff}
+.dfstep.wait{opacity:.66}.dfarrow{align-self:center;flex:none;font-size:17px;color:#708298;font-weight:bold}
 </style>
 </head>
 <body>
@@ -96,7 +115,10 @@ textarea{min-height:80px}
     <div class="demo-note">Interactive story mock-up · click the actions to move through the workflow</div>
   </div>
 
-  <div class="stages" id="stageNav"></div>
+  <div class="dynamic-flow-wrap">
+<div class="dynamic-flow-title"><div><strong>Document Approval Workflow</strong><span>The workflow updates automatically based on the current action.</span></div><span id="flowStatus" class="flow-status"></span></div>
+<div id="dynamicFlow" class="dynamic-flow"></div>
+</div>
 
   <div class="toolbar">
     <div class="tabs"><div class="tab active">Approval Letters</div><div class="tab">Supporting Documents</div></div>
@@ -108,7 +130,8 @@ textarea{min-height:80px}
 
   <div class="banner" id="banner"></div>
 
-  <div class="card">
+  <div id="returnBanner" class="return-banner"><div><strong>Returned for Correction</strong><br><span id="returnBannerText">Reviewer 1 returned a document to the original submitter.</span></div><span class="status returned">Correction Required</span></div>
+<div class="card">
     <div class="cardhead">
       <div><h2>Approval Documents</h2><div class="subtitle" id="cardSub">Documents required for this transaction</div></div>
       <div class="count">4 documents</div>
@@ -187,42 +210,54 @@ let state={
  stage:1,
  generated:[false,false,false,false],
  reviewer1:[false,false,false,false],
- reviewer2:[false,false,false,false]
+ reviewer2:[false,false,false,false],
+ returned:[false,false,false,false],
+ returnComments:['','','',''],
+ reviewer1Decision:['','','',''],
+ correctionMode:false
 };
 
-const stages=[
- ['Documents Not Yet Generated','Generate each required document'],
- ['Documents Generated','Review/edit before submission'],
- ['Submitted for Approval','Routed to Reviewer 1'],
- ['Reviewer 1 Review','Comments / review completed'],
- ['Reviewer 2 Approval','Final approval and completion']
-];
-
-function stageStatus(i){
-  if(i<state.stage) return 'done';
-  if(i===state.stage) return 'active';
-  return '';
-}
 function renderStages(){
-  const nav=document.getElementById('stageNav'); nav.innerHTML='';
-  stages.forEach((s,idx)=>{
-    const n=idx+1, div=document.createElement('div');
-    div.className='stage '+stageStatus(n);
-    div.innerHTML=`<div class="n">${n<state.stage?'✓':n}</div><div><div class="stage-title">${n}. ${s[0]}</div><div class="stage-sub">${s[1]}</div></div>`;
-    nav.appendChild(div);
-  });
+ const flow=document.getElementById('dynamicFlow'), label=document.getElementById('flowStatus');
+ let s=[];
+ if(state.correctionMode){
+   s=[
+    ['done','✓','Documents Pending Generation','Complete'],
+    ['done','✓','Docs Generated · Ready for Review','Submitted'],
+    ['done','✓','Under Review · Reviewer 1','Reviewed'],
+    ['returned','↩','Returned for Correction','Review complete · package assigned to original submitter'],
+    ['active','4','Resubmit to Reviewer 1','Re-review required'],
+    ['wait','5','Under Review · Reviewer 2','Waiting for Reviewer 1 pass'],
+    ['wait','6','Approved · Ready for Signature','Not started']
+   ]; label.textContent='Reviewer 1 Complete · Returned for Correction';
+ } else if(state.stage===1){
+   s=[['active','1','Documents Pending Generation','Generate required documents'],['wait','2','Docs Generated · Ready for Review','Not started'],['wait','3','Under Review · Reviewer 1','Not started'],['wait','4','Under Review · Reviewer 2','Not started'],['wait','5','Approved · Ready for Signature','Not started']]; label.textContent='Documents Pending Generation';
+ } else if(state.stage===2){
+   s=[['done','✓','Documents Pending Generation','Complete'],['active','2','Docs Generated · Ready for Review','Ready to submit'],['wait','3','Under Review · Reviewer 1','Not started'],['wait','4','Under Review · Reviewer 2','Not started'],['wait','5','Approved · Ready for Signature','Not started']]; label.textContent='Docs Generated · Ready for Review';
+ } else if(state.stage===3){
+   s=[['done','✓','Documents Pending Generation','Complete'],['done','✓','Docs Generated · Ready for Review','Submitted'],['active','3','Under Review · Reviewer 1',`${state.reviewer1Decision.filter(Boolean).length} of ${docs.length} documents reviewed`],['wait','4','Under Review · Reviewer 2','Waiting for Reviewer 1'],['wait','5','Approved · Ready for Signature','Not started']]; label.textContent='Under Review · Reviewer 1';
+ } else if(state.stage===4){
+   s=[['done','✓','Documents Pending Generation','Complete'],['done','✓','Docs Generated · Ready for Review','Submitted'],['done','✓','Under Review · Reviewer 1','Passed'],['active','4','Under Review · Reviewer 2','Final review'],['wait','5','Approved · Ready for Signature','Not started']]; label.textContent='Under Review · Reviewer 2';
+ } else {
+   s=[['done','✓','Documents Pending Generation','Complete'],['done','✓','Docs Generated · Ready for Review','Submitted'],['done','✓','Under Review · Reviewer 1','Passed'],['done','✓','Under Review · Reviewer 2','Passed'],['active','✓','Approved · Ready for Signature','Review complete']]; label.textContent='Approved · Ready for Signature';
+ }
+ flow.innerHTML=s.map((x,i)=>`<div class="dfstep ${x[0]}"><div class="num">${x[1]}</div><b>${x[2]}</b><small>${x[3]}</small></div>${i<s.length-1?'<div class="dfarrow">→</div>':''}`).join('');
 }
+
 function wfCell(i){
   const submitDone=state.stage>=3;
   const r1done=state.reviewer1[i];
   const r2done=state.reviewer2[i];
   return `<div class="flow">
     <div class="person"><span class="check ${submitDone?'done':''}">${submitDone?'✓':'○'}</span><div><strong>Submitter</strong><div class="date">${submitDone?'John Doe · 10/25/2026':'Not submitted'}</div></div></div>
-    <div class="person"><span class="check ${r1done?'comment':(state.stage>=3?'pending':'')}">${r1done?'✓':(state.stage>=3?'…':'○')}</span><div><strong>Reviewer 1</strong><div class="date">${r1done?'Mike Smith · Reviewed':(state.stage>=3?'Pending':'Not started')}</div></div></div>
+    <div class="person"><span class="check ${state.returned[i]?'pending':(r1done?'comment':(state.stage>=3?'pending':''))}">${state.returned[i]?'↩':(r1done?'✓':(state.stage>=3?'…':'○'))}</span><div><strong>Reviewer 1</strong><div class="date">${state.correctionMode&&state.returned[i]?'Returned for correction':(state.reviewer1Decision[i]==='return'?'Reviewed · correction noted':(state.reviewer1Decision[i]==='pass'?'Reviewed · Pass':(state.stage>=3?'Pending':'Not started')))}</div></div></div>
     <div class="person"><span class="check ${r2done?'done':(state.stage>=4?'pending':'')}">${r2done?'✓':(state.stage>=4?'…':'○')}</span><div><strong>Reviewer 2</strong><div class="date">${r2done?'Sarah Lee · Approved':(state.stage>=4?'Pending':'Not started')}</div></div></div>
   </div>`;
 }
 function rowStatus(i){
+  if(state.correctionMode && state.returned[i]) return ['Correction Required','returned'];
+  if(state.stage===3 && state.reviewer1Decision[i]==='return') return ['Reviewed · Correction Noted','generated'];
+  if(state.stage===3 && state.reviewer1Decision[i]==='pass') return ['Reviewed · Pass','generated'];
   if(state.reviewer2[i]) return ['Approved','approved'];
   if(state.reviewer1[i]) return ['Reviewed','reviewed'];
   if(state.stage>=3) return ['Submitted','submitted'];
@@ -235,7 +270,11 @@ function actionHtml(i){
       ? `<button class="btn btn-secondary btn-small" onclick="openDoc(${i})">View / Edit</button>`
       : `<button class="btn btn-primary btn-small" onclick="generateDoc(${i})">Generate</button>`;
   }
+  if(state.correctionMode && state.returned[i]){
+    return `<button class="btn btn-primary btn-small" onclick="openCorrection(${i})">Correct / Edit</button>`;
+  }
   if(state.stage===3){
+    if(state.reviewer1Decision[i]) return `<span class="muted">Review completed</span>`;
     return `<button class="btn btn-primary btn-small" onclick="openDoc(${i})">Reviewer 1 · Review</button>`;
   }
   if(state.stage===4){
@@ -265,8 +304,23 @@ function renderToolbar(){
   const helper=document.getElementById('helperText');
   const banner=document.getElementById('banner');
   banner.className='banner'; banner.textContent='';
+  const rb=document.getElementById('returnBanner');
+  rb.className='return-banner'+(state.correctionMode?' show':'');
+  if(state.correctionMode){
+    const names=docs.filter((d,i)=>state.returned[i]).map(d=>d.name).join(', ');
+    document.getElementById('returnBannerText').textContent=`Reviewer 1 completed review of all documents. Correction was requested for: ${names}. The package is assigned back to the original submitter; Reviewer 2 has not started.`;
+  }
 
-  if(state.stage<=2){
+  if(state.correctionMode){
+    const n=state.returned.filter(Boolean).length;
+    pill.textContent=`${n} document${n===1?'':'s'} returned`;
+    pill.className='pill';
+    btn.textContent='Resubmit Corrections to Reviewer 1';
+    btn.disabled=n===0;
+    btn.className='btn '+(n?'btn-primary':'btn-disabled');
+    btn.onclick=resubmitCorrections;
+    helper.textContent='Reviewer 1 has completed review of all documents. Because one or more documents require correction, the full package is assigned back to the original submitter. Reviewer 2 remains on hold.';
+  } else if(state.stage<=2){
     pill.textContent=`${generated} of 4 generated`;
     pill.className='pill '+(generated===4?'ready':'');
     btn.textContent='Submit for Approval';
@@ -307,6 +361,7 @@ function renderToolbar(){
 function render(){
   renderStages(); renderRows(); renderToolbar();
   document.getElementById('cardSub').textContent=
+    state.correctionMode?'Reviewer 1 returned document(s) to the original submitter for correction':
     state.stage===1?'Documents required for this transaction':
     state.stage===2?'All required documents are generated and ready for submitter review':
     state.stage===3?'Approval package submitted to Reviewer 1':
@@ -331,8 +386,8 @@ function openDoc(i){
   const comments=document.getElementById('commentContent');
   const acts=document.getElementById('modalActions');
   if(state.stage===3){
-    comments.innerHTML='<div class="comment"><strong>Reviewer 1 comment area</strong><p>Add or save comments/highlights associated with this document.</p><textarea placeholder="Enter reviewer comment">Please verify the highlighted project name and amount.</textarea></div>';
-    acts.innerHTML=`<button class="btn btn-primary" onclick="markReviewer1(${i})">Mark Reviewed</button>`;
+    comments.innerHTML='<div class="comment"><strong>Reviewer 1 comment area</strong><p>Add comments/highlights associated with this document. Comments are retained with the review action.</p><textarea id="reviewer1Comment" placeholder="Enter reviewer comment">Please verify the highlighted project name and amount.</textarea></div>';
+    acts.innerHTML=`<button class="btn btn-primary" onclick="passReviewer1(${i})">Reviewed · Pass</button><button class="btn btn-return" onclick="returnReviewer1(${i})">Return for Correction</button>`;
   }else if(state.stage===4){
     comments.innerHTML='<div class="comment"><strong>Reviewer 1 · Mike Smith</strong><p>Please verify the highlighted project name and amount.</p></div><div class="comment" style="border-color:#95d1a3;background:#f5fbf6"><strong>Reviewer 2</strong><p>Review Reviewer 1 comments and the latest document before approval.</p></div>';
     acts.innerHTML=`<button class="btn btn-primary" onclick="approveDoc(${i})">Approve Document</button>`;
@@ -345,9 +400,49 @@ function openDoc(i){
   }
   document.getElementById('docModal').classList.add('open');
 }
-function markReviewer1(i){
+function finishReviewer1Document(i,decision){
+  const ta=document.getElementById('reviewer1Comment');
+  state.reviewer1Decision[i]=decision;
   state.reviewer1[i]=true;
+  state.returned[i]=(decision==='return');
+  if(decision==='return') state.returnComments[i]=ta?ta.value:'Correction requested by Reviewer 1.';
   closeModal('docModal');
+
+  // Reviewer 1 completes the package only after every document has been reviewed.
+  const allReviewed=state.reviewer1Decision.every(Boolean);
+  if(allReviewed){
+    const anyCorrection=state.reviewer1Decision.some(x=>x==='return');
+    if(anyCorrection){
+      state.correctionMode=true;
+      state.stage=3;
+    }else{
+      state.correctionMode=false;
+      state.stage=4;
+    }
+  }
+  render();
+}
+function passReviewer1(i){ finishReviewer1Document(i,'pass'); }
+function returnReviewer1(i){ finishReviewer1Document(i,'return'); }
+
+function openCorrection(i){
+  document.getElementById('docTitle').textContent=docs[i].name+' — Correction';
+  document.getElementById('paperDocTitle').textContent=docs[i].name;
+  document.getElementById('commentContent').innerHTML=
+    `<div class="comment" style="border-color:#e3a06f;background:#fff7f0"><strong>Reviewer 1 · Returned for Correction</strong><p>${state.returnComments[i]||'Please correct the highlighted information.'}</p></div>
+     <div class="comment" style="border-color:#b7c4d5;background:#f8fafc"><strong>Original Submitter</strong><p>Edit or regenerate the document as needed. When all returned documents are corrected, use <b>Resubmit Corrections to Reviewer 1</b>.</p></div>`;
+  document.getElementById('modalActions').innerHTML=`<button class="btn btn-primary" onclick="saveCorrection(${i})">Save Correction</button>`;
+  document.getElementById('docModal').classList.add('open');
+}
+function saveCorrection(i){
+  closeModal('docModal');
+}
+function resubmitCorrections(){
+  state.correctionMode=false;
+  state.returned=state.returned.map(()=>false);
+  state.reviewer1=state.reviewer1.map(()=>false);
+  state.reviewer1Decision=state.reviewer1Decision.map(()=> '');
+  state.stage=3;
   render();
 }
 function completeReviewer1(){
