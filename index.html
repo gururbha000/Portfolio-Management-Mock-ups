@@ -3078,6 +3078,167 @@ body.user-management-mode .statusbar{display:none!important}
 .um-tier-tab.active{background:#0d5d91;color:#fff;border-color:#0d5d91}
 .um-tier-count{display:inline-flex;min-width:18px;height:18px;align-items:center;justify-content:center;margin-left:5px;padding:0 5px;border-radius:10px;background:rgba(255,255,255,.22);font-size:9px}
 .um-tier-tab:not(.active) .um-tier-count{background:#e7edf3;color:#53677b}
+</style><style id="v195-um-styles">
+#staffUserManagement .um-actions{flex-wrap:wrap;gap:8px}#staffUserManagement .um-tier-tabs{flex-wrap:wrap;gap:5px}#staffUserManagement .um-table th,#staffUserManagement .um-table td{white-space:normal;vertical-align:middle}#staffUserManagement .um-table{min-width:960px}#staffUserManagement .um-more{font-weight:bold;letter-spacing:1px}#staffUserManagement .um-note{line-height:1.6}.v195-loan-list{display:grid;gap:8px}.v195-loan-row{display:flex;align-items:center;justify-content:space-between;border:1px solid #dce5ed;border-radius:5px;padding:10px 12px;font-size:12px}.um-muted{font-size:11px;color:#6a7e91;margin-top:4px}.um-field small{display:block;margin-top:6px;color:#526b81;font-size:11px}
+</style><style id="v196-style">.v196-suggestions{display:none;border:1px solid #c5d3e2;background:white;max-height:160px;overflow:auto;border-radius:4px;margin-top:4px}.v196-option{display:block;width:100%;text-align:left;background:white;border:0;border-bottom:1px solid #edf1f5;padding:9px;color:#244b70;cursor:pointer;font:11px Arial}.v196-option:hover{background:#edf5fd}.v196-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px;font:11px Arial;color:#6b7e92}.v196-chip{background:#e9f2fd;border:1px solid #bed5ec;padding:5px 8px;border-radius:12px;color:#174875}.v196-chip button{border:0;background:none;cursor:pointer;color:#174875;font-weight:bold}</style><style id="rr-v197-style">.rr-subnav{padding:3px 8px 10px 36px;display:flex;flex-direction:column;gap:3px}.rr-choice{border:0;border-radius:5px;background:transparent;color:#c9d8e9;cursor:pointer;text-align:left;padding:10px 8px;font:12px Arial;width:100%}.rr-choice:hover,.rr-choice.selected{background:rgba(255,255,255,.15);color:white}.rr-choice.selected{font-weight:700}.rr-choice small{font-size:9px;margin-left:6px}.rr-landing{display:none;max-width:1500px;margin:0 auto;padding:32px;font-family:Arial}.rr-landing h1{color:#173b65;font-size:24px!important;margin:10px 0}.rr-landing>p{font-size:13px;color:#65778b;margin:0 0 26px}.rr-path{font-size:11px;letter-spacing:.6px;color:#72859b;font-weight:bold}.rr-panel{border:1px solid #dce3eb;background:#fff;border-radius:10px;padding:26px}.rr-panel h2{font-size:18px!important;margin:0 0 8px}.rr-panel>p{font-size:13px;color:#63758a}.rr-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}.rr-grid>div{display:flex;flex-direction:column;gap:8px;background:#f8fbff;border:1px solid #dfe7f0;border-radius:8px;padding:19px}.rr-grid b{color:#234d79;font-size:14px}.rr-grid span{color:#65798e;font-size:12px}.rr-next{border-top:1px solid #e5ebf2;margin-top:22px;padding-top:17px}body.rr-invoicing-mode .app-main>*:not(#rrLanding):not(#rrReviewScreen):not(#rrCaseDashboard){display:none!important}body.rr-invoicing-mode #rrLanding{display:block!important}body.rr-invoicing-mode.rr-review-active #rrLanding{display:none!important}body.rr-invoicing-mode.rr-review-active #rrReviewScreen{display:block!important}body.rr-invoicing-mode.rr-case-active #rrLanding,body.rr-invoicing-mode.rr-case-active #rrReviewScreen{display:none!important}body.rr-invoicing-mode.rr-case-active #rrCaseDashboard{display:block!important}@media(max-width:800px){.rr-grid{grid-template-columns:1fr}}</style><style id="rr-v198-sidebar-fix">
+/* Scoped submodule navigation: white sidebar, matching existing AHIS navigation */
+.sidebar-nav .rr-subnav{padding:5px 14px 12px 46px;display:flex;flex-direction:column;gap:4px;background:#fff;box-sizing:border-box;min-width:0}
+.sidebar-nav .rr-subnav .rr-choice{appearance:none;-webkit-appearance:none;display:flex;align-items:center;justify-content:space-between;gap:6px;width:100%;min-height:38px;box-sizing:border-box;margin:0;padding:9px 10px;border:1px solid transparent;border-radius:6px;background:#fff;color:#50657e;text-align:left;font:500 11px Arial,sans-serif;line-height:1.35;white-space:normal;cursor:pointer;box-shadow:none;outline:none}
+.sidebar-nav .rr-subnav .rr-choice:hover{background:#f3f7fc;color:#173b68}
+.sidebar-nav .rr-subnav .rr-choice.selected{background:#eaf2fb;color:#173b68;font-weight:700;border-color:#d7e5f5}
+.sidebar-nav .rr-subnav .rr-choice:focus-visible{outline:2px solid #2467b0;outline-offset:1px}
+.sidebar-nav .rr-subnav .rr-choice small{color:#50799f;font-size:9px;font-weight:700;letter-spacing:.2px;flex-shrink:0;margin-left:3px}
+.app-layout.sidebar-collapsed .rr-subnav{display:none}
+@media(max-width:800px){.sidebar-nav .rr-subnav{padding-left:12px;padding-right:12px}}
+</style><style id="rr-v199-css">.rrToolbar,.rrWork,.rrNote,.rrStats>div{background:#fff;border:1px solid #d9e3ee;border-radius:8px}.rrToolbar{display:flex;flex-wrap:wrap;align-items:end;gap:13px;padding:16px;margin:20px 0}.rrToolbar label,.rrModalCard label{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:700;color:#56708a}.rrToolbar input,.rrToolbar select,.rrModalCard select,.rrModalCard textarea{border:1px solid #cad7e4;padding:9px;border-radius:5px;font:13px Arial;min-width:135px}.rrToolbar input{min-width:235px}.rrBtn{padding:10px 13px;background:#fff;color:#155b8c;border:1px solid #b6ccdf;border-radius:5px;font:700 12px Arial;cursor:pointer}.rrBtn.primary{background:#11649d;color:#fff;border-color:#11649d}.rrBtn:disabled{opacity:.5;cursor:not-allowed}.rrStats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:17px}.rrStats>div{padding:14px}.rrStats b{display:block;font-size:24px;color:#19486e}.rrStats span{font-size:11px;color:#64798e}.rrWorkHead{padding:18px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.rrWorkHead h2{font-size:18px;margin:0 0 5px}.rrWorkHead p{font-size:12px;color:#708397;margin:0}.rrTable{width:100%;min-width:1100px;border-collapse:collapse;font:12px Arial}.rrTable th{background:#edf3f9;color:#405b78;text-align:left;padding:12px 9px;border-bottom:1px solid #d9e4ee}.rrTable td{padding:13px 9px;border-bottom:1px solid #eaf0f5;vertical-align:middle}.rrTable small{display:block;color:#6c8094;font-size:11px;margin-top:4px}.rrTable strong{color:#1c5484}.rrBadge{display:inline-block;border-radius:15px;background:#e3f2e9;color:#286a48;padding:4px 8px;font-size:10px;font-weight:700}.rrBadge.Warning{background:#fff0d5;color:#885b0b}.rrBadge.Blocked{background:#fce8e5;color:#a53b31}.rrBadge.Deferred,.rrBadge.Excluded,.rrBadge.Created{background:#e9eff7;color:#476784}.rrTextBtn{border:0;background:transparent;text-decoration:underline;color:#15639c;cursor:pointer;font-size:11px}.rrNote{padding:17px;margin-top:16px;font-size:12px;line-height:1.6;color:#536d85}.rrModal[hidden]{display:none}.rrModal{position:fixed;inset:0;background:#14283f88;z-index:9999;display:flex;align-items:center;justify-content:center}.rrModalCard{width:min(430px,90vw);background:white;padding:25px;border-radius:9px;box-shadow:0 15px 55px #0004}.rrModalCard label{margin:13px 0}.rrModalCard h2{font-size:18px}.rrModalCard textarea{resize:vertical}@media(max-width:900px){.rrStats{grid-template-columns:repeat(2,1fr)}}</style><style id="rr-v200-transaction-aging">
+.health-chart-view .rr-aging-legend{display:flex!important;flex-wrap:wrap!important;gap:8px 15px!important;align-items:center!important;justify-content:center!important;margin-top:12px!important;font-size:11px!important}
+.health-chart-view .rr-aging-legend span{white-space:nowrap}
+.health-chart-view .rr-aging-note{text-align:center;color:#6b7e91;font-size:10px;line-height:1.5;margin:8px 8px 3px}
+</style>
+<style id="rr-v202-simple-aging-styles">
+.health-chart-view .rr-simple-aging-card{min-height:0!important;padding-bottom:20px!important}
+.health-chart-view .rr-simple-aging-heading{font:600 13px Arial,sans-serif;color:#4d6680;margin:22px 0 14px}
+.health-chart-view .rr-simple-aging-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 12px}
+.health-chart-view .rr-simple-aging-tile{min-height:118px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:11px;border-radius:8px;border:1px solid #e5e8ee}
+.health-chart-view .rr-simple-aging-tile strong{font:700 35px Arial,sans-serif}
+.health-chart-view .rr-simple-aging-tile span{font:600 12px Arial,sans-serif}
+.health-chart-view .rr-age-light{background:#fff0f1;color:#a34c55;border-color:#f3d2d6}
+.health-chart-view .rr-age-medium{background:#fbe1e3;color:#a12d3c;border-color:#edb8bf}
+.health-chart-view .rr-age-dark{background:#b33545;color:white;border-color:#b33545}
+@media(max-width:750px){.health-chart-view .rr-simple-aging-grid{gap:6px}.health-chart-view .rr-simple-aging-tile span{font-size:10px}}
+</style><style id="rr-v204-case-styles">
+#rrCaseDashboard{display:none;padding:28px;font-family:Arial,sans-serif;color:#243d59}
+body.rr-invoicing-mode.rr-case-active .app-main>*:not(#rrCaseDashboard){display:none!important}
+body.rr-invoicing-mode.rr-case-active #rrCaseDashboard{display:block!important}
+.rr-case-tile{cursor:pointer;outline-offset:3px}.rr-case-tile:hover{background:#eef6fe;border-color:#85b0d8}
+.rr-case-header,.rr-case-list-heading,.rr-case-detail-top{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.rr-case-header{margin:9px 0 21px}.rr-case-header h1{font-size:25px;margin:0 0 7px;color:#193e67}.rr-case-header p{font-size:13px;margin:0;color:#627991}
+.rr-case-toolbar{display:flex;align-items:end;flex-wrap:wrap;gap:12px;padding:16px;background:white;border:1px solid #d8e3ee;border-radius:9px;margin-bottom:16px}
+.rr-case-toolbar label{font-size:11px;font-weight:700;color:#586f87;display:flex;flex-direction:column;gap:6px}
+.rr-case-toolbar input,.rr-case-toolbar select{border:1px solid #c8d7e5;border-radius:5px;height:35px;background:#fff;color:#243e59;padding:0 9px;font:12px Arial,sans-serif;min-width:135px}
+#rrCaseSearch{min-width:225px}
+.rr-case-kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-bottom:17px}
+.rr-case-kpis>div{background:#fff;border:1px solid #d9e3ed;border-radius:8px;padding:16px}
+.rr-case-kpis strong{display:block;font-size:24px;color:#234e77}.rr-case-kpis span{font-size:11px;color:#687f95;display:block;margin-top:6px}
+.rr-case-list{background:#fff;border:1px solid #d9e3ed;border-radius:9px;overflow:hidden}
+.rr-case-list-heading{padding:18px}.rr-case-list-heading h2{font-size:17px;margin:0 0 5px;color:#234568}
+.rr-case-list-heading h2 span{font-size:12px;font-weight:400;color:#71869b}
+.rr-case-list-heading p{margin:0;color:#6d8094;font-size:11px}
+.rr-case-scroll{overflow-x:auto}.rr-case-table{border-collapse:collapse;width:100%;min-width:1390px;font:12px Arial,sans-serif}
+.rr-case-table th{background:#edf3f9;text-align:left;font-size:11px;color:#45617c;white-space:nowrap;padding:13px 10px;border-bottom:1px solid #d7e2ee}
+.rr-case-table td{border-bottom:1px solid #e9eff5;padding:13px 10px;vertical-align:middle;line-height:1.55}
+.rr-case-table tbody tr:hover{background:#f8fbfe}
+.rr-case-table small{display:block;font-size:11px;color:#75899d}
+.rr-case-table .rr-case-link{color:#17659d;background:none;border:0;padding:0;font:700 12px Arial,sans-serif;text-decoration:underline;cursor:pointer}
+.rr-case-chip{display:inline-block;border-radius:15px;padding:4px 8px;background:#edf3f9;color:#526c85;font-size:10px;font-weight:700;white-space:nowrap}
+.rr-case-chip.ok{background:#e3f4e9;color:#28734b}.rr-case-chip.warn{background:#fff0d8;color:#906012}.rr-case-chip.alert{background:#ffe7e6;color:#9e3434}
+.rr-case-money{font-weight:700;color:#2b4e70;white-space:nowrap}
+.rr-case-footnote{padding:12px 18px;background:#f8fbfe;font-size:11px;color:#657c92;margin:0}
+.rr-case-detail{background:#fff;border:1px solid #c7dbea;border-radius:9px;margin-top:18px;padding:20px}
+.rr-case-detail[hidden]{display:none!important}.rr-case-detail h2{font-size:18px;margin:7px 0 0}
+.rr-case-detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:17px}
+.rr-case-detail-grid>div{border:1px solid #e0e8ef;background:#fbfdff;border-radius:7px;padding:13px}
+.rr-case-detail-grid strong{display:block;font-size:11px;color:#60778d;margin-bottom:7px}
+.rr-case-detail-grid span{font-size:13px;color:#243f5c}
+@media(max-width:900px){.rr-case-kpis{grid-template-columns:repeat(2,1fr)}.rr-case-detail-grid{grid-template-columns:1fr}}
+</style><style id="rr-v206-case-details">
+.rr-case-dashboard.rr-showing-detail .rr-case-header,.rr-case-dashboard.rr-showing-detail .rr-case-toolbar,.rr-case-dashboard.rr-showing-detail .rr-case-kpis,.rr-case-dashboard.rr-showing-detail .rr-case-list{display:none!important}
+#rrCaseDashboard.rr-showing-detail .rr-case-detail{margin-top:0;padding:24px}
+.rr-detail-subtitle{margin:8px 0 0;font-size:12px;color:#687e92}
+.rr-detail-section{border:1px solid #dce5ef;border-radius:8px;margin-top:16px;padding:18px;background:#fff}
+.rr-detail-section h3{font-size:16px;color:#20446a;margin:0 0 15px}
+.rr-detail-section-title{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.rr-detail-section-title p{font-size:12px;color:#667e95;margin:-8px 0 14px}
+.rr-detail-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.rr-detail-fields>div,.rr-afs-status>div{display:flex;flex-direction:column;gap:7px}
+.rr-detail-fields small,.rr-afs-status small{font-size:11px;color:#657d94}
+.rr-detail-fields strong,.rr-afs-status strong{font-size:13px;color:#254767}
+.rr-afs-status{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:16px;background:#f5f9fd;border:1px solid #e1e9f1;border-radius:7px}
+.rr-detail-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.rr-detail-actions .rrBtn:disabled{opacity:.5;cursor:not-allowed}
+.rr-detail-note{font-size:11px;color:#6c8195;margin:12px 0 0;line-height:1.5}
+.rr-document-table{display:grid;gap:0}
+.rr-document-table>div{display:flex;justify-content:space-between;gap:20px;padding:11px 0;border-top:1px solid #e8eef5;font-size:12px}
+.rr-document-table span{color:#687d91}
+.rr-activity-table{min-width:600px}
+@media(max-width:850px){.rr-detail-fields{grid-template-columns:repeat(2,1fr)}.rr-afs-status{grid-template-columns:repeat(2,1fr)}}
+</style><style id="rr-v207-case-detail-styles">
+.rr-detail-header-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+#rrCaseAction{padding:10px 12px;border:1px solid #b9cde0;border-radius:6px;background:#155d90;color:white;font:700 12px Arial,sans-serif;min-width:205px;cursor:pointer}
+.rr-case-status-strip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:18px}
+.rr-case-status-strip>div{background:#f3f8fc;border:1px solid #dae6f1;border-radius:7px;padding:13px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.rr-case-status-strip small,.rr-rra-summary small{font-size:11px;color:#637b93}
+.rr-case-status-strip strong,.rr-rra-summary strong{font-size:12px;color:#244d73;overflow-wrap:anywhere}
+.rr-rra-summary{display:grid;grid-template-columns:2fr 1fr 1.3fr;gap:12px;margin-top:16px}
+.rr-rra-summary>div{display:flex;flex-direction:column;gap:8px;border:1px solid #e0e8f0;border-radius:7px;padding:13px;background:#fafdff}
+.rr-text-action{background:none;border:0;padding:0;text-align:left;color:#17659d;text-decoration:underline;cursor:pointer;font:700 12px Arial,sans-serif}
+@media(max-width:850px){.rr-case-status-strip{grid-template-columns:repeat(2,minmax(0,1fr))}.rr-rra-summary{grid-template-columns:1fr}}
+</style><style id="rr-v208-matched-header">
+#rrCaseDashboard.rr-showing-detail .rr-case-detail{padding:0;background:transparent;border:0}
+.rr-case-titlebar{padding:5px 0 18px;align-items:center}
+.rr-case-titlebar h2{font-size:22px!important;color:#193d64;margin:7px 0 0!important}
+.rr-case-summary-header{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px 22px;background:#e8f1fc;border:1px solid #b9cfe7;border-top:5px solid #2962a8;border-radius:8px;padding:22px 24px}
+.rr-case-summary-field{min-width:0}
+.rr-case-summary-field>span{display:block;font-size:11px;font-weight:700;color:#60788f;letter-spacing:.35px;margin-bottom:8px}
+.rr-case-summary-field>strong{display:block;color:#193b5e;font-size:15px;overflow-wrap:anywhere}
+.rr-case-summary-footer{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:14px;padding-top:13px;border-top:1px solid #c8d9ea}
+.rr-case-header-status{display:inline-flex;align-items:center;gap:8px;background:#dce8fc;border:1px solid #abc2ed;color:#285394;border-radius:20px;padding:9px 14px;font-size:12px;font-weight:700}
+.rr-case-header-status:before{content:"";background:currentColor;width:7px;height:7px;border-radius:50%}
+.rr-case-header-menu{display:flex;align-items:center;gap:10px}
+.rr-case-header-menu label{font-size:12px;color:#526f8b;font-weight:700}
+#rrCaseAction{background:#175b91;color:white;border:1px solid #175b91;border-radius:5px;padding:11px 12px;font-size:12px;font-weight:700;min-width:240px;cursor:pointer}
+#rrCaseDashboard .rr-case-detail .rr-detail-section{background:#fff}
+@media(max-width:800px){.rr-case-summary-header{grid-template-columns:repeat(2,minmax(0,1fr))}.rr-case-summary-footer{flex-direction:column;align-items:flex-start}.rr-case-header-menu{width:100%}#rrCaseAction{min-width:0;width:100%}}
+</style><style id="rr-v209-compact-header-tabs">
+#rrCaseDashboard .rr-case-summary-header{display:flex;align-items:center;gap:25px;padding:20px 24px;min-height:94px;border-top:5px solid #2b65a9;border-radius:8px;background:#e7f0fc}
+#rrCaseDashboard .rr-case-summary-field{flex:1 1 0;min-width:0}
+#rrCaseDashboard .rr-case-summary-field>span{font-size:11px;font-weight:500;letter-spacing:0;color:#64788d;margin-bottom:8px}
+#rrCaseDashboard .rr-case-summary-field>strong{font-size:16px;color:#233e59}
+#rrCaseDashboard .rr-case-header-status{flex:0 0 auto;background:#e4ebff;color:#3156a7;border:1px solid #b3c5fc;white-space:nowrap;font-size:12px}
+#rrCaseDashboard .rr-case-nav-bar{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:16px;background:#edf2f7;border:1px solid #d1dfec;border-radius:7px;padding:12px 16px}
+#rrCaseDashboard .rr-case-tabs{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+#rrCaseDashboard .rr-case-tab{border:1px solid #c6d6e5;border-radius:5px;background:white;color:#244460;padding:11px 18px;font-size:12px;font-weight:700;cursor:pointer}
+#rrCaseDashboard .rr-case-tab.active{background:#175b91;color:#fff;border-color:#175b91}
+#rrCaseDashboard #rrCaseAction{min-width:185px;padding:11px 14px}
+#rrCaseDashboard .rr-case-header-menu{margin-left:auto}
+#rrCaseDashboard .sr-only-rr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+#rrCaseDashboard #rrCaseDetailBody [hidden]{display:none!important}
+@media(max-width:850px){#rrCaseDashboard .rr-case-summary-header{flex-wrap:wrap;gap:18px}#rrCaseDashboard .rr-case-summary-field{flex-basis:30%}#rrCaseDashboard .rr-case-nav-bar{flex-wrap:wrap}}
+</style><style id="rr-v210-layout-polish">
+/* Detail view: remove the dashboard breadcrumb and retain a single clean page title. */
+#rrCaseDashboard.rr-showing-detail > .rr-path{display:none!important}
+#rrCaseDashboard.rr-showing-detail{padding-top:12px!important}
+#rrCaseDashboard .rr-case-titlebar .rr-path{display:none!important}
+#rrCaseDashboard .rr-case-titlebar{padding:0 0 13px!important;margin:0!important}
+#rrCaseDashboard .rr-case-titlebar h2{margin:0!important}
+#rrCaseDashboard .rr-case-summary-header{padding:17px 20px!important;min-height:75px!important;gap:16px!important}
+#rrCaseDashboard .rr-case-nav-bar{margin-top:12px!important;padding:10px 14px!important;gap:12px!important}
+#rrCaseDashboard .rr-case-header-menu{flex:0 0 auto!important;margin-left:auto!important;width:auto!important}
+#rrCaseDashboard #rrCaseAction{width:174px!important;min-width:174px!important;max-width:174px!important;padding:10px 12px!important;font-size:12px!important}
+#rrCaseDashboard .rr-case-tab{padding:10px 15px!important}
+#rrCaseDashboard .rr-case-detail .rr-detail-section{margin-top:12px!important}
+@media(max-width:700px){#rrCaseDashboard .rr-case-nav-bar{flex-wrap:wrap!important}#rrCaseDashboard .rr-case-header-menu{margin-left:0!important}}
+</style><style id="rr-v211-header-manager">
+/* Consolidate the case identification and assigned manager into one compact header. */
+#rrCaseDashboard .rr-case-summary-header{display:grid!important;grid-template-columns:1.15fr 1.15fr .75fr 1.2fr auto!important;align-items:center!important;gap:14px!important}
+#rrCaseDashboard .rr-case-summary-field{min-width:0!important;flex:none!important}
+#rrCaseDashboard .rr-case-summary-field>span{font-size:10px!important;white-space:normal!important}
+#rrCaseDashboard .rr-case-summary-field>strong{font-size:14px!important}
+#rrCaseDashboard .rr-case-header-status{white-space:nowrap!important}
+@media(max-width:1100px){#rrCaseDashboard .rr-case-summary-header{grid-template-columns:repeat(2,minmax(0,1fr))!important}#rrCaseDashboard .rr-case-header-status{justify-self:start}}
+</style><style id="rr-v212-afs-action-modal">
+.rr-afs-overlay[hidden]{display:none!important}.rr-afs-overlay{position:fixed;inset:0;z-index:99999;background:rgba(13,31,53,.48);display:flex;align-items:center;justify-content:center;padding:18px}
+.rr-afs-dialog{width:min(550px,100%);background:white;border-radius:10px;box-shadow:0 18px 70px #12253b55;overflow:hidden;font-family:Arial,sans-serif}
+.rr-afs-modal-head{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;background:#edf3fa;border-bottom:1px solid #d7e2ed}
+.rr-afs-modal-head h3{margin:0;font-size:17px;color:#193d60}.rr-afs-modal-head button{border:0;background:transparent;font-size:20px;cursor:pointer}
+#rrAfsModalFields{padding:20px 22px;display:grid;gap:14px}.rr-afs-field{display:grid;gap:7px;font-size:12px;font-weight:700;color:#3c5670}
+.rr-afs-field input,.rr-afs-field select,.rr-afs-field textarea{border:1px solid #c8d7e5;border-radius:5px;padding:10px;font:13px Arial,sans-serif;color:#243f5b;width:100%;box-sizing:border-box}
+.rr-afs-context{background:#f3f7fb;border-radius:5px;padding:12px;font-size:12px;color:#486580}
+.rr-afs-warning{font-size:12px;color:#975b1c;background:#fff4e5;padding:10px;margin:0;border-radius:5px}
+.rr-afs-modal-footer{display:flex;justify-content:flex-end;gap:10px;padding:15px 22px;border-top:1px solid #e0e8ef}
+.rr-afs-primary{background:#185d91!important;color:white!important}
+.rr-afs-status{grid-template-columns:repeat(5,minmax(0,1fr))!important}
+@media(max-width:950px){.rr-afs-status{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 </style></head>
 <body>
 <div class="app-layout">
@@ -3090,7 +3251,7 @@ body.user-management-mode .statusbar{display:none!important}
 <button class="sidebar-item" id="dashboardNav" type="button"><span class="sidebar-icon">▦</span><span>Dashboard</span></button>
 <button class="sidebar-item" type="button"><span class="sidebar-icon">▤</span><span>Intake</span><span class="sidebar-caret">⌄</span></button>
 <button class="sidebar-item" type="button"><span class="sidebar-icon">◇</span><span>Project Development</span></button>
-<button class="sidebar-item active" id="portfolioManagementNav" type="button"><span class="sidebar-icon">▣</span><span>Portfolio Management</span></button>
+<button class="sidebar-item active" id="portfolioManagementNav" type="button"><span class="sidebar-icon">▣</span><span>Portfolio Management</span></button><div class="rr-subnav"><button id="rrExisting" class="rr-choice selected" type="button">Project / Loan Summary</button><button id="rrNew" class="rr-choice" type="button">Annual RR Invoicing <small>NEW</small></button></div>
 <button class="sidebar-item" type="button"><span class="sidebar-icon">▧</span><span>Loan Accounting</span></button>
 <button class="sidebar-item" type="button"><span class="sidebar-icon">◉</span><span>Occupancy Monitoring</span></button>
 <button class="sidebar-item" type="button"><span class="sidebar-icon">▥</span><span>Reports</span></button>
@@ -3103,7 +3264,59 @@ body.user-management-mode .statusbar{display:none!important}
 <button class="sidebar-item" id="borrowerUserManagementNav" type="button"><span class="sidebar-icon">⌘</span><span>PM - User Management</span></button>
 </nav>
 </aside>
-<main class="app-main">
+<main class="app-main"><section id="rrLanding" class="rr-landing"><div class="rr-path">PORTFOLIO MANAGEMENT / ANNUAL RR INVOICING</div><h1>Annual Residual Receipts Invoicing</h1><p>Annual RR tracking, AFS submission, RRA review, invoice generation and payment monitoring.</p><div class="rr-panel"><h2>Annual RR Invoicing</h2><p>New Portfolio Management submodule. Workflow screens will be added step by step.</p><div class="rr-grid"><div id="rrOpenReview" role="button" tabindex="0" style="cursor:pointer;border:2px solid #7ba6cf"><b>01 · Annual Loan Review &amp; Case Generation</b><span>Review eligible RR loans and generate annual cases</span></div><div id="rrOpenCases" role="button" tabindex="0" class="rr-case-tile"><b>02 · RR Case Dashboard</b><span>Track cases, AFS and RRA statuses</span></div><div><b>03 · RR Case Details</b><span>AFS, RRA approvals, invoices, payments and notices</span></div><div><b>04 · Historical RR Records</b><span>Review prior-year invoicing history</span></div></div><p class="rr-next">Select Annual Loan Review or RR Case Dashboard to continue.</p></div></section>
+<section id="rrReviewScreen" style="display:none;padding:28px;font-family:Arial,sans-serif;color:#233f60">
+<div class="rr-path">PORTFOLIO MANAGEMENT / ANNUAL RR INVOICING / ANNUAL LOAN REVIEW</div>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:15px"><div><h1 style="font-size:25px;margin-bottom:6px">Annual RR Loan Review &amp; Case Generation</h1><p style="color:#687d92">Review eligible loans, resolve exceptions and finalize the annual RR case list.</p></div><button class="rrBtn" id="rrBack">← Overview</button></div>
+<div class="rrToolbar"><label>Fiscal Year <select id="rrYear"><option>2026–2027</option><option>2025–2026</option></select></label><label>Loan / Project <input id="rrQuery" placeholder="Search loan, project or borrower"></label><label>Status <select id="rrStatus"><option value="all">All candidates</option><option value="Ready">Ready</option><option value="Warning">Warning</option><option value="Blocked">Blocked</option><option value="Deferred">Deferred</option><option value="Excluded">Excluded</option><option value="Created">Case Created</option></select></label><button id="rrValidate" class="rrBtn">Validate List</button></div>
+<div class="rrStats" id="rrStats"></div>
+<div class="rrWork"><div class="rrWorkHead"><div><h2>Annual RR Loan Candidates</h2><p>Illustrative sample data; eligibility and exception rules to be confirmed.</p></div><div style="display:flex;gap:8px"><button class="rrBtn" id="rrExport">Exception Report (CSV)</button><button class="rrBtn primary" id="rrGenerate">Generate RR Cases (<span id="rrCount">0</span>)</button></div></div>
+<div style="overflow-x:auto"><table class="rrTable"><thead><tr><th><input type="checkbox" id="rrAll"></th><th>Loan # / Project</th><th>Borrower</th><th>RR %</th><th>Loan Status</th><th>Prior-Year Balance</th><th>AFS Due</th><th>Review Status / Exceptions</th><th>Action</th></tr></thead><tbody id="rrRows"></tbody></table></div><p style="padding:12px 17px;font-size:12px;color:#65798e">Only selected eligible loans without blocking issues will be included. Duplicate cases are prevented within this demonstration.</p></div>
+<div class="rrNote"><b>Proposed rules:</b> Missing notice contact, missing RR percentage, and closed loans are blocking issues. Prior-year delinquency is a warning, not an automatic exclusion. AFS due dates are illustrative until confirmed.</div>
+<div id="rrModal" class="rrModal" hidden><div class="rrModalCard"><h2>Exclude / Defer Loan</h2><p id="rrModalLoan"></p><label>Decision<select id="rrDecision"><option>Defer</option><option>Exclude</option></select></label><label>Reason (required)<textarea id="rrReason" rows="3"></textarea></label><div style="display:flex;justify-content:flex-end;gap:10px;margin-top:18px"><button id="rrCancel" class="rrBtn">Cancel</button><button id="rrSave" class="rrBtn primary">Save</button></div></div></div>
+</section><section id="rrCaseDashboard" class="rr-case-dashboard" aria-label="Annual RR Case Dashboard">
+  <div class="rr-path">PORTFOLIO MANAGEMENT / ANNUAL RR INVOICING / RR CASE DASHBOARD</div>
+  <div class="rr-case-header"><div><h1>Annual RR Case Dashboard</h1><p>Track AFS submissions, RRA approvals, invoices, and payments for annual RR cases.</p></div><button type="button" class="rrBtn" id="rrCaseOverview">← Module Overview</button></div>
+  <div class="rr-case-toolbar">
+    <label>Fiscal Year<select id="rrCaseFY"><option value="all">All Fiscal Years</option><option value="2026">2026–2027</option><option value="2025">2025–2026</option></select></label>
+    <label>Search<input type="search" id="rrCaseSearch" placeholder="Case #, project, loan or borrower"></label>
+    <label>Workflow Stage<select id="rrCaseStage"><option value="all">All Stages</option><option>Awaiting AFS</option><option>RRA Review</option><option>Invoice Preparation</option><option>Payment Monitoring</option><option>Completed</option></select></label>
+    <label>Assigned Staff<select id="rrCaseStaff"><option value="all">All Staff</option><option>Steven Brady</option><option>Kim Nguyen</option><option>Michael Lee</option></select></label>
+    <button class="rrBtn" id="rrCaseReset" type="button">Reset</button>
+  </div>
+  <div class="rr-case-kpis" id="rrCaseKPIs"></div>
+  <div class="rr-case-list">
+    <div class="rr-case-list-heading"><div><h2>Annual RR Cases <span id="rrCaseVisible"></span></h2><p>Sample cases are included to demonstrate different workflow stages. Newly generated cases are added here.</p></div><button class="rrBtn" type="button" id="rrCaseReview">Annual Loan Review</button></div>
+    <div class="rr-case-scroll"><table class="rr-case-table"><thead><tr><th>RR Case #</th><th>Project / Loan</th><th>FY</th><th>Assigned Staff</th><th>AFS Due / Status</th><th>RRA Status</th><th>Invoice Amount</th><th>Invoice Due</th><th>Payment / Balance</th><th>Workflow Stage</th></tr></thead><tbody id="rrCaseRows"></tbody></table></div>
+    <p class="rr-case-footnote">Invoice and payment amounts appear only after the applicable workflow stage. The dashboard does not issue invoices or send notifications.</p>
+  </div>
+  <div class="rr-case-detail" id="rrCaseDetail" hidden>
+ <div class="rr-case-detail-top rr-case-titlebar">
+   <div><span class="rr-path">PORTFOLIO MANAGEMENT / ANNUAL RR INVOICING</span><h2>Annual RR Case Details</h2></div>
+   <button class="rrBtn" type="button" id="rrCaseDetailClose">← Case Dashboard</button>
+ </div>
+ <div class="rr-case-summary-header" aria-label="Annual RR case summary">
+   <div class="rr-case-summary-field"><span>RR CASE #</span><strong id="rrCaseHeaderNumber">—</strong></div>
+   <div class="rr-case-summary-field"><span>PROJECT NAME</span><strong id="rrCaseHeaderProject">—</strong></div>
+   <div class="rr-case-summary-field"><span>LOAN #</span><strong id="rrCaseHeaderLoan">—</strong></div>
+   <div class="rr-case-summary-field rr-case-manager"><span>ASSIGNED PORTFOLIO MANAGER</span><strong id="rrCaseHeaderManager">—</strong></div>
+   <div class="rr-case-header-status" id="rrCaseHeaderStatus" role="status">Awaiting AFS</div>
+ </div>
+ <div class="rr-case-nav-bar" role="navigation" aria-label="RR case detail navigation">
+  <div class="rr-case-tabs" role="tablist" aria-label="RR Case Sections">
+   <button type="button" class="rr-case-tab active" role="tab" aria-selected="true" data-rr-tab="details">Case Details</button>
+   <button type="button" class="rr-case-tab" role="tab" aria-selected="false" data-rr-tab="documents">Documents</button>
+   <button type="button" class="rr-case-tab" role="tab" aria-selected="false" data-rr-tab="activity">Activity Log</button>
+  </div>
+  <div class="rr-case-header-menu"><label for="rrCaseAction" class="sr-only-rr">Workflow Actions</label><select id="rrCaseAction" aria-label="Case workflow actions"><option value="">☰ Action Menu</option><option value="afs-request">Send AFS Request</option><option value="reminder">Send AFS Reminder</option><option value="record-afs">Upload / Record AFS on Behalf of Borrower</option><option value="correction">Request Corrected AFS</option><option value="compliance">Flag Compliance Review</option><option value="rra-start">Initiate RRA in Extraction Module</option><option value="rra-submit">Record RRA Submitted</option><option value="rra-review">Record L1 Reviewed</option><option value="rra-approve">Record L2 Approved</option><option value="rra-return">Return RRA for Correction</option><option value="invoice-ready">Mark Ready for Invoice Preparation</option></select></div>
+ </div>
+ <div id="rrCaseDetailBody"></div>
+ <div id="rrAfsModal" class="rr-afs-overlay" hidden><div class="rr-afs-dialog" role="dialog" aria-modal="true" aria-labelledby="rrAfsModalTitle">
+ <div class="rr-afs-modal-head"><h3 id="rrAfsModalTitle">AFS Workflow Action</h3><button type="button" id="rrAfsModalClose" aria-label="Close">✕</button></div>
+ <form id="rrAfsForm"><div id="rrAfsModalFields"></div><div class="rr-afs-modal-footer"><button type="button" class="rrBtn" id="rrAfsCancel">Cancel</button><button type="submit" class="rrBtn rr-afs-primary">Confirm Action</button></div></form>
+ </div></div>
+ </div>
+</section>
 <section class="staff-dashboard" id="staffDashboard">
 <div class="dashboard-page-head">
 <div>
@@ -3333,91 +3546,69 @@ body.user-management-mode .statusbar{display:none!important}
 </div>
 </div>
 </section>
-
 <section class="staff-user-management" id="staffUserManagement">
-  <div class="um-module-header">
-    <div class="um-module-header-left">
-      <button class="um-back" id="umSidebarToggle" type="button" aria-label="Collapse side menu" title="Collapse side menu"></button>
-      <div class="um-module-title">Portfolio Management</div>
-    </div>
-  </div>
-  <div class="um-page-head">
-    <h1>Borrower Portal - User Management</h1>
-    <p>Manage borrower portal users, project access, and City-initiated enrollment.</p>
-  </div>
-  <div class="um-tabs">
-    <button class="um-tab active" type="button">User Accounts</button>
-    <button class="um-tab" type="button">Notification Templates</button>
-  </div>
-  <div class="um-card">
-    <div class="um-card-head">
-      <div><h2>User Management</h2><p>View portal users and invite authorized Primary Members.</p></div>
-      <div class="um-actions">
-        <input class="um-search" id="umSearch" placeholder="Search by name, email, organization, project #"/>
-        <button class="um-btn" id="umFilter" type="button">☰ &nbsp; Filter By</button>
-        <button class="um-btn primary" id="umInvite" type="button">＋ Invite Primary Member</button>
-      </div>
-    </div>
-    <div class="um-tier-tabs" id="umTierTabs">
- <button class="um-tier-tab active" type="button" data-tier="tier1">Tier 1 - Primary Users <span class="um-tier-count" id="umTier1Count">0</span></button>
- <button class="um-tier-tab" type="button" data-tier="tier2">Tier 2 - Secondary Users <span class="um-tier-count" id="umTier2Count">0</span></button>
+<div class="um-module-header">
+<div class="um-module-header-left">
+<button aria-label="Collapse side menu" class="um-back" id="umSidebarToggle" title="Collapse side menu" type="button"></button>
+<div class="um-module-title">Portfolio Management</div>
 </div>
-<div class="um-bulkbar" id="umBulkBar">
- <div class="um-bulk-left"><b><span id="umSelectedCount">0</span> users selected</b><br>Send Borrower Portal invitations to the selected users.</div>
- <div class="um-bulk-actions"><button class="um-btn" id="umClearSelection">Clear Selection</button><button class="um-btn primary" id="umBulkInvite">Send Invitations</button></div>
 </div>
+<div class="um-page-head">
+<h1>Borrower Portal - User Management</h1>
+<p>Manage portal users, pre-authorized loans, enrollment invitations, and loan associations.</p>
+</div>
+<div class="um-tabs">
+<button class="um-tab active" type="button">User Accounts</button>
+<button class="um-tab" type="button">Notification Templates</button>
+</div>
+<div class="um-card">
+<div class="um-card-head">
+<div><h2>User Management</h2><p>Review Primary, Affiliated, and Basic Users and manage enrollment.</p></div>
+<div class="um-actions">
+<input class="um-search" id="umSearch" placeholder="Search name, email, organization, loan #"/>
+<button class="um-btn" id="umFilter" type="button">☰   Filter By</button>
+<button class="um-btn" id="umInitialImport" type="button">Import / Initial Enrollment</button><button class="um-btn primary" id="umInvite" type="button">+ Invite Primary User</button>
+</div>
+</div>
+<div class="um-tier-tabs" id="umTierTabs"><button class="um-tier-tab active" data-tier="all" type="button">All Users</button><button class="um-tier-tab" data-tier="tier1" type="button">Primary Users (Tier 1)</button><button class="um-tier-tab" data-tier="tier2" type="button">Affiliated Users (Tier 2)</button><button class="um-tier-tab" data-tier="tier3" type="button">Basic Users (Tier 3)</button></div>
+
 <div class="um-table-wrap">
-      <table class="um-table" id="umTable">
-        <thead><tr><th><input class="um-check" type="checkbox" id="umSelectAll"></th><th>Email</th><th>Name</th><th>Organization</th><th>Participant Role</th><th>Project #</th><th>Access Level</th><th>Invited / Active From</th><th>Expiration Date</th><th>Status</th><th>Action</th></tr></thead>
-        <tbody>
-          <tr><td><input class="um-check um-row-select" type="checkbox"></td><td>maria@riverviewhousing.com</td><td><b>Maria Hernandez</b></td><td>Riverview Housing LLC</td><td>Owner / Borrower</td><td><a href="#">030166</a></td><td><span class="um-tier">Tier 1 - Primary User</span></td><td>09/10/2026</td><td>—</td><td><span class="um-status um-active">Active</span></td><td><button class="um-more um-menu-trigger">•••</button></td></tr>
-          <tr><td><input class="um-check um-row-select" type="checkbox"></td><td>daniel@riverviewhousing.com</td><td><b>Daniel Kim</b></td><td>Riverview Housing LLC</td><td>Owner / Borrower</td><td><a href="#">030166</a></td><td><span class="um-tier">Tier 1 - Primary User</span></td><td>09/12/2026</td><td>—</td><td><span class="um-status um-pending">Invitation Pending</span></td><td><button class="um-more um-menu-trigger">•••</button></td></tr>
-          <tr><td><input class="um-check um-row-select" type="checkbox"></td><td>angela@riverviewhousing.com</td><td><b>Angela Ruiz</b></td><td>Riverview Housing LLC</td><td>Secretary</td><td><a href="#">030166</a></td><td><span class="um-tier t2">Tier 2 - Secondary User</span></td><td>09/13/2026</td><td>—</td><td><span class="um-status um-active">Active</span></td><td><button class="um-more um-menu-trigger">•••</button></td></tr>
-          <tr><td><input class="um-check um-row-select" type="checkbox"></td><td>kevin@aspm.com</td><td><b>Kevin Patel</b></td><td>Arlington Square Property Management LLC</td><td>Property Manager</td><td><a href="#">030166</a></td><td><span class="um-tier t2">Tier 2 - Secondary User</span></td><td>09/13/2026</td><td>—</td><td><span class="um-status um-pending">Invitation Pending</span></td><td><button class="um-more um-menu-trigger">•••</button></td></tr>
-          <tr><td><input class="um-check um-row-select" type="checkbox"></td><td>borrower5@example.com</td><td><b>Jane Cooper</b></td><td>Sunrise Community Partners, LLC</td><td>General Partner</td><td><a href="#">041872</a></td><td><span class="um-tier">Tier 1 - Primary User</span></td><td>05/28/2025</td><td>05/28/2027</td><td><span class="um-status um-active">Active</span></td><td><button class="um-more um-menu-trigger">•••</button></td></tr>
-          <tr><td><input class="um-check um-row-select" type="checkbox"></td><td>borrower6@example.com</td><td><b>Robert Fox</b></td><td>Westlake Affordable Housing LP</td><td>Asset Manager</td><td><a href="#">052114</a></td><td><span class="um-tier t2">Tier 2 - Secondary User</span></td><td>10/12/2025</td><td>—</td><td><span class="um-status um-inactive">Inactive</span></td><td><button class="um-more um-menu-trigger">•••</button></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="um-footer"><span>Showing 6 of 24 borrower portal users</span><span>Rows per page: 10 &nbsp;&nbsp; 1–6 of 24 &nbsp;&nbsp; ‹ &nbsp; ›</span></div>
-    <div class="um-note"><b>Access model:</b> LAHD staff invite the initial Tier 1 - Primary User for an authorized project/entity. Tier 1 users can then invite additional project members. Staff can review, add, deactivate, or remove user-to-project associations as needed.</div>
-  </div>
+<table class="um-table" id="umTable">
+<thead><tr><th></th><th>Email</th><th>Name</th><th>Organization</th><th>Loan #(s)</th><th>User Category</th><th>User Status</th><th>Invited / Enrolled</th><th>Action</th></tr></thead>
+<tbody><tr data-user-status="Active" data-user-tier="tier1"><td><input class="um-check um-row-select" type="checkbox"/></td><td>maria@riverviewhousing.com</td><td>Maria Hernandez</td><td>Riverview Housing LLC</td><td>030166-L01, 030166-L02</td><td>Primary (Tier 1)</td><td><span class="um-status um-active">Active</span></td><td>09/10/2026</td><td><button aria-label="User actions" class="um-more um-menu-trigger" type="button">•••</button></td></tr><tr data-user-status="Invited" data-user-tier="tier1"><td><input class="um-check um-row-select" type="checkbox"/></td><td>daniel@riverviewhousing.com</td><td>Daniel Kim</td><td>Riverview Housing LLC</td><td>030166-L01</td><td>Primary (Tier 1)</td><td><span class="um-status um-pending">Invited</span></td><td>09/12/2026</td><td><button aria-label="User actions" class="um-more um-menu-trigger" type="button">•••</button></td></tr><tr data-user-status="Active" data-user-tier="tier1"><td><input class="um-check um-row-select" type="checkbox"/></td><td>borrower5@example.com</td><td>Jane Cooper</td><td>Sunrise Community Partners LLC</td><td>041872-L01</td><td>Primary (Tier 1)</td><td><span class="um-status um-active">Active</span></td><td>05/28/2025</td><td><button aria-label="User actions" class="um-more um-menu-trigger" type="button">•••</button></td></tr><tr data-user-status="Active" data-user-tier="tier2"><td><input class="um-check um-row-select" type="checkbox"/></td><td>angela@riverviewhousing.com</td><td>Angela Ruiz</td><td>Riverview Housing LLC</td><td>030166-L01</td><td>Affiliated (Tier 2)</td><td><span class="um-status um-active">Active</span></td><td>09/13/2026</td><td><button aria-label="User actions" class="um-more um-menu-trigger" type="button">•••</button></td></tr><tr data-user-status="Invited" data-user-tier="tier2"><td><input class="um-check um-row-select" type="checkbox"/></td><td>kevin@aspm.com</td><td>Kevin Patel</td><td>Arlington Square Property Management LLC</td><td>030166-L01, 052114-L02</td><td>Affiliated (Tier 2)</td><td><span class="um-status um-pending">Invited</span></td><td>09/13/2026</td><td><button aria-label="User actions" class="um-more um-menu-trigger" type="button">•••</button></td></tr><tr data-user-status="Inactive" data-user-tier="tier2"><td><input class="um-check um-row-select" type="checkbox"/></td><td>borrower6@example.com</td><td>Robert Fox</td><td>Westlake Affordable Housing LP</td><td>052114-L01</td><td>Affiliated (Tier 2)</td><td><span class="um-status um-inactive">Inactive</span></td><td>10/12/2025</td><td><button aria-label="User actions" class="um-more um-menu-trigger" type="button">•••</button></td></tr><tr data-user-status="Active" data-user-tier="tier3"><td><input class="um-check um-row-select" type="checkbox"/></td><td>basic.user@example.com</td><td>Jordan Lee</td><td>—</td><td>—</td><td>Basic (Tier 3)</td><td><span class="um-status um-active">Active</span></td><td>—</td><td><button aria-label="User actions" class="um-more um-menu-trigger" type="button">•••</button></td></tr></tbody>
+</table>
+</div>
+<div class="um-footer"><span id="umCountLabel">Showing 7 of 7 portal users</span><span>Demo user records</span></div>
+<div class="um-note"><b>Access model:</b> Primary and Affiliated Users have loan associations established before their first login and complete one-time User Authorization Code verification after Angeleno sign-in. Basic Users do not need a code. After enrollment, additional loans can be linked through a separate Loan Association PIN (EIN/Tax ID and loan information), or by authorized staff.</div>
+</div>
+<div class="um-card" id="umTemplatesCard" style="display:none">
+<div class="um-card-head"><div><h2>Notification Templates</h2><p>Simple email templates used for Borrower Portal invitations.</p></div></div>
+<div class="um-template-grid">
+<div class="um-template-list">
+<div class="um-template-item active" data-template="tier1"><b>Tier 1 - Primary User Invitation</b><span>LAHD invitation to Primary User</span></div>
+<div class="um-template-item" data-template="tier2"><b>Tier 2 - Affiliated User Invitation</b><span>Primary User or staff invitation</span></div><div class="um-template-item" data-template="loan"><b>Loan Association Notification</b><span>New loan access / PIN-based association</span></div>
+</div>
+<div class="um-template-editor">
+<h3 id="tmplTitle">Tier 1 - Primary User Invitation</h3>
+<p id="tmplDesc">Sent when LAHD invites the initial Primary User.</p>
+<label style="font-size:10px;font-weight:700">Subject</label>
+<input id="tmplSubject" value="Invitation to the LAHD Borrower Portal"/>
+<label style="font-size:10px;font-weight:700">Email Message</label>
+<textarea id="tmplBody">Hello [First Name],
 
-  <div class="um-card" id="umTemplatesCard" style="display:none">
-    <div class="um-card-head"><div><h2>Notification Templates</h2><p>Simple email templates used for Borrower Portal invitations.</p></div></div>
-    <div class="um-template-grid">
-      <div class="um-template-list">
-        <div class="um-template-item active" data-template="tier1"><b>Tier 1 - Primary User Invitation</b><span>LAHD invitation to Primary User</span></div>
-        <div class="um-template-item" data-template="tier2"><b>Tier 2 - Secondary User Invitation</b><span>Project invitation to Secondary User</span></div>
-      </div>
-      <div class="um-template-editor">
-        <h3 id="tmplTitle">Tier 1 - Primary User Invitation</h3>
-        <p id="tmplDesc">Sent when LAHD invites the initial Primary User.</p>
-        <label style="font-size:10px;font-weight:700">Subject</label>
-        <input id="tmplSubject" value="Invitation to the LAHD Borrower Portal">
-        <label style="font-size:10px;font-weight:700">Email Message</label>
-        <textarea id="tmplBody">Hello [First Name],
+You have been invited to the LAHD Borrower Portal as a Primary User.
 
-The Los Angeles Housing Department has invited you to access the Borrower Portal for [Project Name] as an Primary User.
+Sign in through your Angeleno Account, complete your basic profile, and enter the User Authorization Code included below. Your approved loans are already associated with your account.
 
-Please use the link below to accept the invitation.
+User Authorization Code: [User Authorization Code]
 
-[Accept Invitation]
+[Open Borrower Portal]
 
-You will be asked to sign in with your Angeleno Account. If you do not have an Angeleno Account, you can create one before continuing to the Borrower Portal.
-
-After you sign in, you will be asked to confirm and activate your Borrower Portal access.
-
-This invitation is intended for you and will expire on [Expiration Date].
-
-If you believe you received this invitation in error, please contact LAHD.
-
-Thank you,
-Los Angeles Housing Department</textarea>
-        <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:10px"><button class="um-btn">Preview</button><button class="um-btn primary">Save Template</button></div>
-      </div>
-    </div>
-  </div>
+LAHD</textarea>
+<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:10px"><button class="um-btn">Preview</button><button class="um-btn primary">Save Template</button></div>
+</div>
+</div>
+</div>
 </section>
 <div class="shell">
 <div class="master-head">
@@ -3458,36 +3649,36 @@ Los Angeles Housing Department</textarea>
 <div class="portfolio-search-grid">
 <div class="portfolio-search-field">
 <label>Project No.</label>
-<input id="searchProjectNo" type="text"/>
-</div>
+<input id="searchProjectNo" type="text">
+</input></div>
 <div class="portfolio-search-field">
 <label>Loan No.</label>
-<input id="searchLoanNo" type="text"/>
-</div>
+<input id="searchLoanNo" type="text">
+</input></div>
 <div class="portfolio-search-field">
 <label>Borrower Name</label>
-<input id="searchBorrower" type="text"/>
-</div>
+<input id="searchBorrower" type="text">
+</input></div>
 <div class="portfolio-search-field">
 <label>Project Name</label>
-<input id="searchProjectName" type="text"/>
-</div>
+<input id="searchProjectName" type="text">
+</input></div>
 <div class="portfolio-search-field">
 <label>Loan Work Order No.</label>
-<input id="searchLoanWorkOrder" type="text"/>
-</div>
+<input id="searchLoanWorkOrder" type="text">
+</input></div>
 <div class="portfolio-search-field">
 <label>SSN or TIN</label>
-<input id="searchTin" type="text"/>
-</div>
+<input id="searchTin" type="text">
+</input></div>
 <div class="portfolio-search-field">
 <label>APN Number</label>
-<input id="searchApn" type="text"/>
-</div>
+<input id="searchApn" type="text">
+</input></div>
 <div class="portfolio-search-field">
 <label>Contract #</label>
-<input id="searchContract" type="text"/>
-</div>
+<input id="searchContract" type="text">
+</input></div>
 <div class="portfolio-search-field">
 <label>Fed Tax ID</label>
 <input id="searchFedTax" type="text"/>
@@ -4837,7 +5028,7 @@ body &gt; .page:nth-of-type(2) .dashboard-body{
   box-sizing:border-box !important;
 }
 
-/* Match the usable width of Project Summary while retaining only the card&#x27;s own internal padding. */
+/* Match the usable width of Project Summary while retaining only the card's own internal padding. */
 .health-page .health-list-view &gt; *,
 .health-page .health-chart-view .gauge-grid,
 .health-page .health-chart-view .viz-grid-balanced{
@@ -6664,7 +6855,7 @@ a:focus-visible{
   color:#29445f!important;
   vertical-align:middle!important;
 }
-/* Match Annual Summary&#x27;s hierarchy: identifiers and key balances bold. */
+/* Match Annual Summary's hierarchy: identifiers and key balances bold. */
 .health-chart-view .v154-loan .loan-balance-matrix td:nth-child(1),
 .health-chart-view .v154-loan .loan-balance-matrix td:nth-child(6),
 .health-chart-view .v154-loan .loan-balance-matrix td:nth-child(7){
@@ -7734,7 +7925,7 @@ a:focus-visible{
 &lt;/div&gt;
 &lt;div class=&quot;risk-group&quot;&gt;
 &lt;div class=&quot;risk-head&quot;&gt;&lt;span class=&quot;dot orange&quot;&gt;&lt;/span&gt; MEDIUM RISK&lt;/div&gt;
-&lt;div class=&quot;risk-row&quot;&gt;&lt;div class=&quot;risk-question&quot;&gt;Is the Auditor&#x27;s Going Concern Met? (review AFS from most recent year)&lt;/div&gt;&lt;div class=&quot;answer&quot;&gt;&lt;select class=&quot;select&quot;&gt;&lt;option&gt;● Select Option&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;risk-row&quot;&gt;&lt;div class=&quot;risk-question&quot;&gt;Is the Auditor's Going Concern Met? (review AFS from most recent year)&lt;/div&gt;&lt;div class=&quot;answer&quot;&gt;&lt;select class=&quot;select&quot;&gt;&lt;option&gt;● Select Option&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;risk-row&quot;&gt;&lt;div class=&quot;risk-question&quot;&gt;Can the project pay the loan balance at loan maturity?&lt;/div&gt;&lt;div class=&quot;answer&quot;&gt;&lt;span class=&quot;value-chip greenchip&quot;&gt;◉ No&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;risk-row&quot;&gt;&lt;div class=&quot;risk-question&quot;&gt;Depleted or Low Operating Reserves (review AFS from most recent year)&lt;/div&gt;&lt;div class=&quot;answer&quot;&gt;&lt;select class=&quot;select&quot;&gt;&lt;option&gt;● Select Option&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;risk-row&quot;&gt;&lt;div class=&quot;risk-question&quot;&gt;Depleted or Low Replacement Reserves (review AFS from most recent year)&lt;/div&gt;&lt;div class=&quot;answer&quot;&gt;&lt;select class=&quot;select&quot;&gt;&lt;option&gt;● Select Option&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;&lt;/div&gt;
@@ -7966,20 +8157,15 @@ a:focus-visible{
 &lt;/div&gt;
 &lt;div style=&quot;text-align:center;color:#718196;font-size:8px;margin-top:9px&quot;&gt;Summary payment history. Detailed residual receipt calculations and payment activity are available in the Residual Receipt tab.&lt;/div&gt;
 &lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;viz-card v171-transaction-card&quot;&gt;
+&lt;div class=&quot;viz-card v171-transaction-card rr-simple-aging-card&quot;&gt;
 &lt;div class=&quot;viz-title&quot;&gt;Project Transaction Summary&lt;/div&gt;
-&lt;div class=&quot;v171-txn-head&quot;&gt;
-&lt;span&gt;&lt;strong&gt;12&lt;/strong&gt; Transactions&lt;/span&gt;
-&lt;span class=&quot;v171-attn&quot;&gt;&lt;strong&gt;2&lt;/strong&gt; Require Attention&lt;/span&gt;
+&lt;div class=&quot;v171-txn-head&quot;&gt;&lt;span&gt;&lt;strong&gt;12&lt;/strong&gt; Transactions&lt;/span&gt;&lt;span class=&quot;v171-attn&quot;&gt;&lt;strong&gt;3&lt;/strong&gt; Open 45+ Days&lt;/span&gt;&lt;/div&gt;
+&lt;div style=&quot;font:600 13px Arial,sans-serif;color:#4d6680;margin:17px 0 12px&quot;&gt;Open transactions by age&lt;/div&gt;
+&lt;div style=&quot;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 12px&quot;&gt;
+&lt;div style=&quot;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;min-height:98px;background:#fff1f2;border:1px solid #f1c5cb;border-radius:8px;color:#a04450&quot;&gt;&lt;strong style=&quot;font:700 30px Arial,sans-serif&quot;&gt;1&lt;/strong&gt;&lt;span style=&quot;font:600 12px Arial,sans-serif&quot;&gt;45–90 days&lt;/span&gt;&lt;/div&gt;
+&lt;div style=&quot;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;min-height:98px;background:#f8dce0;border:1px solid #e5a6af;border-radius:8px;color:#922d3d&quot;&gt;&lt;strong style=&quot;font:700 30px Arial,sans-serif&quot;&gt;1&lt;/strong&gt;&lt;span style=&quot;font:600 12px Arial,sans-serif&quot;&gt;90–120 days&lt;/span&gt;&lt;/div&gt;
+&lt;div style=&quot;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;min-height:98px;background:#ad3346;border:1px solid #922a3a;border-radius:8px;color:#fff&quot;&gt;&lt;strong style=&quot;font:700 30px Arial,sans-serif&quot;&gt;1&lt;/strong&gt;&lt;span style=&quot;font:600 12px Arial,sans-serif&quot;&gt;120+ days&lt;/span&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class=&quot;v171-txn-subtitle&quot;&gt;Project requests by type and current status&lt;/div&gt;
-&lt;svg aria-labelledby=&quot;txnChartTitle txnChartDesc&quot; class=&quot;v171-transaction-svg&quot; role=&quot;img&quot; viewbox=&quot;0 0 720 300&quot; width=&quot;100%&quot;&gt;&lt;title id=&quot;txnChartTitle&quot;&gt;Project Transaction Summary&lt;/title&gt;&lt;desc id=&quot;txnChartDesc&quot;&gt;Transaction counts by request type, split into Approved or Completed, In Review, and Attention Required.&lt;/desc&gt;&lt;line stroke=&quot;#dbe5ee&quot; stroke-width=&quot;1&quot; x1=&quot;270.0&quot; x2=&quot;270.0&quot; y1=&quot;38&quot; y2=&quot;252&quot;&gt;&lt;/line&gt;&lt;text fill=&quot;#526b82&quot; font-family=&quot;Arial&quot; font-size=&quot;13&quot; text-anchor=&quot;middle&quot; x=&quot;270.0&quot; y=&quot;276&quot;&gt;0&lt;/text&gt;&lt;line stroke=&quot;#dbe5ee&quot; stroke-width=&quot;1&quot; x1=&quot;370.0&quot; x2=&quot;370.0&quot; y1=&quot;38&quot; y2=&quot;252&quot;&gt;&lt;/line&gt;&lt;text fill=&quot;#526b82&quot; font-family=&quot;Arial&quot; font-size=&quot;13&quot; text-anchor=&quot;middle&quot; x=&quot;370.0&quot; y=&quot;276&quot;&gt;1&lt;/text&gt;&lt;line stroke=&quot;#dbe5ee&quot; stroke-width=&quot;1&quot; x1=&quot;470.0&quot; x2=&quot;470.0&quot; y1=&quot;38&quot; y2=&quot;252&quot;&gt;&lt;/line&gt;&lt;text fill=&quot;#526b82&quot; font-family=&quot;Arial&quot; font-size=&quot;13&quot; text-anchor=&quot;middle&quot; x=&quot;470.0&quot; y=&quot;276&quot;&gt;2&lt;/text&gt;&lt;line stroke=&quot;#dbe5ee&quot; stroke-width=&quot;1&quot; x1=&quot;570.0&quot; x2=&quot;570.0&quot; y1=&quot;38&quot; y2=&quot;252&quot;&gt;&lt;/line&gt;&lt;text fill=&quot;#526b82&quot; font-family=&quot;Arial&quot; font-size=&quot;13&quot; text-anchor=&quot;middle&quot; x=&quot;570.0&quot; y=&quot;276&quot;&gt;3&lt;/text&gt;&lt;line stroke=&quot;#dbe5ee&quot; stroke-width=&quot;1&quot; x1=&quot;670.0&quot; x2=&quot;670.0&quot; y1=&quot;38&quot; y2=&quot;252&quot;&gt;&lt;/line&gt;&lt;text fill=&quot;#526b82&quot; font-family=&quot;Arial&quot; font-size=&quot;13&quot; text-anchor=&quot;middle&quot; x=&quot;670.0&quot; y=&quot;276&quot;&gt;4&lt;/text&gt;&lt;text fill=&quot;#203d59&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;18&quot; y=&quot;76&quot;&gt;Ownership / Participant Change&lt;/text&gt;&lt;rect fill=&quot;#4f94c4&quot; height=&quot;22&quot; rx=&quot;2&quot; width=&quot;100.0&quot; x=&quot;270.0&quot; y=&quot;60&quot;&gt;&lt;/rect&gt;&lt;text fill=&quot;#fff&quot; font-family=&quot;Arial&quot; font-size=&quot;13&quot; font-weight=&quot;700&quot; text-anchor=&quot;middle&quot; x=&quot;320.0&quot; y=&quot;76&quot;&gt;1&lt;/text&gt;&lt;rect fill=&quot;#e7a8ae&quot; height=&quot;22&quot; rx=&quot;2&quot; width=&quot;100.0&quot; x=&quot;370.0&quot; y=&quot;60&quot;&gt;&lt;/rect&gt;&lt;text fill=&quot;#fff&quot; font-family=&quot;Arial&quot; font-size=&quot;13&quot; font-weight=&quot;700&quot; text-anchor=&quot;middle&quot; x=&quot;420.0&quot; y=&quot;76&quot;&gt;1&lt;/text&gt;&lt;text fill=&quot;#203d59&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;18&quot; y=&quot;120&quot;&gt;New / Additional Debt&lt;/text&gt;&lt;rect fill=&quot;#e7a8ae&quot; height=&quot;22&quot; rx=&quot;2&quot; width=&quot;100.0&quot; x=&quot;270.0&quot; y=&quot;104&quot;&gt;&lt;/rect&gt;&lt;text fill=&quot;#fff&quot; font-family=&quot;Arial&quot; font-size=&quot;13&quot; font-weight=&quot;700&quot; text-anchor=&quot;middle&quot; x=&quot;320.0&quot; y=&quot;120&quot;&gt;1&lt;/text&gt;&lt;text fill=&quot;#203d59&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;18&quot; y=&quot;164&quot;&gt;Refinance / Subordination&lt;/text&gt;&lt;rect fill=&quot;#4f94c4&quot; height=&quot;22&quot; rx=&quot;2&quot; width=&quot;100.0&quot; x=&quot;270.0&quot; y=&quot;148&quot;&gt;&lt;/rect&gt;&lt;text fill=&quot;#fff&quot; font-family=&quot;Arial&quot; font-size=&quot;13&quot; font-weight=&quot;700&quot; text-anchor=&quot;middle&quot; x=&quot;320.0&quot; y=&quot;164&quot;&gt;1&lt;/text&gt;&lt;rect fill=&quot;#9fc3e3&quot; height=&quot;22&quot; rx=&quot;2&quot; width=&quot;100.0&quot; x=&quot;370.0&quot; y=&quot;148&quot;&gt;&lt;/rect&gt;&lt;text fill=&quot;#203d59&quot; font-family=&quot;Arial&quot; font-size=&quot;13&quot; font-weight=&quot;700&quot; text-anchor=&quot;middle&quot; x=&quot;420.0&quot; y=&quot;164&quot;&gt;1&lt;/text&gt;&lt;text fill=&quot;#203d59&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;18&quot; y=&quot;208&quot;&gt;Loan Amendment&lt;/text&gt;&lt;rect fill=&quot;#4f94c4&quot; height=&quot;22&quot; rx=&quot;2&quot; width=&quot;200.0&quot; x=&quot;270.0&quot; y=&quot;192&quot;&gt;&lt;/rect&gt;&lt;text fill=&quot;#fff&quot; font-family=&quot;Arial&quot; font-size=&quot;13&quot; font-weight=&quot;700&quot; text-anchor=&quot;middle&quot; x=&quot;370.0&quot; y=&quot;208&quot;&gt;2&lt;/text&gt;&lt;rect fill=&quot;#9fc3e3&quot; height=&quot;22&quot; rx=&quot;2&quot; width=&quot;100.0&quot; x=&quot;470.0&quot; y=&quot;192&quot;&gt;&lt;/rect&gt;&lt;text fill=&quot;#203d59&quot; font-family=&quot;Arial&quot; font-size=&quot;13&quot; font-weight=&quot;700&quot; text-anchor=&quot;middle&quot; x=&quot;520.0&quot; y=&quot;208&quot;&gt;1&lt;/text&gt;&lt;text fill=&quot;#203d59&quot; font-family=&quot;Arial&quot; font-size=&quot;14&quot; x=&quot;18&quot; y=&quot;252&quot;&gt;Reserve Withdrawal&lt;/text&gt;&lt;rect fill=&quot;#4f94c4&quot; height=&quot;22&quot; rx=&quot;2&quot; width=&quot;300.0&quot; x=&quot;270.0&quot; y=&quot;236&quot;&gt;&lt;/rect&gt;&lt;text fill=&quot;#fff&quot; font-family=&quot;Arial&quot; font-size=&quot;13&quot; font-weight=&quot;700&quot; text-anchor=&quot;middle&quot; x=&quot;420.0&quot; y=&quot;252&quot;&gt;3&lt;/text&gt;&lt;rect fill=&quot;#9fc3e3&quot; height=&quot;22&quot; rx=&quot;2&quot; width=&quot;100.0&quot; x=&quot;570.0&quot; y=&quot;236&quot;&gt;&lt;/rect&gt;&lt;text fill=&quot;#203d59&quot; font-family=&quot;Arial&quot; font-size=&quot;13&quot; font-weight=&quot;700&quot; text-anchor=&quot;middle&quot; x=&quot;620.0&quot; y=&quot;252&quot;&gt;1&lt;/text&gt;&lt;/svg&gt;
-&lt;div aria-label=&quot;Transaction status legend&quot; class=&quot;v171-txn-legend&quot;&gt;
-&lt;span&gt;&lt;i class=&quot;v171-key completed&quot;&gt;&lt;/i&gt;Approved / Completed&lt;/span&gt;
-&lt;span&gt;&lt;i class=&quot;v171-key review&quot;&gt;&lt;/i&gt;In Review&lt;/span&gt;
-&lt;span&gt;&lt;i class=&quot;v171-key attention&quot;&gt;&lt;/i&gt;Attention Required&lt;/span&gt;
-&lt;/div&gt;
-
 &lt;/div&gt;
 &lt;/div&gt;&lt;div class=&quot;v154-reserve-row&quot;&gt;&lt;div class=&quot;viz-card reserve-adequacy-card&quot;&gt;
 &lt;div class=&quot;viz-title&quot;&gt;Reserve Adequacy by Year&lt;/div&gt;
@@ -7996,7 +8182,7 @@ a:focus-visible{
 &lt;div class=&quot;ha-domain-title&quot;&gt;Financial Health&lt;/div&gt;
 &lt;div class=&quot;ha-two&quot;&gt;
 &lt;div class=&quot;ha-group medium&quot;&gt;&lt;div class=&quot;ha-group-head&quot;&gt;&lt;span&gt;Medium&lt;/span&gt;&lt;small&gt;5 indicators&lt;/small&gt;&lt;/div&gt;
-&lt;div class=&quot;ha-q&quot;&gt;&lt;div class=&quot;ha-qtext&quot;&gt;Is the Auditor&#x27;s Going Concern Met? &lt;small&gt;(Review AFS from the most recent year.)&lt;/small&gt;&lt;/div&gt;&lt;div class=&quot;ha-answers&quot;&gt;&lt;span class=&quot;ha-pill sel yes&quot;&gt;Yes&lt;/span&gt;&lt;span class=&quot;ha-pill&quot;&gt;No&lt;/span&gt;&lt;span class=&quot;ha-pill&quot;&gt;N/A&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;ha-q&quot;&gt;&lt;div class=&quot;ha-qtext&quot;&gt;Is the Auditor's Going Concern Met? &lt;small&gt;(Review AFS from the most recent year.)&lt;/small&gt;&lt;/div&gt;&lt;div class=&quot;ha-answers&quot;&gt;&lt;span class=&quot;ha-pill sel yes&quot;&gt;Yes&lt;/span&gt;&lt;span class=&quot;ha-pill&quot;&gt;No&lt;/span&gt;&lt;span class=&quot;ha-pill&quot;&gt;N/A&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;ha-q&quot;&gt;&lt;div class=&quot;ha-qtext&quot;&gt;Can the project pay the loan balance at loan maturity?&lt;/div&gt;&lt;div class=&quot;ha-answers&quot;&gt;&lt;span class=&quot;ha-pill&quot;&gt;Yes&lt;/span&gt;&lt;span class=&quot;ha-pill sel no&quot;&gt;No&lt;/span&gt;&lt;span class=&quot;ha-pill&quot;&gt;N/A&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;ha-q&quot;&gt;&lt;div class=&quot;ha-qtext&quot;&gt;Has the property been transferred to a new owner and entered into a stabilization period? &lt;small&gt;(Assignment and Assumption/Consent would have to be completed.)&lt;/small&gt;&lt;/div&gt;&lt;div class=&quot;ha-answers&quot;&gt;&lt;span class=&quot;ha-pill&quot;&gt;Yes&lt;/span&gt;&lt;span class=&quot;ha-pill sel no&quot;&gt;No&lt;/span&gt;&lt;span class=&quot;ha-pill&quot;&gt;N/A&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;ha-q&quot;&gt;&lt;div class=&quot;ha-qtext&quot;&gt;Is the project part of a portfolio that is &quot;at risk&quot; of becoming unstable? &lt;small&gt;(Based on the applicable sponsor portfolio threshold.)&lt;/small&gt;&lt;/div&gt;&lt;div class=&quot;ha-answers&quot;&gt;&lt;span class=&quot;ha-pill&quot;&gt;Yes&lt;/span&gt;&lt;span class=&quot;ha-pill sel no&quot;&gt;No&lt;/span&gt;&lt;span class=&quot;ha-pill&quot;&gt;N/A&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
@@ -8022,7 +8208,7 @@ a:focus-visible{
 &lt;div class=&quot;ha-group medium&quot;&gt;&lt;div class=&quot;ha-group-head&quot;&gt;&lt;span&gt;Medium&lt;/span&gt;&lt;small&gt;5 indicators&lt;/small&gt;&lt;/div&gt;
 &lt;div class=&quot;ha-q&quot;&gt;&lt;div class=&quot;ha-qtext&quot;&gt;Did the project add debt without consent from LAHD?&lt;/div&gt;&lt;div class=&quot;ha-answers&quot;&gt;&lt;span class=&quot;ha-pill&quot;&gt;Yes&lt;/span&gt;&lt;span class=&quot;ha-pill sel no&quot;&gt;No&lt;/span&gt;&lt;span class=&quot;ha-pill&quot;&gt;N/A&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;ha-q&quot;&gt;&lt;div class=&quot;ha-qtext&quot;&gt;Does the project have an unauthorized transaction and/or transfer of ownership/partnership roles?&lt;/div&gt;&lt;div class=&quot;ha-answers&quot;&gt;&lt;span class=&quot;ha-pill&quot;&gt;Yes&lt;/span&gt;&lt;span class=&quot;ha-pill sel no&quot;&gt;No&lt;/span&gt;&lt;span class=&quot;ha-pill&quot;&gt;N/A&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;ha-q&quot;&gt;&lt;div class=&quot;ha-qtext&quot;&gt;Has there been a death among the project&#x27;s ownership?&lt;/div&gt;&lt;div class=&quot;ha-answers&quot;&gt;&lt;span class=&quot;ha-pill&quot;&gt;Yes&lt;/span&gt;&lt;span class=&quot;ha-pill&quot;&gt;No&lt;/span&gt;&lt;span class=&quot;ha-pill sel na&quot;&gt;N/A&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;ha-q&quot;&gt;&lt;div class=&quot;ha-qtext&quot;&gt;Has there been a death among the project's ownership?&lt;/div&gt;&lt;div class=&quot;ha-answers&quot;&gt;&lt;span class=&quot;ha-pill&quot;&gt;Yes&lt;/span&gt;&lt;span class=&quot;ha-pill&quot;&gt;No&lt;/span&gt;&lt;span class=&quot;ha-pill sel na&quot;&gt;N/A&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;ha-q&quot;&gt;&lt;div class=&quot;ha-qtext&quot;&gt;Does the project have the potential for a Preliminary Notice of Default (PNOD) for regulatory reasons?&lt;/div&gt;&lt;div class=&quot;ha-answers&quot;&gt;&lt;span class=&quot;ha-pill&quot;&gt;Yes&lt;/span&gt;&lt;span class=&quot;ha-pill sel no&quot;&gt;No&lt;/span&gt;&lt;span class=&quot;ha-pill&quot;&gt;N/A&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;ha-q&quot;&gt;&lt;div class=&quot;ha-qtext&quot;&gt;Is the project in the Rent Escrow Account Program (REAP)?&lt;/div&gt;&lt;div class=&quot;ha-answers&quot;&gt;&lt;span class=&quot;ha-pill&quot;&gt;Yes&lt;/span&gt;&lt;span class=&quot;ha-pill sel no&quot;&gt;No&lt;/span&gt;&lt;span class=&quot;ha-pill&quot;&gt;N/A&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -8032,18 +8218,18 @@ a:focus-visible{
 &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;script&gt;
 (function(){
-  const buttons=document.querySelectorAll(&#x27;[data-health-view]&#x27;);
-  const list=document.querySelector(&#x27;.health-list-view&#x27;);
-  const chart=document.querySelector(&#x27;.health-chart-view&#x27;);
-  buttons.forEach(btn=&gt;btn.addEventListener(&#x27;click&#x27;,function(){
-    const view=this.getAttribute(&#x27;data-health-view&#x27;);
-    buttons.forEach(b=&gt;b.classList.toggle(&#x27;active&#x27;,b===this));
-    if(view===&#x27;chart&#x27;){
-      list.classList.add(&#x27;hidden&#x27;);
-      chart.classList.add(&#x27;active&#x27;);
+  const buttons=document.querySelectorAll('[data-health-view]');
+  const list=document.querySelector('.health-list-view');
+  const chart=document.querySelector('.health-chart-view');
+  buttons.forEach(btn=&gt;btn.addEventListener('click',function(){
+    const view=this.getAttribute('data-health-view');
+    buttons.forEach(b=&gt;b.classList.toggle('active',b===this));
+    if(view==='chart'){
+      list.classList.add('hidden');
+      chart.classList.add('active');
     }else{
-      list.classList.remove(&#x27;hidden&#x27;);
-      chart.classList.remove(&#x27;active&#x27;);
+      list.classList.remove('hidden');
+      chart.classList.remove('active');
     }
   }));
 })();
@@ -11152,228 +11338,18 @@ document.addEventListener('click',function(e){
 </script>
 
 
-<div class="um-modal" id="umAssociationModal">
- <div class="um-dialog">
-  <div class="um-dialog-head"><div><b>Edit User Access</b><div style="font-size:10.5px;color:#718196;margin-top:3px">Update the user's project association and portal access.</div></div><button class="um-close" id="umAssocClose">×</button></div>
-  <div class="um-dialog-body">
-   <div class="um-grid">
-    <div class="um-field"><label>Name</label><input id="editName" value="Daniel Kim"></div>
-    <div class="um-field"><label>Email</label><input id="editEmail" value="daniel@riverviewhousing.com"></div>
-    <div class="um-field um-span2"><label>Organization / Entity</label><select id="editOrg"><option>Riverview Housing LLC — Owner / Borrower Entity</option><option>Arlington Square Property Management LLC — Property Management Company</option></select></div>
-    <div class="um-field"><label>Participant Role</label><select id="editRole"><option>Owner / Borrower</option><option>General Partner</option><option>Limited Partner</option><option>Asset Manager</option><option>Property Manager</option><option>Secretary</option></select></div>
-    <div class="um-field"><label>Access Level</label><select id="editTier"><option>Tier 1 - Primary User</option><option>Tier 2 - Secondary User</option></select></div>
-    <div class="um-field um-span2"><label>Project #</label><input id="editProjectSearch" value="030166" placeholder="Enter project number">
-      <div class="um-project-results" id="editProjectResults">
-       <div class="um-project-choice" data-project="030166" data-name="Sunshine Project"><div><b>030166 · Sunshine Project</b><span>1234 Peak Avenue, Los Angeles, CA</span></div><span>Select</span></div>
-       <div class="um-project-choice" data-project="030166-02" data-name="Sunshine Project - Phase II"><div><b>030166-02 · Sunshine Project - Phase II</b><span>1238 Peak Avenue, Los Angeles, CA</span></div><span>Select</span></div>
-      </div>
-    </div>
-    <div class="um-field um-span2"><label>Selected Project</label><input id="editSelectedProject" value="030166 · Sunshine Project" readonly></div>
-   </div>
-  </div>
-  <div class="um-dialog-foot"><button class="um-btn" id="umAssocDone">Cancel</button><button class="um-btn primary" id="umSaveAccess">Save Changes</button></div>
- </div>
-</div>
 
-<div class="um-modal" id="umNotificationHistoryModal">
- <div class="um-dialog">
-  <div class="um-dialog-head"><div><b>Notification History</b><div style="font-size:10.5px;color:#718196;margin-top:3px">View Borrower Portal notifications sent to this user.</div></div><button class="um-close" id="umHistoryClose">×</button></div>
-  <div class="um-dialog-body">
-   <div style="margin-bottom:13px"><b id="umHistoryUser">Daniel Kim</b><div id="umHistoryEmail" style="font-size:10.5px;color:#718196;margin-top:3px">daniel@riverviewhousing.com</div></div>
-   <div class="um-history">
-    <div class="um-history-row"><div class="um-history-row-head"><div><b>Borrower Portal Invitation</b><br><span>Sep 12, 2026 · 10:42 AM</span></div><span class="um-history-badge">Sent</span></div><p>Invitation to access Sunshine Project as Tier 1 - Primary User.</p><button class="um-btn" style="margin-top:8px;padding:6px 9px">View Email</button></div>
-    <div class="um-history-row"><div class="um-history-row-head"><div><b>Invitation Reminder</b><br><span>Sep 15, 2026 · 9:15 AM</span></div><span class="um-history-badge">Sent</span></div><p>Reminder to accept the pending Borrower Portal invitation.</p><button class="um-btn" style="margin-top:8px;padding:6px 9px">View Email</button></div>
-   </div>
-  </div>
-  <div class="um-dialog-foot"><button class="um-btn" id="umHistoryDone">Close</button></div>
- </div>
-</div>
-
-<div class="um-modal" id="umRemoveUserModal">
- <div class="um-dialog" style="width:500px">
-  <div class="um-dialog-head"><div><b>Remove User</b><div style="font-size:10.5px;color:#718196;margin-top:3px">Remove this user's Borrower Portal access.</div></div><button class="um-close" id="umRemoveClose">×</button></div>
-  <div class="um-dialog-body"><div class="um-remove-warning"><b>Remove <span id="umRemoveName">this user</span>?</b><br><br>The user will no longer be able to access the associated project in the Borrower Portal. Existing request and activity history will be retained.</div></div>
-  <div class="um-dialog-foot"><button class="um-btn" id="umRemoveCancel">Cancel</button><button class="um-btn" id="umConfirmRemove" style="background:#a33b45;border-color:#a33b45;color:#fff">Remove User</button></div>
- </div>
-</div>
-
-<div id="umActionMenu" class="um-action-menu">
- <button data-act="edit">Edit Access</button>
- <button data-act="history">View Notification History</button>
- <button class="danger" data-act="remove">Remove User</button>
-</div>
 
 <div class="um-modal" id="umBulkInviteModal">
- <div class="um-dialog" style="width:560px">
-  <div class="um-dialog-head"><div><b>Send Borrower Portal Invitations</b><div style="font-size:10.5px;color:#718196;margin-top:3px">Confirm the bulk invitation.</div></div><button class="um-close" id="umBulkClose">×</button></div>
-  <div class="um-dialog-body">
-   <div class="um-note" style="margin:0 0 12px"><b id="umBulkModalCount">0 users selected</b><br>The system will use the notification template that matches each user's access level.</div>
-   <div style="font-size:10.5px;color:#53677b;line-height:1.5">Only selected users with <b>Invitation Pending</b> status will receive an invitation. Active or inactive users will not be changed.</div>
-  </div>
-  <div class="um-dialog-foot"><button class="um-btn" id="umBulkCancel">Cancel</button><button class="um-btn primary" id="umBulkConfirm">Send Invitations</button></div>
- </div>
+<div class="um-dialog" style="width:560px">
+<div class="um-dialog-head"><div><b>Send Borrower Portal Invitations</b><div style="font-size:10.5px;color:#718196;margin-top:3px">Confirm the bulk invitation.</div></div><button class="um-close" id="umBulkClose">×</button></div>
+<div class="um-dialog-body">
+<div class="um-note" style="margin:0 0 12px"><b id="umBulkModalCount">0 users selected</b><br/>The system will use the notification template that matches each user's access level.</div>
+<div style="font-size:10.5px;color:#53677b;line-height:1.5">Only selected users with <b>Invitation Pending</b> status will receive an invitation. Active or inactive users will not be changed.</div>
 </div>
-<div class="um-modal" id="umInviteModal">
- <div class="um-dialog">
-  <div class="um-dialog-head"><div><b>Invite Primary Member</b><div style="font-size:10.5px;color:#718196;margin-top:3px">Create the initial borrower portal access for an authorized project participant.</div></div><button class="um-close" id="umClose">×</button></div>
-  <div class="um-dialog-body">
-   <div class="um-grid">
-    <div class="um-field um-span2"><label>Project #</label><input id="inviteProjectSearch" value="" placeholder="Enter project number">
-      <div class="um-project-results" id="inviteProjectResults">
-       <div class="um-project-choice" data-project="030166" data-name="Sunshine Project"><div><b>030166 · Sunshine Project</b><span>1234 Peak Avenue, Los Angeles, CA</span></div><span>Select</span></div>
-       <div class="um-project-choice" data-project="030166-02" data-name="Sunshine Project - Phase II"><div><b>030166-02 · Sunshine Project - Phase II</b><span>1238 Peak Avenue, Los Angeles, CA</span></div><span>Select</span></div>
-      </div>
-    </div>
-    <div class="um-field um-span2"><label>Selected Project</label><input id="inviteSelectedProject" value="" placeholder="Select a project from the matching results" readonly></div>
-    <div class="um-field um-span2"><label>Organization / Entity</label><select><option>Riverview Housing LLC — Owner / Borrower Entity</option><option>Other authorized participant</option></select></div>
-    <div class="um-field"><label>Participant Role</label><select><option>Owner / Borrower</option><option>General Partner</option><option>Limited Partner</option><option>Asset Manager</option><option>Property Manager</option></select></div>
-    <div class="um-field"><label>Access Level</label><select><option>Tier 1 - Primary User</option></select></div>
-    <div class="um-field"><label>Name</label><input placeholder="Authorized contact name"></div>
-    <div class="um-field"><label>Email</label><input placeholder="name@organization.com"></div>
-    <div class="um-field um-span2"><div class="um-access-help"><b>Tier 1 - Primary User</b><br>Initial City-invited user for the project/entity. This user can access authorized borrower portal information and manage additional project members.</div></div>
-   </div>
-  </div>
-  <div class="um-dialog-foot"><button class="um-btn" id="umCancel">Cancel</button><button class="um-btn primary" id="umSendInvite">Send Enrollment Invitation</button></div>
- </div>
+<div class="um-dialog-foot"><button class="um-btn" id="umBulkCancel">Cancel</button><button class="um-btn primary" id="umBulkConfirm">Send Invitations</button></div>
 </div>
-
-
-<script>
-(function(){
- const nav=document.getElementById('borrowerUserManagementNav');
- const dash=document.getElementById('dashboardNav');
- const pm=document.getElementById('portfolioManagementNav');
- const all=[...document.querySelectorAll('.sidebar-item')];
- function showUM(){
-   document.body.classList.remove('dashboard-mode','portfolio-search-mode');
-   document.body.classList.add('user-management-mode');
-   all.forEach(x=>x.classList.remove('active')); nav?.classList.add('active');
-   window.scrollTo({top:0,behavior:'smooth'});
- }
- nav?.addEventListener('click',showUM);
- dash?.addEventListener('click',()=>document.body.classList.remove('user-management-mode'));
- pm?.addEventListener('click',()=>document.body.classList.remove('user-management-mode'));
-
- const search=document.getElementById('umSearch');
- search?.addEventListener('input',()=>{
-   const q=search.value.toLowerCase().trim();
-   document.querySelectorAll('#umTable tbody tr').forEach(r=>r.style.display=r.innerText.toLowerCase().includes(q)?'':'none');
- });
-
- const modal=document.getElementById('umInviteModal');
- document.getElementById('umInvite')?.addEventListener('click',()=>modal?.classList.add('open'));
- ['umClose','umCancel'].forEach(id=>document.getElementById(id)?.addEventListener('click',()=>modal?.classList.remove('open')));
- document.getElementById('umSendInvite')?.addEventListener('click',()=>{
-   modal?.classList.remove('open');
-   alert('Enrollment invitation prepared for the Tier 1 - Primary User.');
- });
- const userCard=document.querySelector('#staffUserManagement .um-card');
- const templatesCard=document.getElementById('umTemplatesCard');
- document.querySelectorAll('.um-tab').forEach((tab,idx)=>tab.addEventListener('click',()=>{
-   document.querySelectorAll('.um-tab').forEach(x=>x.classList.remove('active')); tab.classList.add('active');
-   if(idx===0){userCard.style.display='block';templatesCard.style.display='none'}
-   else{userCard.style.display='none';templatesCard.style.display='block'}
- }));
-
- const templates={
-  tier1:{
-   title:'Tier 1 - Primary User Invitation',
-   desc:'Sent when LAHD invites the initial Primary User.',
-   subject:'Invitation to the LAHD Borrower Portal',
-   body:`Hello [First Name],
-
-The Los Angeles Housing Department has invited you to access the Borrower Portal for [Project Name] as an Primary User.
-
-Please use the link below to accept the invitation.
-
-[Accept Invitation]
-
-You will be asked to sign in with your Angeleno Account. If you do not have an Angeleno Account, you can create one before continuing to the Borrower Portal.
-
-After you sign in, you will be asked to confirm and activate your Borrower Portal access.
-
-This invitation is intended for you and will expire on [Expiration Date].
-
-If you believe you received this invitation in error, please contact LAHD.
-
-Thank you,
-Los Angeles Housing Department`
-  },
-  tier2:{
-   title:'Tier 2 - Secondary User Invitation',
-   desc:'Sent when an authorized Tier 1 user invites a Secondary User to the project.',
-   subject:'Invitation to the LAHD Borrower Portal',
-   body:`Hello [First Name],
-
-You have been invited to access the LAHD Borrower Portal for [Project Name] as a Secondary User.
-
-Please use the link below to accept the invitation.
-
-[Accept Invitation]
-
-You will be asked to sign in with your Angeleno Account. If you do not have an Angeleno Account, you can create one before continuing to the Borrower Portal.
-
-After you sign in, you will be asked to confirm and activate your Borrower Portal access.
-
-As a Secondary User, you can access the authorized project, City loan number(s), and requests. Loan financial information, loan documents, and user management are not available with this access level.
-
-This invitation is intended for you and will expire on [Expiration Date].
-
-If you believe you received this invitation in error, please contact LAHD.
-
-Thank you,
-Los Angeles Housing Department`
-  }
- };
- document.querySelectorAll('.um-template-item').forEach(item=>item.addEventListener('click',()=>{
-   document.querySelectorAll('.um-template-item').forEach(x=>x.classList.remove('active'));item.classList.add('active');
-   const d=templates[item.dataset.template];document.getElementById('tmplTitle').textContent=d.title;document.getElementById('tmplDesc').textContent=d.desc;document.getElementById('tmplSubject').value=d.subject;document.getElementById('tmplBody').value=d.body;
- }));
-
- const actionMenu=document.getElementById('umActionMenu'), assocModal=document.getElementById('umAssociationModal'), historyModal=document.getElementById('umNotificationHistoryModal'), removeModal=document.getElementById('umRemoveUserModal'); let selectedRow=null;
- document.querySelectorAll('.um-menu-trigger').forEach(btn=>btn.addEventListener('click',e=>{
-   e.stopPropagation();selectedRow=btn.closest('tr');const r=btn.getBoundingClientRect();actionMenu.style.top=(window.scrollY+r.bottom+3)+'px';actionMenu.style.left=(r.right-220)+'px';actionMenu.classList.add('open');
- }));
- document.addEventListener('click',()=>actionMenu.classList.remove('open'));
-
- function rowData(){
-   if(!selectedRow)return {};
-   return {email:selectedRow.cells[1].innerText.trim(),name:selectedRow.cells[2].innerText.trim(),org:selectedRow.cells[3].innerText.trim(),role:selectedRow.cells[4].innerText.trim(),project:selectedRow.cells[5].innerText.trim(),tier:selectedRow.cells[6].innerText.trim()};
- }
- function openEdit(){
-   const d=rowData();document.getElementById('editName').value=d.name||'';document.getElementById('editEmail').value=d.email||'';document.getElementById('editProjectSearch').value=d.project||'';
-   document.getElementById('editSelectedProject').value=(d.project||'')+' · Sunshine Project';
-   [...document.getElementById('editRole').options].forEach(o=>o.selected=d.role.includes(o.text));
-   document.getElementById('editTier').selectedIndex=d.tier.includes('Tier 2')?1:0;assocModal.classList.add('open');
- }
- function openHistory(){
-   const d=rowData();document.getElementById('umHistoryUser').textContent=d.name||'User';document.getElementById('umHistoryEmail').textContent=d.email||'';historyModal.classList.add('open');
- }
- function openRemove(){
-   const d=rowData();document.getElementById('umRemoveName').textContent=d.name||'this user';removeModal.classList.add('open');
- }
- actionMenu.querySelectorAll('button').forEach(b=>b.addEventListener('click',e=>{
-   e.stopPropagation();actionMenu.classList.remove('open');
-   if(b.dataset.act==='edit')openEdit(); if(b.dataset.act==='history')openHistory(); if(b.dataset.act==='remove')openRemove();
- }));
- ['umAssocClose','umAssocDone'].forEach(id=>document.getElementById(id).onclick=()=>assocModal.classList.remove('open'));
- document.getElementById('umSaveAccess').onclick=()=>{assocModal.classList.remove('open');alert('User access changes saved.')};
- ['umHistoryClose','umHistoryDone'].forEach(id=>document.getElementById(id).onclick=()=>historyModal.classList.remove('open'));
- ['umRemoveClose','umRemoveCancel'].forEach(id=>document.getElementById(id).onclick=()=>removeModal.classList.remove('open'));
- document.getElementById('umConfirmRemove').onclick=()=>{removeModal.classList.remove('open');alert('User removed from Borrower Portal access. Prior activity history is retained.')};
-
- function setupProjectLookup(inputId,resultsId,selectedId){
-   const input=document.getElementById(inputId),results=document.getElementById(resultsId),selected=document.getElementById(selectedId);
-   input?.addEventListener('input',()=>results.classList.toggle('show',input.value.trim().length>=3));
-   input?.addEventListener('focus',()=>{if(input.value.trim().length>=3)results.classList.add('show')});
-   results?.querySelectorAll('.um-project-choice').forEach(c=>c.addEventListener('click',e=>{
-     e.stopPropagation();input.value=c.dataset.project;selected.value=c.dataset.project+' · '+c.dataset.name;results.classList.remove('show');
-   }));
- }
- setupProjectLookup('editProjectSearch','editProjectResults','editSelectedProject');
- setupProjectLookup('inviteProjectSearch','inviteProjectResults','inviteSelectedProject');
-})();
-</script>
+</div>
 
 
 <script>
@@ -11394,8 +11370,6 @@ Los Angeles Housing Department`
   sync();
 })();
 </script>
-
-
 <script>
 (function(){
  const all=document.getElementById('umSelectAll');
@@ -11418,8 +11392,6 @@ Los Angeles Housing Department`
  sync();
 })();
 </script>
-
-
 <script>
 (function(){
  function init(){
@@ -11452,8 +11424,6 @@ Los Angeles Housing Department`
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
-
-
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const table = document.getElementById('umTable');
@@ -11505,60 +11475,316 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  const table=document.getElementById('umTable');
-  const tabs=document.querySelectorAll('#umTierTabs .um-tier-tab');
-  const selectAll=document.getElementById('umSelectAll');
-  const bulkBar=document.getElementById('umBulkBar');
-  const selectedCount=document.getElementById('umSelectedCount');
-  if(!table||!tabs.length) return;
+<div class="um-action-menu" id="umActionMenu" style="z-index:11000">
+<button data-act="profile" type="button">View / Edit Profile</button>
+<button data-act="loans" type="button">Manage Loan Associations</button>
+<button data-act="invite" type="button">Resend Enrollment Invitation</button>
+<button data-act="toggle" type="button">Deactivate User</button>
+</div>
+<div class="um-modal" id="umInviteModal"><div class="um-dialog" style="max-width:620px">
+<div class="um-dialog-head"><div><b>Invite Primary User</b><div class="um-muted">Pre-associate at least one authorized loan before sending an enrollment invitation.</div></div><button class="um-close" data-close="umInviteModal">×</button></div>
+<div class="um-dialog-body"><div class="um-grid">
+<div class="um-field um-span2"><label>Search existing portal user by email</label><input id="umExistingEmail" placeholder="name@organization.com"/><small id="umExistingResult">Search before creating a new invitation.</small></div>
+<div class="um-field"><label>Full Name</label><input id="umInviteName" placeholder="Authorized user name"/></div>
+<div class="um-field"><label>Email</label><input id="umInviteEmail" placeholder="name@organization.com"/></div>
+<div class="um-field um-span2"><label>Organization</label><input id="umInviteOrg" placeholder="Borrower entity / organization"/></div>
+<div class="um-field um-span2"><label>Pre-authorized Loan #(s)</label><input id="umInviteLoans" type="hidden"/><input id="umLoanLookup" placeholder="Search Loan #, project, borrower entity, or EIN" autocomplete="off"/><div id="umLoanSuggestions" class="v196-suggestions"></div><div id="umLoanChips" class="v196-chips"></div></div>
+</div><div class="um-note" style="margin-top:10px">One-time <b>User Authorization Code</b> is for initial Primary/Affiliated enrollment only. The <b>Loan Association PIN</b> is a separate credential for linking additional loans after enrollment. Angeleno account activation is not repeated.</div></div>
+<div class="um-dialog-foot"><button class="um-btn" data-close="umInviteModal">Cancel</button><button class="um-btn primary" id="umSendInvite">Send Enrollment Invitation</button></div></div></div>
+<div class="um-modal" id="umProfileModal"><div class="um-dialog" style="max-width:620px">
+<div class="um-dialog-head"><div><b>View / Edit Profile</b><div class="um-muted">User information and enrollment status</div></div><button class="um-close" data-close="umProfileModal">×</button></div>
+<div class="um-dialog-body"><div class="um-grid">
+<div class="um-field"><label>Name</label><input id="umProfileName"/></div><div class="um-field"><label>Email</label><input id="umProfileEmail"/></div>
+<div class="um-field"><label>Organization</label><input id="umProfileOrg"/></div><div class="um-field"><label>Phone</label><input id="umProfilePhone" placeholder="Optional"/></div>
+<div class="um-field"><label>Title / Role</label><input id="umProfileRole" placeholder="Optional"/></div><div class="um-field"><label>User Category</label><input id="umProfileCategory" readonly=""/></div>
+<div class="um-field"><label>User Status</label><input id="umProfileStatus" readonly=""/></div><div class="um-field"><label>Invited / Enrolled</label><input id="umProfileDate" readonly=""/></div>
+</div></div><div class="um-dialog-foot"><button class="um-btn" data-close="umProfileModal">Cancel</button><button class="um-btn primary" id="umProfileSave">Save Profile</button></div></div></div>
+<div class="um-modal" id="umLoansModal"><div class="um-dialog" style="max-width:640px">
+<div class="um-dialog-head"><div><b>Manage Loan Associations</b><div class="um-muted" id="umLoansUser">User</div></div><button class="um-close" data-close="umLoansModal">×</button></div>
+<div class="um-dialog-body"><div class="v195-loan-list" id="umLoanList"></div>
+<div class="um-field" style="margin-top:16px"><label>Link an Authorized Loan (Staff)</label><div style="display:flex;gap:8px"><input id="umNewLoan" placeholder="Loan #"/><button class="um-btn primary" id="umLinkLoan" type="button">Link Loan</button></div></div>
+<div class="um-note" style="margin-top:12px">Staff must confirm authorization before linking. Users may independently link additional loans through <b>Borrower Portal → Add Loan</b>, using EIN/Tax ID, loan information and a separate <b>Loan Association PIN</b>. No loan-level access dropdown is required.</div></div>
+<div class="um-dialog-foot"><button class="um-btn primary" data-close="umLoansModal">Done</button></div></div></div>
+<script id="v195-user-management">
+(function(){
+function init(){
+const root=document.getElementById('staffUserManagement');if(!root)return;
+const nav=document.getElementById('borrowerUserManagementNav');
+nav?.addEventListener('click',()=>{document.body.classList.remove('dashboard-mode','portfolio-search-mode');document.body.classList.add('user-management-mode');document.querySelectorAll('.sidebar-item').forEach(x=>x.classList.remove('active'));nav.classList.add('active');window.scrollTo(0,0)});
+['dashboardNav','portfolioManagementNav'].forEach(id=>document.getElementById(id)?.addEventListener('click',()=>document.body.classList.remove('user-management-mode')));
+const table=document.getElementById('umTable'),tbody=table.tBodies[0],tabs=[...document.querySelectorAll('#umTierTabs button')];
+function rows(){return [...tbody.rows]}
+function filter(){const tier=root.querySelector('#umTierTabs button.active')?.dataset.tier||'all',q=(document.getElementById('umSearch').value||'').toLowerCase();let count=0;rows().forEach(r=>{const show=(tier==='all'||r.dataset.userTier===tier)&&r.textContent.toLowerCase().includes(q);r.style.display=show?'':'none';if(show)count++});document.getElementById('umCountLabel').textContent='Showing '+count+' of '+rows().length+' portal users';}
+tabs.forEach(b=>b.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));b.classList.add('active');filter()}));document.getElementById('umSearch').addEventListener('input',filter);
+const card=root.querySelector('.um-card'),templates=document.getElementById('umTemplatesCard');root.querySelectorAll('.um-tab').forEach((b,i)=>b.addEventListener('click',()=>{root.querySelectorAll('.um-tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');card.style.display=i===0?'':'none';templates.style.display=i===0?'none':''}));
+const templateData={"tier1": {"title": "Tier 1 - Primary User Invitation", "desc": "LAHD invitation to a pre-authorized Primary User.", "subject": "LAHD Borrower Portal – Primary Enrollment", "body": "Hello [First Name],\n\nYou have been invited as a Primary User. Sign in through your Angeleno Account, complete your basic profile, and enter the User Authorization Code below. Your authorized loans are already associated.\n\nUser Authorization Code: [User Authorization Code]\n\n[Open Borrower Portal]\n\nLAHD"}, "tier2": {"title": "Tier 2 - Affiliated User Invitation", "desc": "Primary User or LAHD staff invitation.", "subject": "LAHD Borrower Portal – Affiliated Enrollment", "body": "Hello [First Name],\n\nYou have been invited as an Affiliated User. Sign in through your Angeleno Account, complete your basic profile, and enter the User Authorization Code below. Your authorized loans are already associated.\n\nUser Authorization Code: [User Authorization Code]\n\n[Open Borrower Portal]\n\nLAHD"}, "loan": {"title": "Loan Association Notification", "desc": "Additional loan access or invitation to link a loan.", "subject": "LAHD Borrower Portal – Loan Association", "body": "Hello [First Name],\n\n[Loan Association Message]\n\nLoan #(s): [Loan Numbers]\n\nIf the loans have already been linked by LAHD staff, no action is needed. Otherwise, sign in to the Borrower Portal, select Add Loan, and enter the loan information and Loan Association PIN below.\n\nLoan Association PIN (if applicable): [Loan Association PIN]\n\n[Open Borrower Portal]\n\nLAHD"}};
+root.querySelectorAll('.um-template-item').forEach(item=>item.addEventListener('click',()=>{root.querySelectorAll('.um-template-item').forEach(x=>x.classList.remove('active'));item.classList.add('active');const d=templateData[item.dataset.template];document.getElementById('tmplTitle').textContent=d.title;document.getElementById('tmplDesc').textContent=d.desc;document.getElementById('tmplSubject').value=d.subject;document.getElementById('tmplBody').value=d.body}));
+function open(id){document.getElementById(id)?.classList.add('open')}function close(id){document.getElementById(id)?.classList.remove('open')}
+document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>close(b.dataset.close)));
+document.getElementById('umInitialImport').onclick=()=>alert('Initial user import and enrollment email — placeholder only.');document.getElementById('umInvite').onclick=()=>open('umInviteModal');
+let selected=null;const menu=document.getElementById('umActionMenu');
+function status(r){return r.cells[6].textContent.trim()};function setStatus(r,v){r.cells[6].innerHTML='<span class="um-status '+(v==='Active'?'um-active':v==='Inactive'?'um-inactive':'um-pending')+'">'+v+'</span>';r.dataset.userStatus=v}
+function syncMenu(){if(!selected)return;const st=status(selected),basic=selected.dataset.userTier==='tier3';const inv=menu.querySelector('[data-act="invite"]');inv.style.display=(basic||st!=='Invited')?'none':'';menu.querySelector('[data-act="toggle"]').textContent=st==='Inactive'?'Reactivate User':'Deactivate User';}
+tbody.addEventListener('click',e=>{const b=e.target.closest('.um-menu-trigger');if(!b)return;e.stopPropagation();selected=b.closest('tr');syncMenu();const rc=b.getBoundingClientRect();menu.style.position='fixed';menu.style.top=Math.min(window.innerHeight-210,rc.bottom+4)+'px';menu.style.left=Math.max(10,rc.right-210)+'px';menu.classList.add('open')});document.addEventListener('click',e=>{if(!menu.contains(e.target))menu.classList.remove('open')});
+function profile(){let c=selected.cells;[['umProfileName',2],['umProfileEmail',1],['umProfileOrg',3],['umProfileCategory',5],['umProfileStatus',6],['umProfileDate',7]].forEach(([id,i])=>document.getElementById(id).value=c[i].textContent.trim());open('umProfileModal')}
+function loans(){document.getElementById('umLoansUser').textContent=selected.cells[2].textContent+' · '+selected.cells[5].textContent;renderLoans();open('umLoansModal')}
+function renderLoans(){const host=document.getElementById('umLoanList');host.replaceChildren();const values=selected.cells[4].textContent.split(',').map(x=>x.trim()).filter(x=>x&&x!=='—');if(!values.length){const p=document.createElement('p');p.textContent='No associated loans.';host.append(p)}values.forEach(v=>{const div=document.createElement('div');div.className='v195-loan-row';const span=document.createElement('span');span.textContent=v;const b=document.createElement('button');b.className='um-btn';b.textContent='Unlink';b.onclick=()=>{if(!confirm('Unlink '+v+' from this user?'))return;const next=values.filter(x=>x!==v);selected.cells[4].textContent=next.join(', ')||'—';renderLoans();filter()};div.append(span,b);host.append(div)})}
+menu.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(!b||!selected)return;menu.classList.remove('open');const act=b.dataset.act;if(act==='profile')profile();if(act==='loans')loans();if(act==='invite'){alert('Demo: Enrollment invitation resent with a replacement one-time User Authorization Code in the same email. Loan Association PINs are unaffected.');}if(act==='toggle'){setStatus(selected,status(selected)==='Inactive'?'Active':'Inactive');filter()}});
+document.getElementById('umProfileSave').onclick=()=>{selected.cells[2].textContent=document.getElementById('umProfileName').value;selected.cells[1].textContent=document.getElementById('umProfileEmail').value;selected.cells[3].textContent=document.getElementById('umProfileOrg').value;close('umProfileModal');filter()};
+document.getElementById('umLinkLoan').onclick=()=>{const input=document.getElementById('umNewLoan'),v=input.value.trim();if(!v)return alert('Enter an authorized loan number.');const existing=selected.cells[4].textContent.split(',').map(x=>x.trim()).filter(x=>x&&x!=='—');if(existing.includes(v))return alert('This loan is already associated.');existing.push(v);selected.cells[4].textContent=existing.join(', ');input.value='';renderLoans();filter()};
+const existingEmail=document.getElementById('umExistingEmail');existingEmail.addEventListener('input',()=>{const match=rows().find(r=>r.cells[1].textContent.toLowerCase()===existingEmail.value.trim().toLowerCase());document.getElementById('umExistingResult').textContent=match?'Existing portal user: '+match.cells[2].textContent+'. Review existing account before inviting.':'No matching portal account in this demo.'});
+document.getElementById('umSendInvite').onclick=()=>{const name=document.getElementById('umInviteName').value.trim(),email=document.getElementById('umInviteEmail').value.trim(),org=document.getElementById('umInviteOrg').value.trim(),loans=document.getElementById('umInviteLoans').value.trim();if(!name||!email||!loans)return alert('Name, email, and at least one pre-authorized loan are required.');if(rows().some(r=>r.cells[1].textContent.toLowerCase()===email.toLowerCase()))return alert('An account with this email already exists. Review it before inviting.');const tr=document.createElement('tr');tr.dataset.userTier='tier1';tr.dataset.userStatus='Invited';tr.innerHTML='<td><input type="checkbox" class="um-check um-row-select"></td>'+[email,name,org||'—',loans,'Primary (Tier 1)','Invited',new Date().toLocaleDateString('en-US')].map((x,i)=>'<td>'+(i===5?'<span class="um-status um-pending">'+x+'</span>':x.replaceAll('&','&amp;').replaceAll('<','&lt;'))+'</td>').join('')+'<td><button type="button" class="um-more um-menu-trigger" aria-label="User actions">•••</button></td>';tbody.append(tr);close('umInviteModal');filter();alert('Demo: Invitation email prepared with the one-time User Authorization Code included in the same message.');};
+filter();}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script><script id="v196-loan-autocomplete">
+(function(){
+function setup(){
+const lookup=document.getElementById('umLoanLookup'),hidden=document.getElementById('umInviteLoans'),suggest=document.getElementById('umLoanSuggestions'),chips=document.getElementById('umLoanChips');
+if(!lookup||!hidden)return;
+const catalog=[
+['030166-L01','Riverview Apartments','Riverview Housing LLC','95-1001661'],
+['030166-L02','Riverview Senior Housing','Riverview Housing LLC','95-1001661'],
+['041872-L01','Sunrise Community Apartments','Sunrise Community Partners LLC','95-1041872'],
+['052114-L01','Westlake Affordable Housing','Westlake Affordable Housing LP','95-1052114'],
+['052114-L02','Arlington Square Apartments','Arlington Square Property Management LLC','95-1052114'],
+['062345-L01','Harbor View Residences','Harbor View Housing LLC','95-1062345']
+];
+const chosen=new Set();
+function render(){
+hidden.value=[...chosen].join(', ');
+chips.replaceChildren();
+if(!chosen.size){chips.textContent='No loans selected';return;}
+chosen.forEach(id=>{const tag=document.createElement('span');tag.className='v196-chip';tag.textContent=id+' ';const remove=document.createElement('button');remove.type='button';remove.textContent='×';remove.onclick=()=>{chosen.delete(id);render()};tag.append(remove);chips.append(tag)});
+}
+function search(){
+const q=lookup.value.trim().toLowerCase();suggest.replaceChildren();if(!q){suggest.style.display='none';return;}
+const found=catalog.filter(x=>!chosen.has(x[0])&&x.some(v=>v.toLowerCase().includes(q)));
+found.forEach(x=>{const b=document.createElement('button');b.type='button';b.className='v196-option';b.textContent=x[0]+' — '+x[1]+' | '+x[2]+' | EIN '+x[3];b.onclick=()=>{chosen.add(x[0]);lookup.value='';suggest.style.display='none';render();lookup.focus()};suggest.append(b)});
+if(!found.length)suggest.textContent='No matching authorized loan in demo records.';
+suggest.style.display='block';
+}
+lookup.addEventListener('input',search);
+document.addEventListener('click',e=>{if(e.target!==lookup&&!suggest.contains(e.target))suggest.style.display='none'});
+render();
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup);else setup();
+})();
+</script><script id="rr-v197-nav">(function(){const a=document.getElementById('rrExisting'),b=document.getElementById('rrNew'),p=document.getElementById('portfolioManagementNav');function change(rr){document.body.classList.toggle('rr-invoicing-mode',rr);a.classList.toggle('selected',!rr);b.classList.toggle('selected',rr);if(rr){document.body.classList.remove('dashboard-mode','user-management-mode','portfolio-search-mode');document.querySelectorAll('.sidebar-item').forEach(x=>x.classList.remove('active'));p.classList.add('active')}window.scrollTo(0,0)}b.addEventListener('click',()=>change(true));a.addEventListener('click',()=>change(false));p.addEventListener('click',()=>change(false));document.querySelectorAll('.sidebar-item').forEach(x=>{if(x!==p)x.addEventListener('click',()=>{document.body.classList.remove('rr-invoicing-mode');a.classList.add('selected');b.classList.remove('selected')})})})();</script><script id="rr-v199-js">(function(){const el=id=>document.getElementById(id);const data=[['BA0450','Sunshine Project','Sunshine Housing LP','50%','Active / In Service',0,'04/30/2027','Ready',''],['LA1024','Oak Terrace Apartments','Oak Terrace Partners','75%','Active / In Service',0,'04/30/2027','Ready',''],['LA1120','Cedar Grove Homes','Cedar Grove LP','50%','Active / In Service',12850,'04/30/2027','Warning','Prior-year RR delinquency'],['LA1188','Westlake Family Housing','Westlake Housing LLC','50%','Active / In Service',0,'04/30/2027','Blocked','Missing notice contact'],['LA1212','Harbor View Apartments','Harbor View LP','—','Active / In Service',0,'Pending','Blocked','RR percentage missing'],['LA1307','Maple Senior Housing','Maple Senior LP','25%','Active / In Service',0,'04/30/2027','Ready',''],['LA1401','Hillcrest Homes','Hillcrest Housing LP','50%','Closed',0,'—','Blocked','Closed loan — eligibility review']].map(([id,project,borrower,pct,status,balance,due,state,issue])=>({id,project,borrower,pct,status,balance,due,state,issue}));const chosen=new Set();let editing=null,sequence=1001;function shown(d){let q=el('rrQuery').value.toLowerCase(),f=el('rrStatus').value;return(d.id+' '+d.project+' '+d.borrower).toLowerCase().includes(q)&&(f==='all'||d.state===f)}function valid(d){return d.state==='Ready'||d.state==='Warning'}function render(){el('rrRows').innerHTML='';data.filter(shown).forEach(d=>{const tr=document.createElement('tr');tr.innerHTML='<td><input type="checkbox" data-check="'+d.id+'" '+(chosen.has(d.id)?'checked ':'')+(valid(d)?'':'disabled')+'></td><td><strong>'+d.id+'</strong><small>'+d.project+'</small></td><td>'+d.borrower+'</td><td>'+d.pct+'</td><td>'+d.status+'</td><td>$'+d.balance.toLocaleString()+'</td><td>'+d.due+'</td><td><span class="rrBadge '+d.state+'">'+(d.state==='Created'?'Case Created':d.state)+'</span><small>'+d.issue+'</small>'+(d.caseNo?'<small>AHIS '+d.caseNo+'</small>':'')+(d.reason?'<small>Reason: '+d.reason.replace(/</g,'&lt;')+'</small>':'')+'</td><td>'+(d.state==='Created'?'—':'<button class="rrTextBtn" data-action="'+d.id+'">'+(['Deferred','Excluded'].includes(d.state)?'Restore':'Exclude / Defer')+'</button>')+'</td>';el('rrRows').appendChild(tr)});let count=k=>data.filter(d=>d.state===k).length;el('rrStats').innerHTML=[['Candidates',data.length],['Ready',count('Ready')],['Warnings',count('Warning')],['Blocked',count('Blocked')],['Cases Created',count('Created')]].map(x=>'<div><b>'+x[1]+'</b><span>'+x[0]+'</span></div>').join('');el('rrCount').textContent=chosen.size;el('rrGenerate').disabled=!chosen.size;const visible=data.filter(d=>shown(d)&&valid(d));el('rrAll').checked=visible.length>0&&visible.every(d=>chosen.has(d.id))}el('rrRows').addEventListener('change',e=>{let id=e.target.dataset.check;if(!id)return;e.target.checked?chosen.add(id):chosen.delete(id);render()});el('rrRows').addEventListener('click',e=>{let id=e.target.dataset.action;if(!id)return;editing=data.find(d=>d.id===id);if(['Deferred','Excluded'].includes(editing.state)){editing.state=editing.previous;editing.reason='';render();return}el('rrModalLoan').textContent=editing.id+' — '+editing.project;el('rrReason').value='';el('rrModal').hidden=false});el('rrCancel').onclick=()=>el('rrModal').hidden=true;el('rrSave').onclick=()=>{let reason=el('rrReason').value.trim();if(!reason){alert('Please enter a reason.');return}editing.previous=editing.state;editing.state=el('rrDecision').value==='Defer'?'Deferred':'Excluded';editing.reason=reason;chosen.delete(editing.id);el('rrModal').hidden=true;render()};el('rrAll').onchange=e=>{data.filter(d=>shown(d)&&valid(d)).forEach(d=>e.target.checked?chosen.add(d.id):chosen.delete(d.id));render()};el('rrQuery').oninput=render;el('rrStatus').onchange=render;el('rrValidate').onclick=()=>alert('Validation complete. Blocking exceptions cannot be included in the batch. Prior-year delinquency is a review warning.');el('rrGenerate').onclick=()=>{let batch=data.filter(d=>chosen.has(d.id)&&valid(d));if(!batch.length)return;if(!confirm('Generate '+batch.length+' annual RR cases for FY '+el('rrYear').value+'?'))return;batch.forEach(d=>{d.state='Created';d.caseNo='RR-'+el('rrYear').value.slice(0,4)+'-'+String(sequence++).padStart(5,'0')});chosen.clear();render();window.dispatchEvent(new CustomEvent('ahis-rr-cases-created',{detail:{cases:batch.map(d=>({id:d.id,project:d.project,borrower:d.borrower,caseNo:d.caseNo,due:d.due,fy:el('rrYear').value.slice(0,4)}))}}));alert('Cases created in mock-up: '+batch.map(d=>d.caseNo).join(', ')+'. No borrower notifications were sent.')};el('rrExport').onclick=()=>{let rows=[['Loan','Project','Status','Exception','Reason'],...data.filter(d=>d.issue||d.reason).map(d=>[d.id,d.project,d.state,d.issue,d.reason||''])];let csv=rows.map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='RR_Annual_Exceptions.csv';a.click()};function open(){document.body.classList.add('rr-invoicing-mode','rr-review-active');render()}function close(){document.body.classList.remove('rr-review-active')}el('rrOpenReview').onclick=open;el('rrOpenReview').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}};el('rrBack').onclick=close;el('rrNew').addEventListener('click',close);el('rrExisting').addEventListener('click',close);el('portfolioManagementNav').addEventListener('click',close);document.querySelectorAll('.sidebar-item').forEach(n=>{if(n.id!=='portfolioManagementNav')n.addEventListener('click',close)});render()})();</script><script id="rr-v204-case-dashboard-js">
+(function(){
+const $=id=>document.getElementById(id);
+const cases=[
+{caseNo:'RR-2026-00001',project:'Sunshine Project',loan:'BA0450',borrower:'Sunshine Housing LP',fy:'2026',staff:'Steven Brady',afsDue:'04/30/2027',afs:'Awaiting AFS',rra:'Not Started',invoice:null,invoiceDue:null,payment:'Not Issued',balance:null,stage:'Awaiting AFS'},
+{caseNo:'RR-2026-00002',project:'Oak Terrace Apartments',loan:'LA1024',borrower:'Oak Terrace Partners',fy:'2026',staff:'Kim Nguyen',afsDue:'04/30/2027',afs:'Received 03/15/2027',rra:'Pending L1 Review',invoice:null,invoiceDue:null,payment:'Not Issued',balance:null,stage:'RRA Review'},
+{caseNo:'RR-2026-00003',project:'Cedar Grove Homes',loan:'LA1120',borrower:'Cedar Grove LP',fy:'2026',staff:'Michael Lee',afsDue:'04/30/2027',afs:'Received 03/02/2027',rra:'Approved',invoice:18750,invoiceDue:'06/30/2027',payment:'Payment Pending',balance:18750,stage:'Payment Monitoring'},
+{caseNo:'RR-2026-00004',project:'Harbor Point Homes',loan:'LA1550',borrower:'Harbor Point LP',fy:'2026',staff:'Steven Brady',afsDue:'04/30/2027',afs:'Overdue',rra:'Not Started',invoice:null,invoiceDue:null,payment:'Not Issued',balance:null,stage:'Awaiting AFS'},
+{caseNo:'RR-2026-00005',project:'Riverside Senior Housing',loan:'LA1600',borrower:'Riverside Senior LP',fy:'2026',staff:'Kim Nguyen',afsDue:'04/30/2027',afs:'Received 02/18/2027',rra:'Approved',invoice:null,invoiceDue:null,payment:'Not Issued',balance:null,stage:'Invoice Preparation'},
+{caseNo:'RR-2025-00022',project:'Willow Court',loan:'LA0922',borrower:'Willow Court LLC',fy:'2025',staff:'Michael Lee',afsDue:'04/30/2026',afs:'Received 03/20/2026',rra:'Approved',invoice:11200,invoiceDue:'07/30/2026',payment:'Delinquent',balance:11200,stage:'Payment Monitoring'},
+{caseNo:'RR-2025-00018',project:'Parkview Apartments',loan:'LA0830',borrower:'Parkview Housing LP',fy:'2025',staff:'Steven Brady',afsDue:'04/30/2026',afs:'Received 03/10/2026',rra:'Approved',invoice:9200,invoiceDue:'06/30/2026',payment:'Paid in Full',balance:0,stage:'Completed'}
+];
+const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const money=v=>v==null?'—':'$'+v.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0});
+const pill=(value)=>{const t=String(value||'');const cls=/overdue|delinquent/i.test(t)?'alert':/pending|awaiting/i.test(t)?'warn':/approved|paid in full|received|completed/i.test(t)?'ok':'';return '<span class="rr-case-chip '+cls+'">'+esc(t)+'</span>'};
+function matches(c){
+const q=$('rrCaseSearch').value.trim().toLowerCase(),fy=$('rrCaseFY').value,stage=$('rrCaseStage').value,staff=$('rrCaseStaff').value;
+return (fy==='all'||c.fy===fy)&&(stage==='all'||c.stage===stage)&&(staff==='all'||c.staff===staff)&&[c.caseNo,c.project,c.loan,c.borrower].join(' ').toLowerCase().includes(q);
+}
+function render(){
+const filtered=cases.filter(matches);
+$('rrCaseKPIs').innerHTML=[
+['Total Cases',filtered.length],['AFS Overdue',filtered.filter(c=>c.afs==='Overdue').length],
+['Pending RRA Review',filtered.filter(c=>/Pending L1|Pending L2/.test(c.rra)).length],
+['Awaiting Invoice',filtered.filter(c=>c.stage==='Invoice Preparation').length],
+['Delinquent Invoices',filtered.filter(c=>c.payment==='Delinquent').length]
+].map(([label,count])=>'<div><strong>'+count+'</strong><span>'+label+'</span></div>').join('');
+$('rrCaseVisible').textContent='('+filtered.length+')';
+$('rrCaseRows').innerHTML=filtered.length?filtered.map(c=>`<tr>
+<td><button type="button" class="rr-case-link" data-case="${esc(c.caseNo)}">${esc(c.caseNo)}</button></td>
+<td><strong>${esc(c.project)}</strong><small>${esc(c.loan)} · ${esc(c.borrower)}</small></td>
+<td>${esc(c.fy)}–${Number(c.fy)+1}</td><td>${esc(c.staff)}</td>
+<td><span>${esc(c.afsDue)}</span><small>${pill(c.afs)}</small></td>
+<td>${pill(c.rra)}</td><td class="rr-case-money">${money(c.invoice)}</td><td>${esc(c.invoiceDue||'—')}</td>
+<td>${pill(c.payment)}<small>Outstanding: ${money(c.balance)}</small></td><td>${pill(c.stage)}</td></tr>`).join(''):'<tr><td colspan="10" style="text-align:center;padding:30px;color:#687d90">No RR cases match the selected filters.</td></tr>';
+}
+function open(){$('rrCaseDashboard').classList.remove('rr-showing-detail');document.body.classList.add('rr-invoicing-mode','rr-case-active');document.body.classList.remove('rr-review-active');$('rrCaseDetail').hidden=true;render();window.scrollTo(0,0)}
+function overview(){$('rrCaseDashboard').classList.remove('rr-showing-detail');document.body.classList.remove('rr-case-active');$('rrCaseDetail').hidden=true;window.scrollTo(0,0)}
+$('rrOpenCases').onclick=open;
+$('rrOpenCases').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}};
+$('rrCaseOverview').onclick=overview;
+$('rrCaseReview').onclick=()=>{overview();$('rrOpenReview').click();};
+$('rrCaseReset').onclick=()=>{$('rrCaseFY').value='all';$('rrCaseSearch').value='';$('rrCaseStage').value='all';$('rrCaseStaff').value='all';render()};
+['rrCaseFY','rrCaseSearch','rrCaseStage','rrCaseStaff'].forEach(id=>$(id).addEventListener(id==='rrCaseSearch'?'input':'change',render));
 
-  const rows=Array.from(table.querySelectorAll('tbody tr'));
-  function tierOf(row){
-    const txt=row.innerText.toLowerCase();
-    if(txt.includes('tier 2') && txt.includes('secondary')) return 'tier2';
-    return 'tier1';
-  }
-  rows.forEach(r=>r.dataset.userTier=tierOf(r));
-  const c1=rows.filter(r=>r.dataset.userTier==='tier1').length;
-  const c2=rows.filter(r=>r.dataset.userTier==='tier2').length;
-  document.getElementById('umTier1Count').textContent=c1;
-  document.getElementById('umTier2Count').textContent=c2;
+const rrAfsDocs={};
+const rrCorrectionOpen={};
+const rrActivity={};
+const rrNotifications={};
+const rrRraMeta={};
+let currentCase=null;
+function ensureActivity(c){
+ if(!rrActivity[c.caseNo])rrActivity[c.caseNo]=[
+  {when:'Case created',by:'System',action:'Annual RR case generated'},
+  ...(c.afs.startsWith('Received')?[{when:c.afs.replace('Received ','') ,by:'Borrower Portal',action:'Audited Financial Statement received'}]:[]),
+  ...(c.afs==='Overdue'?[{when:'After AFS deadline',by:'System',action:'AFS overdue; compliance review required'}]:[])
+ ];
+}
+function log(c,action,by='AHIS Staff'){ensureActivity(c);rrActivity[c.caseNo].unshift({when:new Date().toLocaleString(),by,action})}
+function setRRCaseTab(tab){
+ document.querySelectorAll('#rrCaseDetail .rr-case-tab').forEach(b=>{const active=b.dataset.rrTab===tab;b.classList.toggle('active',active);b.setAttribute('aria-selected',String(active));});
+ document.querySelectorAll('#rrCaseDetailBody [data-rr-panel]').forEach(panel=>{panel.hidden=panel.dataset.rrPanel!==tab;});
+}
+$('rrCaseDetail').querySelector('.rr-case-tabs').addEventListener('click',e=>{const tab=e.target.closest('[data-rr-tab]');if(tab)setRRCaseTab(tab.dataset.rrTab);});
+function detail(c){
+ currentCase=c;ensureActivity(c);
+ $('rrCaseHeaderNumber').textContent=c.caseNo;
+ $('rrCaseHeaderProject').textContent=c.project;
+ $('rrCaseHeaderLoan').textContent=c.loan;
+ $('rrCaseHeaderManager').textContent=c.staff;
+ $('rrCaseHeaderStatus').textContent=c.stage;
+ const overdue=c.afs==='Overdue',received=c.afs.startsWith('Received');
+ const afsDoc=rrAfsDocs[c.caseNo];
+ const rra=rrRraMeta[c.caseNo]||{}; const rraApproved=c.rra==='Approved';
+ const notices=rrNotifications[c.caseNo]||[];
+ const fields=[['RR Case #',c.caseNo],['Project / Loan',c.project+' / '+c.loan],['Borrower',c.borrower],['Assigned Portfolio Manager',c.staff],['Fiscal Year',c.fy+'–'+(Number(c.fy)+1)]];
+ const activity=rrActivity[c.caseNo].map(x=>'<tr><td>'+esc(x.when)+'</td><td>'+esc(x.by)+'</td><td>'+esc(x.action)+'</td></tr>').join('');
+ $('rrCaseDetailBody').innerHTML=`
+ <div class="rr-case-status-strip"><div><small>Case Stage</small><strong>${esc(c.stage)}</strong></div><div><small>AFS</small><strong>${esc(c.afs)}</strong></div><div><small>RRA</small><strong>${esc(c.rra)}</strong></div><div><small>Invoice</small><strong>${c.invoice===null?'Not Issued':'Issued / Recorded'}</strong></div><div><small>Payment</small><strong>${esc(c.payment)}</strong></div></div>
+ <div class="rr-detail-section"><h3>Case &amp; Loan Information</h3><div class="rr-detail-fields">${fields.map(([k,v])=>'<div><small>'+esc(k)+'</small><strong>'+esc(v)+'</strong></div>').join('')}</div></div>
+ <div class="rr-detail-section"><div class="rr-detail-section-title"><div><h3>AFS Submission &amp; Compliance</h3><p>Track annual audited financial statements and required follow-up.</p></div>${pill(c.afs)}</div>
+ <div class="rr-afs-status">
+ <div><small>AFS Due Date</small><strong>${esc(c.afsDue)}</strong></div>
+ <div><small>Submission Status</small><strong>${esc(c.afs)}</strong></div>
+ <div><small>Receipt Date</small><strong>${received?esc(c.afs.replace('Received ','')):'—'}</strong></div><div><small>Submitted By</small><strong>${esc(afsDoc?.submittedBy|| (received?'Borrower (sample)':'—'))}</strong></div>
+ <div><small>Compliance Alert</small><strong>${overdue?'AFS Overdue · Notify Portfolio Manager':'None recorded'}</strong></div>
+ </div>
+ <div class="rr-detail-note">Use the Action Menu above to request, upload, record, or return an AFS for correction. Replacement is allowed only after a correction request.</div>
+ </div>
+ <div class="rr-detail-section"><div class="rr-detail-section-title"><div><h3>RRA Calculation &amp; Approval</h3><p>RRA results and approvals are expected from the separate AFS Extraction Module.</p></div>${pill(c.rra)}</div>
+ <div class="rr-detail-fields"><div><small>RRA Submitted</small><strong>${esc(rra.submitted|| (c.rra!=='Not Started'?'Sample date not available':'—'))}</strong></div><div><small>L1 Reviewed</small><strong>${esc(rra.reviewed||(rraApproved?'Sample date not available':'—'))}</strong></div><div><small>L2 Approved</small><strong>${esc(rra.approved||(rraApproved?'Sample date not available':'—'))}</strong></div></div>
+ <div class="rr-rra-summary"><div><small>RRA Calculation Summary</small><strong>${c.rra==='Not Started'?'Not yet available':rra.summary||'RRA calculation details pending integration'}</strong></div><div><small>RR Analysis Amount</small><strong>${rra.amount!=null?money(rra.amount):'Not available'}</strong></div><div><small>AFS Extraction Module</small><strong>External integration pending</strong><button class="rr-text-action" type="button" data-rr-action="module-link">View RRA Details ↗</button></div></div>
+ <div class="rr-detail-note">Illustrative RRA statuses are displayed where available. Dates, calculation details, and RR amount will be populated through the AFS Extraction Module integration; they are not inferred from the invoice amount.</div></div>
+ <div class="rr-detail-section"><h3>Invoice Information</h3><div class="rr-detail-fields"><div><small>Invoice Status</small><strong>${c.invoice===null?'Not Issued':c.payment==='Paid in Full'?'Paid': 'Issued'}</strong></div><div><small>Invoice Amount</small><strong>${money(c.invoice)}</strong></div><div><small>Invoice Due Date</small><strong>${esc(c.invoiceDue||'—')}</strong></div><div><small>Payment Terms</small><strong>Not available</strong></div><div><small>Payment Status</small><strong>${esc(c.payment)}</strong></div><div><small>Outstanding Balance</small><strong>${money(c.balance)}</strong></div></div><p class="rr-detail-note">Invoice preparation, adjustments, issuance, and payment processing will be implemented in later mock-up steps.</p></div>
+ <div class="rr-detail-section"><h3>Documents</h3><div class="rr-document-table"><div><b>Audited Financial Statement</b><span>${afsDoc?esc(afsDoc.name)+' · '+esc(afsDoc.submittedBy)+' · v'+afsDoc.version:(received?'AFS received (sample record)':'Not yet submitted')}</span></div><div><b>Finalized RRA Spreadsheet</b><span>${rraApproved?'Pending document integration':'Not yet available'}</span></div><div><b>Invoice PDF</b><span>${c.invoice===null?'Not issued':'Document link pending'}</span></div>${notices.map(n=>'<div><b>'+esc(n.type)+'</b><span>'+esc(n.date)+' · Demo notification recorded</span></div>').join('')}</div></div>
+ <div class="rr-detail-section"><h3>Activity &amp; Notification History</h3><div class="rr-case-scroll"><table class="rr-case-table rr-activity-table"><thead><tr><th>Date / Time</th><th>Performed By</th><th>Activity</th></tr></thead><tbody>${activity}</tbody></table></div></div>`;
+ // Keep the detailed case content in three navigable tabs.
+ const sections=[...$('rrCaseDetailBody').querySelectorAll(':scope > .rr-detail-section')];
+ sections.forEach(section=>{
+   const heading=section.querySelector('h3')?.textContent||'';
+   section.dataset.rrPanel=heading==='Documents'?'documents':heading.startsWith('Activity')?'activity':'details';
+ });
+ $('rrCaseDetailBody').querySelector('.rr-case-status-strip')?.remove();
+ $('rrCaseDetailBody').querySelectorAll('.rr-detail-section').forEach(section=>{
+   if(section.querySelector('h3')?.textContent==='Case & Loan Information'){
+     const fields=section.querySelectorAll('.rr-detail-fields > div');
+     [...fields].forEach(field=>{
+       const key=field.querySelector('small')?.textContent;
+       if(key==='RR Case #'||key==='Project / Loan')field.remove();
+     });
+     section.remove(); // Case information is consolidated into the header.
+   }
+ });
+ setRRCaseTab('details');
+ $('rrCaseDashboard').classList.add('rr-showing-detail');
+ $('rrCaseDetail').hidden=false;
+ window.scrollTo(0,0);
+}
+$('rrCaseRows').onclick=e=>{
+ const btn=e.target.closest('[data-case]');if(!btn)return;
+ const c=cases.find(x=>x.caseNo===btn.dataset.case);if(c)detail(c);
+};
+function performRRAction(action){
+ const c=currentCase;if(!c||!action)return;
+ if(action==='module-link'){alert('The AFS Extraction Module URL/integration has not been configured in this prototype.');return;}
+ if(['afs-request','reminder','record-afs','compliance','correction'].includes(action)){openRRModal(action);return;}
+ if(action==='rra-start'){
+  if(!c.afs.startsWith('Received')){alert('Record the AFS receipt before initiating RRA.');return;}
+  log(c,'RRA initiation requested in AFS Extraction Module (demo only)');detail(c);return;
+ }
+ if(['rra-submit','rra-review','rra-approve','rra-return'].includes(action)){
+  if(!c.afs.startsWith('Received')){alert('AFS must be received before RRA review.');return;}
+  if(action==='rra-review'&&!['RRA Submitted','Pending L1 Review'].includes(c.rra)){alert('RRA must be submitted before L1 review.');return;}
+  if(action==='rra-approve'&&!['Reviewed','Pending L2 Review'].includes(c.rra)){alert('L1 review must be completed before L2 approval.');return;}
+  if(action==='rra-return'&&c.rra==='Not Started'){alert('No RRA is currently under review.');return;}
+  if(!confirm('Record this RRA workflow action in the demonstration? This does not update the external AFS Extraction Module.'))return;
+  const meta=rrRraMeta[c.caseNo]||(rrRraMeta[c.caseNo]={});
+  const today=new Date().toLocaleDateString('en-US');
+  if(action==='rra-submit'){c.rra='RRA Submitted';meta.submitted=today;meta.reviewed=null;meta.approved=null;}
+  if(action==='rra-review'){c.rra='Reviewed';meta.reviewed=today;}
+  if(action==='rra-approve'){c.rra='Approved';meta.approved=today;}
+  if(action==='rra-return'){c.rra='Returned for Correction';meta.reviewed=null;meta.approved=null;}
+  c.stage=action==='rra-approve'?'Invoice Preparation':'RRA Review';
+  log(c,{'rra-submit':'RRA submitted for L1 review','rra-review':'RRA L1 reviewed','rra-approve':'RRA L2 approved','rra-return':'RRA returned for correction'}[action]+' (demo only)');render();detail(c);return;
+ }
+ if(action==='invoice-ready'){
+  if(c.rra!=='Approved'){alert('L2 RRA approval is required before invoice preparation.');return;}
+  c.stage='Invoice Preparation';log(c,'Case marked ready for invoice preparation');render();detail(c);
+ }
+}
+$('rrCaseAction').addEventListener('change',e=>{const action=e.target.value;e.target.value='';performRRAction(action)});
+$('rrCaseDetailBody').addEventListener('click',e=>{const btn=e.target.closest('[data-rr-action]');if(btn)performRRAction(btn.dataset.rrAction)});
 
-  function visibleChecks(){
-    return rows.filter(r=>r.style.display!=='none').map(r=>r.querySelector('input[type="checkbox"]')).filter(Boolean);
-  }
-  function syncSelection(){
-    const checks=visibleChecks(), checked=checks.filter(c=>c.checked);
-    if(selectedCount) selectedCount.textContent=checked.length;
-    if(bulkBar) bulkBar.style.display=checked.length>=2?'flex':'none';
-    if(selectAll){
-      selectAll.indeterminate=checked.length>0&&checked.length<checks.length;
-      selectAll.checked=checks.length>0&&checked.length===checks.length;
-    }
-  }
-  function showTier(tier){
-    rows.forEach(r=>{
-      r.style.display=r.dataset.userTier===tier?'':'none';
-      const cb=r.querySelector('input[type="checkbox"]'); if(cb) cb.checked=false;
-    });
-    if(selectAll){selectAll.checked=false;selectAll.indeterminate=false}
-    syncSelection();
-  }
-  tabs.forEach(tab=>tab.addEventListener('click',()=>{
-    tabs.forEach(x=>x.classList.remove('active'));tab.classList.add('active');showTier(tab.dataset.tier);
-  }));
-
-  // Select All applies only to users visible in the selected tier.
-  selectAll?.addEventListener('change',function(e){
-    const state=e.target.checked;
-    visibleChecks().forEach(c=>c.checked=state);
-    setTimeout(syncSelection,0);
-  });
-  table.addEventListener('change',e=>{if(e.target.matches('tbody input[type="checkbox"]'))setTimeout(syncSelection,0)});
-  showTier('tier1');
+let rrPendingAction='';
+function openRRModal(action){
+ const c=currentCase;if(!c)return;
+ const received=c.afs.startsWith('Received');
+ if(action==='record-afs'&&received&&!rrCorrectionOpen[c.caseNo]){alert('An AFS has already been received. Request a correction before uploading a replacement.');return;}
+ if(action==='correction'&&!received){alert('A correction request requires an existing submitted AFS.');return;}
+ rrPendingAction=action;
+ const titles={'record-afs':'Upload / Record AFS on Behalf of Borrower','afs-request':'Send AFS Submission Request','reminder':'Send AFS Reminder','compliance':'Flag for Compliance Review','correction':'Request Corrected AFS'};
+ $('rrAfsModalTitle').textContent=titles[action];
+ const txt=(label,id,required=true)=>'<label class="rr-afs-field">'+label+'<textarea id="'+id+'" rows="3" '+(required?'required':'')+' placeholder="Enter comments or instructions"></textarea></label>';
+ const file='<label class="rr-afs-field">Audited Financial Statement (PDF)<input id="rrAfsFile" type="file" accept=".pdf,application/pdf" required></label>';
+ const date='<label class="rr-afs-field">Original Receipt Date<input id="rrAfsReceiptDate" type="date" required value="'+new Date().toISOString().slice(0,10)+'"></label>';
+ let fields='';
+ if(action==='record-afs')fields='<div class="rr-afs-context">Case: '+esc(c.caseNo)+' · Loan: '+esc(c.loan)+' · FY: '+esc(c.fy)+'–'+(Number(c.fy)+1)+'</div>'+file+date+'<label class="rr-afs-field">Received Via<select id="rrAfsVia"><option>Email</option><option>Mail</option><option>In Person</option><option>Other</option></select></label>'+txt('Staff Notes (optional)','rrAfsNotes',false)+(received?'<p class="rr-afs-warning">Correction requested. This replacement will preserve the previous submission in the activity log.</p>':'');
+ else if(action==='afs-request'||action==='reminder')fields='<div class="rr-afs-context">Borrower: '+esc(c.borrower)+' · AFS Due: '+esc(c.afsDue)+'</div>'+txt('Notification Message / Instructions','rrAfsNotes');
+ else if(action==='correction')fields='<div class="rr-afs-context">The current AFS remains in the audit history. Borrower resubmission will be enabled.</div>'+txt('Reason for Correction / Resubmission Instructions','rrAfsNotes');
+ else fields='<div class="rr-afs-context">Assigned Portfolio Manager: '+esc(c.staff)+'</div>'+txt('Compliance Reason / Notes','rrAfsNotes');
+ $('rrAfsModalFields').innerHTML=fields;
+ $('rrAfsModal').hidden=false;
+}
+function closeRRModal(){$('rrAfsModal').hidden=true;rrPendingAction='';$('rrAfsModalFields').innerHTML=''}
+$('rrAfsModalClose').onclick=closeRRModal;
+$('rrAfsCancel').onclick=closeRRModal;
+$('rrAfsForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ const c=currentCase,action=rrPendingAction;if(!c||!action)return;
+ const notes=$('rrAfsNotes')?.value.trim()||'';
+ if(action==='record-afs'){
+  const f=$('rrAfsFile').files[0];
+  if(!f||(!/\.pdf$/i.test(f.name)&&f.type!=='application/pdf')){alert('Please select a PDF document.');return;}
+  const date=$('rrAfsReceiptDate').value;
+  const parts=date.split('-');
+  const display=parts[1]+'/'+parts[2]+'/'+parts[0];
+  const prior=rrAfsDocs[c.caseNo];
+  rrAfsDocs[c.caseNo]={name:f.name,submittedBy:'LAHD Staff',date:display,via:$('rrAfsVia').value,version:(prior?.version||0)+1};
+  c.afs='Received '+display;c.stage='RRA Review';c.rra='Not Started';
+  rrCorrectionOpen[c.caseNo]=false;
+  log(c,(prior?'Corrected AFS uploaded':'AFS uploaded')+' by LAHD Staff: '+f.name+'; received via '+$('rrAfsVia').value+(notes?'; '+notes:''));
+ }else if(action==='correction'){
+  rrCorrectionOpen[c.caseNo]=true;c.afs='Awaiting Corrected AFS';c.stage='Awaiting AFS';
+  log(c,'AFS returned for correction: '+notes);
+ }else if(action==='compliance'){
+  log(c,'AFS noncompliance flagged for '+c.staff+': '+notes);
+ }else{
+  const type=action==='afs-request'?'AFS Submission Request':'AFS Reminder';
+  (rrNotifications[c.caseNo]||(rrNotifications[c.caseNo]=[])).unshift({type,date:new Date().toLocaleString()});
+  log(c,type+' recorded (demo only; no email sent)'+(notes?': '+notes:''));
+ }
+ closeRRModal();render();detail(c);
 });
-</script>
-
-</body></html>
+$('rrCaseDetailClose').onclick=()=>{$('rrCaseDetail').hidden=true;$('rrCaseDashboard').classList.remove('rr-showing-detail');currentCase=null;window.scrollTo(0,0)};
+window.addEventListener('ahis-rr-cases-created',e=>{
+(e.detail?.cases||[]).forEach(d=>{
+if(cases.some(c=>c.caseNo===d.caseNo||c.loan===d.id&&c.fy===d.fy))return;
+cases.unshift({caseNo:d.caseNo,project:d.project,loan:d.id,borrower:d.borrower,fy:d.fy,staff:'Steven Brady',afsDue:d.due,afs:'Awaiting AFS',rra:'Not Started',invoice:null,invoiceDue:null,payment:'Not Issued',balance:null,stage:'Awaiting AFS'});
+});
+render();
+});
+$('rrNew').addEventListener('click',overview);
+$('rrExisting').addEventListener('click',overview);
+$('portfolioManagementNav').addEventListener('click',overview);
+document.querySelectorAll('.sidebar-item').forEach(n=>{if(n.id!=='portfolioManagementNav')n.addEventListener('click',overview)});
+render();
+})();
+</script></body></html>
