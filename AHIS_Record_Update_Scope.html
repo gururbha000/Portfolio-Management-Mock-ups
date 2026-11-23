@@ -120,14 +120,14 @@ button,input,select,textarea{font:inherit}
 
 /* Consistent loan scope cards for every selected loan */
 #loanPanel .loan-link-card{margin-bottom:14px}
-#loanPanel .selected-loan-entry{margin:12px 0;border:1px solid #d4dfea;border-radius:10px;background:#fff;overflow:hidden}
+#loanPanel .selected-loan-entry{margin:12px 0 20px;background:transparent}
 #loanPanel .selected-loan-entry>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;background:#eef5ff;cursor:pointer;list-style:none;color:#233a56}
 #loanPanel .selected-loan-entry>summary::-webkit-details-marker{display:none}
 #loanPanel .selected-loan-entry>summary:before{content:'▸';font-size:15px;color:#245f9d}
 #loanPanel .selected-loan-entry[open]>summary:before{content:'▾'}
 #loanPanel .selected-loan-entry>summary .loan-entry-title{flex:1}
-#loanPanel .selected-loan-entry .loan-entry-content{padding:12px 14px}
-#loanPanel .selected-loan-entry .section{margin:0}
+#loanPanel .selected-loan-entry .loan-entry-content{padding:0}
+#loanPanel .selected-loan-entry .outgoing-loan{margin:0}
 #loanPanel .selected-loan-entry .replacement-selector{margin-top:12px}
 #loanPanel .selected-loan-entry .new-loans-section{margin-top:12px}
 #loanPanel .selected-loan-entry .loan-entry-remove{color:#ad342b;background:#fff;border:1px solid #d4dfea;border-radius:6px;padding:7px 11px;cursor:pointer}
@@ -842,7 +842,7 @@ function addLinkedLoan(){
  if(!loan)return;
  selectedLoans.push({...loan,projectId:pid,primary:false});
  renderSelectedLoans();renderAvailableLoans();
- const entry=document.getElementById('loanEntry_'+loanKey(id));if(entry)entry.open=true;
+
 }
 function removeLinkedLoan(id){
  const i=selectedLoans.findIndex(l=>l.id===id&&!l.primary);
@@ -903,19 +903,19 @@ function uploadLoanDocument(id){
 function addExistingLoanDocument(){uploadLoanDocument('09-117184-001');}
 function makeLoanEntry(loan){
  const key=loanKey(loan.id),project=projectRecords.find(p=>p.id===loan.projectId);
- const entry=document.createElement('details');entry.className='selected-loan-entry';entry.id='loanEntry_'+key;entry.open=!!loan.primary;
- const summary=document.createElement('summary');
- const title=document.createElement('div');title.className='loan-entry-title';
- const name=document.createElement('strong');name.textContent=loan.id+' · '+(project?.name||'Project');title.appendChild(name);
- const meta=document.createElement('div');meta.className='loan-entry-meta';meta.textContent=(loan.primary?'Primary loan':'Additional loan')+' · Current principal: '+money(loan.balance);title.appendChild(meta);
- summary.appendChild(title);
- if(!loan.primary){const remove=document.createElement('button');remove.type='button';remove.className='loan-entry-remove';remove.textContent='Remove';remove.onclick=e=>{e.preventDefault();e.stopPropagation();removeLinkedLoan(loan.id)};summary.appendChild(remove)}
- entry.appendChild(summary);
+ const entry=document.createElement('div');entry.className='selected-loan-entry';entry.id='loanEntry_'+key;
  const content=document.createElement('div');content.className='loan-entry-content';
  content.appendChild(document.getElementById('loanScopeTemplate').content.cloneNode(true));
  const section=content.querySelector('.outgoing-loan');
- section.querySelector('.section-head h2').textContent='Existing Loan Record and Scope of Change';
- section.querySelector('.section-head p').textContent='Identify what happens to this City loan as part of the transaction.';
+ const head=section.querySelector('.section-head');
+ head.querySelector('.record-type').remove();
+ head.querySelector('h2').textContent='Existing Loan';
+ head.querySelector('p').remove();
+ if(!loan.primary){
+  const remove=document.createElement('button');remove.type='button';remove.className='loan-entry-remove';remove.textContent='Remove Loan';
+  remove.onclick=()=>removeLinkedLoan(loan.id);
+  head.appendChild(remove);
+ }
  const row=section.querySelector('.outgoing-summary tbody tr');
  const cells=row.cells;cells[0].textContent=loan.id;cells[1].textContent=loan.primary?'C-146838':'C-'+loan.id.split('-').slice(-1)[0];cells[2].textContent=loan.primary?'684':'—';cells[3].textContent=loan.primary?'$4,000,000.00':'—';cells[4].textContent=money(loan.balance);cells[5].textContent=loan.primary?'$231,436.09':'—';cells[6].textContent='3/31/2026';cells[7].textContent='Open';
  const mapping={loanAction:'action',existingLoanDocuments:'documents',primaryPaydown:'paydown',primaryModify:'modify',primaryPayAmount:'payAmount',primaryRemaining:'remaining',replacementSelector:'replacementSelector',replacementCount:'replacementCount',replacementLoansSection:'replacementSection',newLoanBadge:'replacementBadge',loanCards:'replacementCards',existingDocFile:'docFile',existingDocType:'docType',existingDocSubtype:'docSubtype',existingDocDate:'docDate',existingExecDate:'execDate',existingLoanDocumentRows:'documentRows'};
