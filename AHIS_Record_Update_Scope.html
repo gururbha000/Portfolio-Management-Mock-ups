@@ -232,7 +232,7 @@ button,input,select,textarea{font:inherit}
 .loan-extra-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
 .loan-paydown{background:#f2f7ff;border:1px solid #d5e3f5;border-radius:7px;padding:12px;margin-top:12px}
 .loan-paydown p{font-size:11px;color:#596c82}.loan-paydown textarea{width:100%;min-height:65px}
-.loan-select-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:10px 0}.loan-select-row select{padding:8px;border:1px solid #aebed0;border-radius:5px}#availableLoanSelect{width:285px;min-width:250px;max-width:100%}#loanProjectSelect{min-width:280px}
+.loan-select-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:10px 0}.loan-select-row select{padding:8px;border:1px solid #aebed0;border-radius:5px}#availableLoanSelect{width:390px;min-width:310px;max-width:100%}#loanProjectSelect{min-width:280px}
 .scope-hint{font-size:11px;color:#64748b;margin:6px 0 12px}
 @media(max-width:1000px){.tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.project-grid,.loan-extra-grid{grid-template-columns:1fr}}
 </style></head>
@@ -255,7 +255,7 @@ button,input,select,textarea{font:inherit}
  <h2>Project Information</h2><p class="scope-hint">Select the projects involved in this transaction.</p>
  <section class="project-card"><div class="participant-toolbar"><h3>Projects in Transaction (<span id="projectTotal">1</span>)</h3><button class="scope-button primary" type="button" onclick="toggleProjectLookup()">+ Add Related Project</button></div>
  <div id="projectLookup" class="project-edit" hidden><label for="projectSearch">Find existing project</label><div class="loan-select-row"><input id="projectSearch" placeholder="Search project name or number" oninput="renderProjectMatches()"><button type="button" class="scope-button" onclick="toggleProjectLookup()">Cancel</button></div><div id="projectMatches"></div></div>
- <div class="project-table-scroll"><table class="project-table"><thead><tr><th>Project Name</th><th>Project #</th><th>Address</th><th>Relationship</th><th>Status</th><th>Actions</th></tr></thead><tbody id="projectList"></tbody></table></div></section>
+ <div class="project-table-scroll"><table class="project-table"><thead><tr><th>Project Name</th><th>Project #</th><th>Housing Program</th><th>Address</th><th>Relationship</th><th>Status</th><th>Actions</th></tr></thead><tbody id="projectList"></tbody></table></div></section>
 
  </div>
 <div class="tab-panel" id="participantPanel" hidden>
@@ -280,6 +280,7 @@ button,input,select,textarea{font:inherit}
 <thead>
 <tr>
 <th>Loan No.</th>
+<th>Loan Type</th>
 <th>Contract No.</th>
 <th>Term in Months</th>
 <th>Promissory Note Amount</th>
@@ -292,6 +293,7 @@ button,input,select,textarea{font:inherit}
 <tbody>
 <tr class="current-row">
 <td>09-117184-001</td>
+<td>Residual Receipt</td>
 <td>C-146838</td>
 <td>684</td>
 <td>$4,000,000.00</td>
@@ -809,11 +811,11 @@ document.addEventListener('DOMContentLoaded',renderParticipants);
 
 // Project selection and project-specific updates (demo records)
 const projectRecords=[
- {id:'P-10021',name:'Kingswood Apartments',address:'Los Angeles, CA',primary:true,linked:true,modified:false,loans:[{id:'09-117184-001',balance:3871085.34},{id:'09-117184-002',balance:1605000}]},
- {id:'P-10022',name:'Kingswood II',address:'Los Angeles, CA',primary:false,linked:false,modified:false,loans:[{id:'09-117185-001',balance:2250000}]},
- {id:'P-10023',name:'Kingswood East',address:'Los Angeles, CA',primary:false,linked:false,modified:false,loans:[{id:'09-117186-001',balance:875000}]}
+ {id:'P-10021',name:'Kingswood Apartments',housingProgram:'Multifamily',address:'Los Angeles, CA',primary:true,linked:true,modified:false,loans:[{id:'09-117184-001',balance:3871085.34,type:'Residual Receipt'},{id:'09-117184-002',balance:1605000,type:'Deferred'}]},
+ {id:'P-10022',name:'Kingswood II',housingProgram:'Multifamily',address:'Los Angeles, CA',primary:false,linked:false,modified:false,loans:[{id:'09-117185-001',balance:2250000,type:'Forgivable'}]},
+ {id:'P-10023',name:'Kingswood East',housingProgram:'Multifamily',address:'Los Angeles, CA',primary:false,linked:false,modified:false,loans:[{id:'09-117186-001',balance:875000,type:'Residual Receipt'}]}
 ];
-const selectedLoans=[{projectId:'P-10021',id:'09-117184-001',balance:3871085.34,primary:true}];
+const selectedLoans=[{projectId:'P-10021',id:'09-117184-001',balance:3871085.34,type:'Residual Receipt',primary:true}];
 const money=v=>Number(v||0).toLocaleString('en-US',{style:'currency',currency:'USD'});
 function safeText(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function toggleProjectLookup(){const x=document.getElementById('projectLookup');x.hidden=!x.hidden;if(!x.hidden)renderProjectMatches();}
@@ -828,13 +830,13 @@ function renderProjects(){
  const linked=projectRecords.filter(p=>p.linked);
  document.getElementById('projectTotal').textContent=linked.length;
  document.getElementById('projectCount').textContent=linked.filter(p=>p.modified).length;
- document.getElementById('projectList').innerHTML=linked.map(p=>`<tr class="project-data-row"><td><strong>${safeText(p.name)}</strong></td><td>${safeText(p.id)}</td><td>${safeText(p.address)}</td><td>${p.primary?'Primary Project':'Related Project'}</td><td><span class="project-status ${p.modified?'project-updated':''}">${p.modified?'Update proposed':'Linked'}</span></td><td><details class="participant-action-menu"><summary aria-label="Actions for ${safeText(p.name)}">•••</summary><div class="participant-menu-options"><button type="button" onclick="toggleProjectEdit('${p.id}')">Update Project Information</button><button type="button" onclick="viewProjectDetails('${p.id}')">View Project Details</button>${!p.primary?`<button type="button" onclick="unlinkProject('${p.id}')">Remove from Transaction</button>`:''}</div></details></td></tr>
- <tr class="project-detail-row" id="projectEdit_${p.id}" hidden><td colspan="6"><div class="project-detail-content"><h4>Update Project Information · ${safeText(p.id)}</h4><div class="project-grid"><div><label>Existing Project Name</label><input readonly value="${safeText(p.name)}"></div><div><label>Proposed Project Name</label><input id="projectName_${p.id}" value="${safeText(p.proposedName??p.name)}"></div><div><label>Existing Address</label><input readonly value="${safeText(p.address)}"></div><div><label>Proposed Address</label><input id="projectAddress_${p.id}" value="${safeText(p.proposedAddress??p.address)}"></div></div><div class="project-edit-actions"><button class="scope-button" type="button" onclick="cancelProjectEdit('${p.id}')">Cancel</button><button class="scope-button primary" type="button" onclick="saveProjectEdit('${p.id}')">Save Proposed Changes</button></div></div></td></tr>
- <tr class="project-detail-row" id="projectView_${p.id}" hidden><td colspan="6"><div class="project-detail-content"><h4>Project Details · ${safeText(p.name)}</h4><p class="scope-hint">Associated loans: ${p.loans.map(l=>safeText(l.id)).join(', ')||'None'}</p><p class="scope-hint">To update associated loans, select this project in the Loan Record tab.</p><button class="scope-button" type="button" onclick="viewProjectDetails('${p.id}')">Close</button></div></td></tr>`).join('');
+ document.getElementById('projectList').innerHTML=linked.map(p=>`<tr class="project-data-row"><td><strong>${safeText(p.name)}</strong></td><td>${safeText(p.id)}</td><td>${safeText(p.housingProgram||'—')}</td><td>${safeText(p.address)}</td><td>${p.primary?'Primary Project':'Related Project'}</td><td><span class="project-status ${p.modified?'project-updated':''}">${p.modified?'Update proposed':'Linked'}</span></td><td><details class="participant-action-menu"><summary aria-label="Actions for ${safeText(p.name)}">•••</summary><div class="participant-menu-options"><button type="button" onclick="toggleProjectEdit('${p.id}')">Update Project Information</button><button type="button" onclick="viewProjectDetails('${p.id}')">View Project Details</button>${!p.primary?`<button type="button" onclick="unlinkProject('${p.id}')">Remove from Transaction</button>`:''}</div></details></td></tr>
+ <tr class="project-detail-row" id="projectEdit_${p.id}" hidden><td colspan="7"><div class="project-detail-content"><h4>Update Project Information · ${safeText(p.id)}</h4><div class="project-grid"><div><label>Existing Project Name</label><input readonly value="${safeText(p.name)}"></div><div><label>Proposed Project Name</label><input id="projectName_${p.id}" value="${safeText(p.proposedName??p.name)}"></div><div><label>Existing Address</label><input readonly value="${safeText(p.address)}"></div><div><label>Proposed Address</label><input id="projectAddress_${p.id}" value="${safeText(p.proposedAddress??p.address)}"></div></div><div class="project-edit-actions"><button class="scope-button" type="button" onclick="cancelProjectEdit('${p.id}')">Cancel</button><button class="scope-button primary" type="button" onclick="saveProjectEdit('${p.id}')">Save Proposed Changes</button></div></div></td></tr>
+ <tr class="project-detail-row" id="projectView_${p.id}" hidden><td colspan="7"><div class="project-detail-content"><h4>Project Details · ${safeText(p.name)}</h4><p class="scope-hint">Associated loans: ${p.loans.map(l=>safeText(l.id)).join(', ')||'None'}</p><p class="scope-hint">To update associated loans, select this project in the Loan Record tab.</p><button class="scope-button" type="button" onclick="viewProjectDetails('${p.id}')">Close</button></div></td></tr>`).join('');
 }
 
 function renderLoanProjectSelect(){const s=document.getElementById('loanProjectSelect');const old=s.value;s.innerHTML=projectRecords.filter(p=>p.linked).map(p=>`<option value="${p.id}">${safeText(p.name)} (${p.id})</option>`).join('');if([...s.options].some(o=>o.value===old))s.value=old;renderAvailableLoans();}
-function renderAvailableLoans(){const id=document.getElementById('loanProjectSelect').value;const p=projectRecords.find(x=>x.id===id);const select=document.getElementById('availableLoanSelect');const loans=(p?.loans||[]).filter(l=>!selectedLoans.some(s=>s.id===l.id&&s.projectId===id));select.innerHTML='<option value="">'+(loans.length?'Select Loan':'No available loans')+'</option>'+loans.map(l=>`<option value="${l.id}">${l.id} · ${money(l.balance)}</option>`).join('');select.value='';document.querySelector('button[onclick="addLinkedLoan()"]').disabled=!loans.length;}
+function renderAvailableLoans(){const id=document.getElementById('loanProjectSelect').value;const p=projectRecords.find(x=>x.id===id);const select=document.getElementById('availableLoanSelect');const loans=(p?.loans||[]).filter(l=>!selectedLoans.some(s=>s.id===l.id&&s.projectId===id));select.innerHTML='<option value="">'+(loans.length?'Select Loan':'No available loans')+'</option>'+loans.map(l=>`<option value="${l.id}">${l.id} · ${safeText(l.type||'Not specified')} · ${money(l.balance)}</option>`).join('');select.value='';document.querySelector('button[onclick="addLinkedLoan()"]').disabled=!loans.length;}
 function addLinkedLoan(){
  const pid=document.getElementById('loanProjectSelect').value,id=document.getElementById('availableLoanSelect').value;
  if(!id)return;
@@ -917,7 +919,7 @@ function makeLoanEntry(loan){
   head.appendChild(remove);
  }
  const row=section.querySelector('.outgoing-summary tbody tr');
- const cells=row.cells;cells[0].textContent=loan.id;cells[1].textContent=loan.primary?'C-146838':'C-'+loan.id.split('-').slice(-1)[0];cells[2].textContent=loan.primary?'684':'—';cells[3].textContent=loan.primary?'$4,000,000.00':'—';cells[4].textContent=money(loan.balance);cells[5].textContent=loan.primary?'$231,436.09':'—';cells[6].textContent='3/31/2026';cells[7].textContent='Open';
+ const cells=row.cells;cells[0].textContent=loan.id;cells[1].textContent=loan.type||'Not specified';cells[2].textContent=loan.primary?'C-146838':'C-'+loan.id.split('-').slice(-1)[0];cells[3].textContent=loan.primary?'684':'—';cells[4].textContent=loan.primary?'$4,000,000.00':'—';cells[5].textContent=money(loan.balance);cells[6].textContent=loan.primary?'$231,436.09':'—';cells[7].textContent='3/31/2026';cells[8].textContent='Open';
  const mapping={loanAction:'action',existingLoanDocuments:'documents',primaryPaydown:'paydown',primaryModify:'modify',primaryPayAmount:'payAmount',primaryRemaining:'remaining',replacementSelector:'replacementSelector',replacementCount:'replacementCount',replacementLoansSection:'replacementSection',newLoanBadge:'replacementBadge',loanCards:'replacementCards',existingDocFile:'docFile',existingDocType:'docType',existingDocSubtype:'docSubtype',existingDocDate:'docDate',existingExecDate:'execDate',existingLoanDocumentRows:'documentRows'};
  for(const [old,field] of Object.entries(mapping)){
   const el=content.querySelector('#'+old);if(!el)continue;
