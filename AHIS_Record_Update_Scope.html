@@ -387,6 +387,7 @@ button,input,select,textarea{font:inherit}
 <div class="grid3" style="margin-top:10px">
 <div class="field"><label>Residual Receipt Split</label><input value="6%"/></div>
 <div class="field"><label>Funding / Source</label><input placeholder="Enter source/program if applicable"/></div>
+<div class="field"><label>Lien Position</label><select aria-label="Lien Position"><option value="">Select Lien Position</option><option>1st</option><option>2nd</option><option>3rd</option><option>4th</option><option>Other</option></select></div>
 <div class="field"><label>Loan Type</label><select><option>Residual Receipt</option>
 <option>Deferred</option>
 <option>Prin. Only, Amort</option>
@@ -437,6 +438,7 @@ button,input,select,textarea{font:inherit}
 <div class="grid3" style="margin-top:10px">
 <div class="field"><label>Residual Receipt Split</label><input value="6%"/></div>
 <div class="field"><label>Funding / Source</label><input placeholder="Enter source/program if applicable"/></div>
+<div class="field"><label>Lien Position</label><select aria-label="Lien Position"><option value="">Select Lien Position</option><option>1st</option><option>2nd</option><option>3rd</option><option>4th</option><option>Other</option></select></div>
 <div class="field"><label>Loan Type</label><select><option>Residual Receipt</option>
 <option>Deferred</option>
 <option>Prin. Only, Amort</option>
@@ -535,6 +537,7 @@ button,input,select,textarea{font:inherit}
 <label for="omExecDate">Covenant/Regulatory Agreement Execution Date</label><input id="omExecDate" readonly="" title="Existing system record" value="10/07/2024"/>
 <label for="omRecordingDate">Covenant/Regulatory Agreement Recording Date</label><input id="omRecordingDate" readonly="" title="Existing system record" value="10/07/2024"/>
 <label for="omInstrument">Covenant/Regulatory Agreement Recordation/Instrument Number</label><input id="omInstrument" readonly="" title="Existing system record" value="12345678"/>
+<label for="omLienPosition">Lien Position</label><select id="omLienPosition"><option value="">Select Lien Position</option><option>1st</option><option>2nd</option><option>3rd</option><option>4th</option><option>Other</option></select>
 </div>
 </div>
 </section>
@@ -693,7 +696,7 @@ function loanCardTemplate(i, data){
       <div class="grid3" style="margin-top:10px">
         <div class="field"><label>Residual Receipt Split</label><input value="${d.split}" placeholder="0%"></div>
         <div class="field"><label>Funding / Source</label><input placeholder="Enter source/program if applicable"></div>
-        <div></div>
+        <div class="field"><label>Lien Position</label><select aria-label="Lien Position"><option value="">Select Lien Position</option><option>1st</option><option>2nd</option><option>3rd</option><option>4th</option><option>Other</option></select></div>
       </div>
 
       <div class="docs">
