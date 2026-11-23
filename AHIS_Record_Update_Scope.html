@@ -104,6 +104,35 @@ button,input,select,textarea{font:inherit}
 .participant-menu-options{position:absolute;right:0;top:100%;z-index:30;min-width:145px;background:white;border:1px solid #cbd5e1;border-radius:7px;box-shadow:0 6px 18px #2432472b;padding:5px 0;text-align:left}
 .participant-menu-options button{display:block;width:100%;border:0;background:white;text-align:left;padding:9px 12px;font-size:12px;color:#243247;cursor:pointer}
 .participant-menu-options button:hover{background:#edf4ff}
+
+.project-table-scroll{overflow:visible;margin-top:8px}.project-table{width:100%;border-collapse:collapse;font-size:13px;table-layout:auto}.project-table th{background:#eef1f5;color:#24344b;text-align:left;padding:13px 12px;border-bottom:1px solid #b9c6d4;white-space:nowrap}.project-table td{padding:13px 12px;border-bottom:1px solid #dce3ed;vertical-align:middle}.project-table .project-data-row:nth-of-type(4n+1){background:#f4f8fd}.project-table td:last-child{width:72px;text-align:center}.project-status{display:inline-block;background:#eaf1f9;color:#47617e;padding:5px 10px;border-radius:15px;white-space:nowrap;font-size:12px}.project-status.project-updated{background:#dcecff;color:#135ca5}.project-detail-row td{background:#f7faff!important;text-align:left!important}.project-detail-content{padding:10px 12px}.project-detail-content h4{margin:0 0 15px;font-size:14px}.project-detail-content input[readonly]{background:#edf1f6;color:#64748b}.project-edit-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:14px}.project-table .participant-action-menu{display:inline-block;text-align:left}
+
+/* Project-specific ellipsis: open upward so the menu stays inside the card and is never clipped. */
+#projectPanel .project-card{overflow:visible}
+#projectPanel .project-table{overflow:visible}
+#projectPanel .project-data-row{position:relative}
+#projectPanel .project-data-row:has(details[open]){z-index:40}
+#projectPanel .project-table td:last-child{position:relative;overflow:visible}
+#projectPanel .participant-action-menu{position:relative;z-index:41}
+#projectPanel .participant-menu-options{top:auto;bottom:calc(100% + 6px);right:0;min-width:210px;z-index:100;white-space:nowrap}
+#projectPanel .project-card .participant-toolbar{margin-bottom:4px}
+@media(max-width:800px){#projectPanel .project-table-scroll{overflow-x:auto;overflow-y:visible}}
+
+/* Consistent loan scope cards for every selected loan */
+#loanPanel .loan-link-card{margin-bottom:14px}
+#loanPanel .selected-loan-entry{margin:12px 0;border:1px solid #d4dfea;border-radius:10px;background:#fff;overflow:hidden}
+#loanPanel .selected-loan-entry>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;background:#eef5ff;cursor:pointer;list-style:none;color:#233a56}
+#loanPanel .selected-loan-entry>summary::-webkit-details-marker{display:none}
+#loanPanel .selected-loan-entry>summary:before{content:'▸';font-size:15px;color:#245f9d}
+#loanPanel .selected-loan-entry[open]>summary:before{content:'▾'}
+#loanPanel .selected-loan-entry>summary .loan-entry-title{flex:1}
+#loanPanel .selected-loan-entry .loan-entry-content{padding:12px 14px}
+#loanPanel .selected-loan-entry .section{margin:0}
+#loanPanel .selected-loan-entry .replacement-selector{margin-top:12px}
+#loanPanel .selected-loan-entry .new-loans-section{margin-top:12px}
+#loanPanel .selected-loan-entry .loan-entry-remove{color:#ad342b;background:#fff;border:1px solid #d4dfea;border-radius:6px;padding:7px 11px;cursor:pointer}
+#loanPanel .selected-loan-entry .loan-entry-remove:hover{background:#fff2f0}
+#loanPanel .selected-loan-entry .loan-entry-meta{font-size:11px;color:#62778d;margin-top:4px}
 </style>
 <style>#loanPanel :root{--blue:#2f69b3;--ink:#243247;--muted:#6c7d91;--line:#d7e0ea;--bg:#f5f7fa;--green:#2f7d5c}
 #loanPanel .page{max-width:1420px;margin:22px auto 80px;padding:0 18px}
@@ -187,6 +216,25 @@ button,input,select,textarea{font:inherit}
 #participantPanel .participant-tools{display:flex;gap:9px;align-items:center;flex-wrap:wrap}#participantPanel .status-summary{border-radius:20px;background:#e5f2ff;padding:7px 12px;font-size:12px;color:#123c68}#participantPanel .status-summary b{background:#2873c8;color:white;border-radius:20px;padding:3px 7px;margin-left:6px}
 #participantPanel .participant-tools input{width:195px;height:35px;border:1px solid #aab4c0;border-radius:5px;padding:7px 10px}#participantPanel button{cursor:pointer}#participantPanel .participant-add{background:#08699c;color:white;border:0;border-radius:5px;padding:8px 12px;font-weight:700}#participantPanel .participant-expand-all{border:0;background:white;color:#1268a5;font-size:19px}
 #participantPanel .participant-scroll{overflow-x:auto}#participantPanel .participant-table{border-collapse:collapse;width:100%;font-size:11px;min-width:1150px}#participantPanel .participant-table th{background:#f2f3f5;padding:10px 8px;text-align:left;font-weight:600;border-bottom:1px solid #aeb6c0}#participantPanel .participant-table td{padding:9px 8px;border-bottom:1px solid #d5dbe2;vertical-align:middle}#participantPanel .participant-table tr.changed-row{background:#e2eeff}#participantPanel .participant-table tr.contact-head{background:#dce7ff}#participantPanel .participant-table tr.contact-row{background:#f0f4ff}#participantPanel .participant-table tr.contact-head th{background:#dce7ff}#participantPanel .participant-table .participant-name{min-width:155px}#participantPanel .participant-table .p-status{display:inline-block;background:#2878cc;color:white;border-radius:15px;padding:3px 9px;white-space:nowrap}#participantPanel .participant-table .p-status.replaced{background:#076bbd}#participantPanel .participant-table .row-btn{border:0;background:transparent;color:#08699c;font-size:17px;padding:2px 5px}#participantPanel .participant-table .ellipsis{font-size:19px}#participantPanel .participant-table .contact-cell{padding:0}#participantPanel .participant-table .contact-table{width:100%;border-collapse:collapse}#participantPanel .participant-table .contact-table th,#participantPanel .participant-table .contact-table td{padding:9px 11px}#participantPanel .participant-table .contact-table th{background:#dce7ff}#participantPanel .participant-table .contact-table td{background:#f0f4ff}#participantPanel .participant-table .contact-table .contact-actions{width:45px;text-align:center}
+
+/* Project and multi-loan enhancements */
+.tabs{grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.project-card,.loan-link-card{background:#fff;border:1px solid #d3dce8;border-radius:9px;padding:15px;margin:12px 0}
+.project-card h3,.loan-link-card h3{font-size:14px;margin:0 0 10px}
+.project-line{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px;border-bottom:1px solid #e2e8f0;flex-wrap:wrap}
+.project-line:last-child{border-bottom:0}.project-actions{display:flex;gap:8px;align-items:center}
+.project-small{font-size:11px;color:#65778c}.project-edit{padding:12px;background:#f7faff;border-radius:7px;margin-top:8px}
+.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.project-grid label,.loan-extra-grid label{display:block;font-size:11px;font-weight:700;color:#53657b;margin-bottom:5px}
+.project-grid input,.loan-extra-grid input,.loan-extra-grid select,.project-grid select{width:100%;height:34px;padding:6px;border:1px solid #b9c6d4;border-radius:5px}
+.scope-button{border:1px solid #91b2d4;border-radius:6px;background:#fff;color:#155b97;font-weight:700;padding:8px 12px;cursor:pointer}
+.scope-button.primary{background:#17679d;color:white}.scope-button.danger{color:#a23d37}
+.loan-extra-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.loan-paydown{background:#f2f7ff;border:1px solid #d5e3f5;border-radius:7px;padding:12px;margin-top:12px}
+.loan-paydown p{font-size:11px;color:#596c82}.loan-paydown textarea{width:100%;min-height:65px}
+.loan-select-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:10px 0}.loan-select-row select{padding:8px;border:1px solid #aebed0;border-radius:5px}#availableLoanSelect{width:285px;min-width:250px;max-width:100%}#loanProjectSelect{min-width:280px}
+.scope-hint{font-size:11px;color:#64748b;margin:6px 0 12px}
+@media(max-width:1000px){.tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.project-grid,.loan-extra-grid{grid-template-columns:1fr}}
 </style></head>
 <body>
 <div class="page">
@@ -197,18 +245,29 @@ button,input,select,textarea{font:inherit}
 </div>
 </div>
 <div class="tabs">
+<div class="tab active" data-panel="project" onclick="switchScopeTab('project')" role="button" tabindex="0"><div class="t">Project Information</div><div class="n" id="projectCount">0</div><div class="s">updates</div></div>
 <div class="tab" data-panel="participant" onclick="switchScopeTab('participant')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')switchScopeTab('participant')"><div class="t">Participant / Ownership</div><div class="n" id="participantCount">0</div><div class="s">selected</div></div>
 <div class="tab" data-panel="loan" onclick="switchScopeTab('loan')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();switchScopeTab('loan')}" role="button" tabindex="0"><div class="t">Loan Record</div><div class="n" id="loanCount">0</div><div class="s">selected</div></div>
-<div class="tab active" data-panel="accounting" onclick="switchScopeTab('accounting')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();switchScopeTab('accounting')}" role="button" tabindex="0"><div class="t">Loan Accounting</div><div class="n" id="accountingCount">0</div><div class="s">selected</div></div>
+<div class="tab" data-panel="accounting" onclick="switchScopeTab('accounting')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();switchScopeTab('accounting')}" role="button" tabindex="0"><div class="t">Loan Accounting</div><div class="n" id="accountingCount">0</div><div class="s">selected</div></div>
 <div class="tab" data-panel="occupancy" onclick="switchScopeTab('occupancy')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();switchScopeTab('occupancy')}" role="button" tabindex="0"><div class="t">Occupancy Monitoring</div><div class="n" id="occupancyCount">0</div><div class="s">selected</div></div>
 </div>
+<div class="tab-panel" id="projectPanel" hidden>
+ <h2>Project Information</h2><p class="scope-hint">Select the projects involved in this transaction.</p>
+ <section class="project-card"><div class="participant-toolbar"><h3>Projects in Transaction (<span id="projectTotal">1</span>)</h3><button class="scope-button primary" type="button" onclick="toggleProjectLookup()">+ Add Related Project</button></div>
+ <div id="projectLookup" class="project-edit" hidden><label for="projectSearch">Find existing project</label><div class="loan-select-row"><input id="projectSearch" placeholder="Search project name or number" oninput="renderProjectMatches()"><button type="button" class="scope-button" onclick="toggleProjectLookup()">Cancel</button></div><div id="projectMatches"></div></div>
+ <div class="project-table-scroll"><table class="project-table"><thead><tr><th>Project Name</th><th>Project #</th><th>Address</th><th>Relationship</th><th>Status</th><th>Actions</th></tr></thead><tbody id="projectList"></tbody></table></div></section>
+
+ </div>
 <div class="tab-panel" id="participantPanel" hidden>
  <div class="participant-intro"><h2>Participant Update</h2><p>Indicate the member in partnership / entity that changed as part of this request.</p></div>
  <section class="participant-box"><div class="participant-toolbar"><h2>Participants - Ownership Structure (<span id="ownershipTotal">5</span>)</h2><div class="participant-tools"><span class="status-summary">✎ Updated <b id="updatedTotal">2</b></span><span class="status-summary">↻ Replaced <b id="replacedTotal">1</b></span><input id="participantSearch" placeholder="Search participants" aria-label="Search participants" oninput="filterParticipants()"><button type="button" class="participant-add" onclick="addParticipant('ownership')" title="Add Participant">＋</button><button type="button" class="participant-expand-all" onclick="toggleAllParticipants()" title="Expand or collapse contacts">⌃</button></div></div>
  <div class="participant-scroll"><table class="participant-table"><thead><tr><th></th><th>Participant Name</th><th>Borrower / Applicant</th><th>Team Role</th><th>Sub Role</th><th>Legal Status</th><th>Phone</th><th>Address</th><th>Email</th><th>Status</th><th>Actions</th></tr></thead><tbody id="ownershipRows"></tbody></table></div></section>
  <section class="participant-box"><div class="participant-toolbar"><h2>Other Participants (<span id="otherTotal">2</span>)</h2><button type="button" class="participant-add" onclick="addParticipant('other')" title="Add Other Participant">＋ Add Participant</button></div><div class="participant-scroll"><table class="participant-table"><thead><tr><th></th><th>Participant Name</th><th>Applicant</th><th>Team Role</th><th>Legal Status</th><th>Phone</th><th>Address</th><th>Email</th><th>Status</th><th>Actions</th></tr></thead><tbody id="otherRows"></tbody></table></div></section>
  </div>
-<div class="tab-panel" hidden="" id="loanPanel"><section class="section outgoing-loan">
+<div class="tab-panel" hidden="" id="loanPanel"><section class="loan-link-card"><h3>Loans Associated with This Transaction</h3><p class="scope-hint">Select loans from the primary or related projects. Each selected loan has independent instructions.</p>
+<div class="loan-select-row"><label for="loanProjectSelect">Project</label><select id="loanProjectSelect" onchange="renderAvailableLoans()"></select><label for="availableLoanSelect">Available Loan</label><select id="availableLoanSelect"></select><button type="button" class="scope-button" onclick="addLinkedLoan()">+ Add Loan</button></div>
+<div id="selectedLoanList"></div></section>
+<template id="loanScopeTemplate"><section class="section outgoing-loan">
 <div class="section-head">
 <div>
 <div class="record-type outgoing-type">EXISTING LOAN</div>
@@ -252,6 +311,8 @@ button,input,select,textarea{font:inherit}
 <option value="amend">Amend (Technical Correction)</option>
 <option value="replace">Replace with New</option>
 <option value="close">Close (Loan Payoff)</option>
+<option value="paydown">Partial Paydown</option>
+<option value="modify">Modify Loan Terms</option>
 </select>
 </div>
 <div class="field">
@@ -269,6 +330,8 @@ button,input,select,textarea{font:inherit}
 </select>
 </div>
 </div>
+<div class="loan-paydown" id="primaryPaydown" hidden><h3>Partial Paydown Instructions</h3><div class="loan-extra-grid"><div><label>Current Principal Balance</label><input readonly value="$3,871,085.34"></div><div><label>Required Paydown Amount ($)</label><input id="primaryPayAmount" type="number" min="0" max="3871085.34" placeholder="Enter approved amount" oninput="calculatePrimaryPaydown()"></div><div><label>Remaining Principal Balance</label><input id="primaryRemaining" readonly value="$3,871,085.34"></div></div><div class="field" style="margin-top:10px"><label>Approved Paydown Instructions / Conditions</label><textarea placeholder="Enter approved conditions; accounting verification occurs separately."></textarea></div></div>
+<div class="loan-paydown" id="primaryModify" hidden><h3>Loan Term Modification</h3><div class="project-grid"><div><label>Approved modification details</label><textarea style="width:100%" placeholder="Specify the approved terms to update"></textarea></div><div><label>Effective Date</label><input type="date"></div></div></div>
 <div aria-label="Existing loan agreement documents" class="docs" id="existingLoanDocuments" style="display:none">
 <div class="docs-title">Loan Documents</div>
 <table class="doc-table">
@@ -408,7 +471,9 @@ button,input,select,textarea{font:inherit}
 </article>
 </div>
 </div>
-</section></div><div class="tab-panel" id="accountingPanel">
+</section></div></template>
+</div><!-- close Loan Record tab panel before Loan Accounting -->
+<div class="tab-panel" id="accountingPanel" hidden>
 <section class="section" data-accounting-section="1">
 <div class="section-head">
 <div class="section-title">
@@ -418,7 +483,7 @@ button,input,select,textarea{font:inherit}
 <p>State revised minimum balance and/or required periodic deposit.</p>
 </div>
 </div>
-<label class="applicable-toggle"><input aria-label="Mark section 1 applicable" class="section-applicable" onchange="toggleAccountingSection(this)" type="checkbox"/> Applicable</label></div>
+<label class="applicable-toggle"><input aria-label="Mark section 1 applicable" class="section-applicable" checked onchange="toggleAccountingSection(this)" type="checkbox"/> Applicable</label></div>
 <div class="section-body">
 <table class="tbl reserve-table">
 <thead><tr><th>Reserve Fund</th><th>Required Minimum Balance</th><th>Current Balance (Actual)</th><th>Required Deposit</th><th>Deposit Method</th><th>Deposit Frequency</th><th></th></tr></thead>
@@ -457,8 +522,8 @@ button,input,select,textarea{font:inherit}
 </section>
 </div>
 <div class="tab-panel" hidden="" id="occupancyPanel">
-<div class="om-toggle-bar"><label><input id="affectsOM" onchange="toggleOM()" type="checkbox"/> This affects OM</label></div>
-<div hidden="" id="omContent">
+<div class="om-toggle-bar"><label><input id="affectsOM" onchange="toggleOM()" type="checkbox" checked/> This affects OM</label></div>
+<div id="omContent">
 <section class="om-card">
 <div class="om-card-head"><h2>Covenant/Regulatory Agreement Information</h2></div>
 <div class="om-card-body">
@@ -539,10 +604,10 @@ function submitAccountingScope(){
   alert('Loan Accounting scope is ready for submission (demo).');
 }
 function switchScopeTab(name){
-  ['participant','loan','accounting','occupancy'].forEach(tab=>document.getElementById(tab+'Panel').hidden=tab!==name);
+  ['project','participant','loan','accounting','occupancy'].forEach(tab=>document.getElementById(tab+'Panel').hidden=tab!==name);
   document.querySelectorAll('.tab[data-panel]').forEach(t=>t.classList.toggle('active',t.dataset.panel===name));
-  document.getElementById('scopeSubmit').textContent=name==='participant'?'Confirm Participant Updates':name==='loan'?'Confirm Loan Record Scope':name==='occupancy'?'Confirm Occupancy Monitoring Scope':'Submit to Loan Accounting';
-  document.getElementById('footerNote').textContent=name==='participant'?'Participant / Ownership • Review updated and replaced participants':name==='loan'?'Loan Record • Existing loan and successor loan instructions':name==='occupancy'?'Occupancy Monitoring • Covenant / Regulatory Agreement updates':'Prepared by Finance Office • Loan Accounting execution pending';
+  document.getElementById('scopeSubmit').textContent=name==='project'?'Confirm Project Updates':name==='participant'?'Confirm Participant Updates':name==='loan'?'Confirm Loan Record Scope':name==='occupancy'?'Confirm Occupancy Monitoring Scope':'Submit to Loan Accounting';
+  document.getElementById('footerNote').textContent=name==='project'?'Project Information • Review selected projects and proposed updates':name==='participant'?'Participant / Ownership • Review updated and replaced participants':name==='loan'?'Loan Record • Existing loan and successor loan instructions':name==='occupancy'?'Occupancy Monitoring • Covenant / Regulatory Agreement updates':'Prepared by Finance Office • Loan Accounting execution pending';
 }
 function updateLoanCount(){document.getElementById('loanCount').textContent=document.getElementById('loanAction').value?'1':'0';}
 function toggleOM(){
@@ -551,10 +616,11 @@ function toggleOM(){
   document.getElementById('occupancyCount').textContent=checked?'1':'0';
 }
 function submitCurrentScope(){
-  if(!document.getElementById('participantPanel').hidden){alert('Participant / Ownership updates ready for review (demo).');
+  if(!document.getElementById('projectPanel').hidden){alert('Project scope ready for review (demo).');
+  }else if(!document.getElementById('participantPanel').hidden){alert('Participant / Ownership updates ready for review (demo).');
   }else if(!document.getElementById('loanPanel').hidden){
-    if(!document.getElementById('loanAction').value){alert('Select a Loan Action before confirming Loan Record scope.');return;}
-    if(document.getElementById('loanAction').value==='replace'&&!document.getElementById('replacementCount').value){alert('Select the number of replacement loans.');return;}
+    if(selectedLoans.some(l=>!loanField(l.id,'action')?.value)){alert('Select a Loan Action for each selected loan.');return;}
+    if(selectedLoans.some(l=>loanField(l.id,'action')?.value==='replace'&&!loanField(l.id,'replacementCount')?.value)){alert('Select the number of replacement loans for each loan being replaced.');return;}
     alert('Loan Record scope is ready for confirmation (demo).');
   }else if(!document.getElementById('occupancyPanel').hidden){
     if(!document.getElementById('affectsOM').checked){alert('Select This affects OM before confirming Occupancy Monitoring scope.');return;}
@@ -564,8 +630,10 @@ function submitCurrentScope(){
   }else submitAccountingScope();
 }
 document.addEventListener('DOMContentLoaded',()=>{
-  updateLoanAction();updateLoanCount();
+  switchScopeTab('project');
+  updateLoanCount();
   document.querySelectorAll('.section-applicable').forEach(cb=>toggleAccountingSection(cb));
+  toggleOM();
 });
 
 
@@ -669,6 +737,8 @@ function addExistingLoanDocument(){
 function updateLoanAction(){
   const isReplace = document.getElementById('loanAction').value === 'replace';
   document.getElementById('existingLoanDocuments').style.display = document.getElementById('loanAction').value === 'amend' ? '' : 'none';
+  document.getElementById('primaryPaydown').hidden=document.getElementById('loanAction').value!=='paydown';
+  document.getElementById('primaryModify').hidden=document.getElementById('loanAction').value!=='modify';
   document.getElementById('replacementSelector').style.display = isReplace ? '' : 'none';
   if (!isReplace) document.getElementById('replacementCount').value = '';
   renderReplacementLoans();
@@ -693,7 +763,7 @@ function renderReplacementLoans(){
 
 
 
-const previousUpdateLoanAction=updateLoanAction;updateLoanAction=function(){previousUpdateLoanAction();updateLoanCount();};
+
 
 const participantData={ownership:[
  {name:'NCRC San Pedro MGP, LLC',applicant:'NA',role:'General Partner',sub:'Managing General Partner',legal:'LLC',phone:'(818) 400-1510',address:'3431 WESLEY ST SUITE…',email:'greg@daylight.la',status:'Updated',expanded:true,contacts:[['Charles Powell','Owner Representative','11811 San Vicente Blvd, Los Angeles, CA 90049','(213) 729-6900','charlespowell@company.com'],['Jane Doe','Project Manager','11811 San Vicente Blvd, Los Angeles, CA 90049','(314) 123-4567','jane.dow@company.com'],['Gaby seigal','Designer','11811 San Vicente Blvd, Los Angeles, CA 90049','(760) 734-6754','gaby.seigal@company.com']]},
@@ -733,6 +803,143 @@ document.addEventListener('click',function(event){
  document.querySelectorAll('.participant-action-menu[open]').forEach(menu=>{if(menu!==selected)menu.open=false;});
 });
 document.addEventListener('DOMContentLoaded',renderParticipants);
+
+// Project selection and project-specific updates (demo records)
+const projectRecords=[
+ {id:'P-10021',name:'Kingswood Apartments',address:'Los Angeles, CA',primary:true,linked:true,modified:false,loans:[{id:'09-117184-001',balance:3871085.34},{id:'09-117184-002',balance:1605000}]},
+ {id:'P-10022',name:'Kingswood II',address:'Los Angeles, CA',primary:false,linked:false,modified:false,loans:[{id:'09-117185-001',balance:2250000}]},
+ {id:'P-10023',name:'Kingswood East',address:'Los Angeles, CA',primary:false,linked:false,modified:false,loans:[{id:'09-117186-001',balance:875000}]}
+];
+const selectedLoans=[{projectId:'P-10021',id:'09-117184-001',balance:3871085.34,primary:true}];
+const money=v=>Number(v||0).toLocaleString('en-US',{style:'currency',currency:'USD'});
+function safeText(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function toggleProjectLookup(){const x=document.getElementById('projectLookup');x.hidden=!x.hidden;if(!x.hidden)renderProjectMatches();}
+function renderProjectMatches(){const q=document.getElementById('projectSearch').value.trim().toLowerCase();document.getElementById('projectMatches').innerHTML=projectRecords.filter(p=>!p.linked&&(p.name.toLowerCase().includes(q)||p.id.toLowerCase().includes(q))).map(p=>`<div class="project-line"><span><b>${safeText(p.name)}</b><br><span class="project-small">${safeText(p.id)} · ${safeText(p.address)}</span></span><button class="scope-button" type="button" onclick="linkProject('${p.id}')">Link Project</button></div>`).join('')||'<p class="scope-hint">No additional matching projects in demo data.</p>';}
+function linkProject(id){const p=projectRecords.find(x=>x.id===id);if(!p)return;p.linked=true;renderProjects();renderProjectMatches();renderLoanProjectSelect();}
+function unlinkProject(id){const p=projectRecords.find(x=>x.id===id);if(!p||p.primary)return;if(selectedLoans.some(l=>l.projectId===id)){alert('Remove this project’s selected loans before unlinking it.');return;}p.linked=false;p.modified=false;renderProjects();renderLoanProjectSelect();}
+function toggleProjectEdit(id){const el=document.getElementById('projectEdit_'+id);if(el)el.hidden=!el.hidden;}
+function saveProjectEdit(id){const p=projectRecords.find(x=>x.id===id);const n=document.getElementById('projectName_'+id).value.trim(),a=document.getElementById('projectAddress_'+id).value.trim();if(!n||!a){alert('Enter a proposed project name and address.');return;}p.proposedName=n;p.proposedAddress=a;p.modified=(n!==p.name||a!==p.address);renderProjects();}
+function viewProjectDetails(id){const p=projectRecords.find(x=>x.id===id);if(!p)return;const el=document.getElementById('projectView_'+id);if(el)el.hidden=!el.hidden;}
+function cancelProjectEdit(id){const el=document.getElementById('projectEdit_'+id);if(el)el.hidden=true;}
+function renderProjects(){
+ const linked=projectRecords.filter(p=>p.linked);
+ document.getElementById('projectTotal').textContent=linked.length;
+ document.getElementById('projectCount').textContent=linked.filter(p=>p.modified).length;
+ document.getElementById('projectList').innerHTML=linked.map(p=>`<tr class="project-data-row"><td><strong>${safeText(p.name)}</strong></td><td>${safeText(p.id)}</td><td>${safeText(p.address)}</td><td>${p.primary?'Primary Project':'Related Project'}</td><td><span class="project-status ${p.modified?'project-updated':''}">${p.modified?'Update proposed':'Linked'}</span></td><td><details class="participant-action-menu"><summary aria-label="Actions for ${safeText(p.name)}">•••</summary><div class="participant-menu-options"><button type="button" onclick="toggleProjectEdit('${p.id}')">Update Project Information</button><button type="button" onclick="viewProjectDetails('${p.id}')">View Project Details</button>${!p.primary?`<button type="button" onclick="unlinkProject('${p.id}')">Remove from Transaction</button>`:''}</div></details></td></tr>
+ <tr class="project-detail-row" id="projectEdit_${p.id}" hidden><td colspan="6"><div class="project-detail-content"><h4>Update Project Information · ${safeText(p.id)}</h4><div class="project-grid"><div><label>Existing Project Name</label><input readonly value="${safeText(p.name)}"></div><div><label>Proposed Project Name</label><input id="projectName_${p.id}" value="${safeText(p.proposedName??p.name)}"></div><div><label>Existing Address</label><input readonly value="${safeText(p.address)}"></div><div><label>Proposed Address</label><input id="projectAddress_${p.id}" value="${safeText(p.proposedAddress??p.address)}"></div></div><div class="project-edit-actions"><button class="scope-button" type="button" onclick="cancelProjectEdit('${p.id}')">Cancel</button><button class="scope-button primary" type="button" onclick="saveProjectEdit('${p.id}')">Save Proposed Changes</button></div></div></td></tr>
+ <tr class="project-detail-row" id="projectView_${p.id}" hidden><td colspan="6"><div class="project-detail-content"><h4>Project Details · ${safeText(p.name)}</h4><p class="scope-hint">Associated loans: ${p.loans.map(l=>safeText(l.id)).join(', ')||'None'}</p><p class="scope-hint">To update associated loans, select this project in the Loan Record tab.</p><button class="scope-button" type="button" onclick="viewProjectDetails('${p.id}')">Close</button></div></td></tr>`).join('');
+}
+
+function renderLoanProjectSelect(){const s=document.getElementById('loanProjectSelect');const old=s.value;s.innerHTML=projectRecords.filter(p=>p.linked).map(p=>`<option value="${p.id}">${safeText(p.name)} (${p.id})</option>`).join('');if([...s.options].some(o=>o.value===old))s.value=old;renderAvailableLoans();}
+function renderAvailableLoans(){const id=document.getElementById('loanProjectSelect').value;const p=projectRecords.find(x=>x.id===id);const select=document.getElementById('availableLoanSelect');const loans=(p?.loans||[]).filter(l=>!selectedLoans.some(s=>s.id===l.id&&s.projectId===id));select.innerHTML='<option value="">'+(loans.length?'Select Loan':'No available loans')+'</option>'+loans.map(l=>`<option value="${l.id}">${l.id} · ${money(l.balance)}</option>`).join('');select.value='';document.querySelector('button[onclick="addLinkedLoan()"]').disabled=!loans.length;}
+function addLinkedLoan(){
+ const pid=document.getElementById('loanProjectSelect').value,id=document.getElementById('availableLoanSelect').value;
+ if(!id)return;
+ const loan=projectRecords.find(p=>p.id===pid)?.loans.find(l=>l.id===id);
+ if(!loan)return;
+ selectedLoans.push({...loan,projectId:pid,primary:false});
+ renderSelectedLoans();renderAvailableLoans();
+ const entry=document.getElementById('loanEntry_'+loanKey(id));if(entry)entry.open=true;
+}
+function removeLinkedLoan(id){
+ const i=selectedLoans.findIndex(l=>l.id===id&&!l.primary);
+ if(i>=0)selectedLoans.splice(i,1);
+ const entry=document.getElementById('loanEntry_'+loanKey(id));if(entry)entry.remove();
+ renderSelectedLoans();renderAvailableLoans();updateLoanCount();
+}
+function loanKey(id){return id.replace(/[^a-zA-Z0-9]/g,'_');}
+function loanEntry(id){return document.getElementById('loanEntry_'+loanKey(id));}
+function loanField(id,field){return loanEntry(id)?.querySelector('[data-loan-field="'+field+'"]');}
+function calculatePrimaryPaydown(){calculateLoanPaydown('09-117184-001');}
+function calculateLoanPaydown(id){
+ const loan=selectedLoans.find(l=>l.id===id);if(!loan)return;
+ const amount=Number(loanField(id,'payAmount')?.value)||0;
+ const remaining=loanField(id,'remaining');if(remaining)remaining.value=money(Math.max(0,loan.balance-amount));
+}
+function updateLoanCount(){document.getElementById('loanCount').textContent=selectedLoans.filter(l=>!!loanField(l.id,'action')?.value).length;}
+function updateLoanAction(){updateSelectedLoanAction('09-117184-001');}
+function renderReplacementLoans(){renderLoanReplacements('09-117184-001');}
+function updateSelectedLoanAction(id){
+ const entry=loanEntry(id);if(!entry)return;
+ const action=loanField(id,'action')?.value;
+ const docs=loanField(id,'documents');if(docs)docs.style.display=action==='amend'?'':'none';
+ for(const [field,code] of [['paydown','paydown'],['modify','modify']]){const node=loanField(id,field);if(node)node.hidden=action!==code;}
+ const selector=loanField(id,'replacementSelector');if(selector)selector.style.display=action==='replace'?'':'none';
+ const count=loanField(id,'replacementCount');if(action!=='replace'&&count)count.value='';
+ renderLoanReplacements(id);updateLoanCount();
+}
+function renderLoanReplacements(id){
+ const entry=loanEntry(id);if(!entry)return;
+ const count=loanField(id,'action')?.value==='replace'?Number(loanField(id,'replacementCount')?.value)||0:0;
+ const section=loanField(id,'replacementSection');if(section)section.style.display=count?'':'none';
+ const badge=loanField(id,'replacementBadge');if(badge)badge.textContent=count;
+ const list=loanField(id,'replacementCards');if(!list)return;
+ const existing=[...list.children];
+ if(count<existing.length)existing.slice(count).forEach(el=>el.remove());
+ for(let i=existing.length;i<count;i++){
+  const p=projectRecords.find(p=>p.id===selectedLoans.find(l=>l.id===id)?.projectId);
+  const defaults=id==='09-117184-001'?defaultLoans[i]:null;
+  const holder=document.createElement('div');holder.innerHTML=loanCardTemplate(i,defaults?{...defaults,project:(p?.name||'Project')+' Project'}:{no:'',principal:'',effective:'',rate:'',method:'Simple',days:'365',maturity:'',split:'',type:'Residual Receipt',project:(p?.name||'Project')+' Project'});
+  const card=holder.firstElementChild;
+  const upload=card.querySelector('.upload-btn');if(upload)upload.onclick=()=>uploadReplacementDocument(card);
+  list.appendChild(card);
+ }
+}
+function uploadReplacementDocument(card){
+ const file=card.querySelector('input[type="file"]');if(!file?.files?.length){alert('Choose a document to upload.');return;}
+ const fields=card.querySelectorAll('.upload-row .field');const tr=document.createElement('tr');
+ [fields[0]?.querySelector('select')?.value||'Agreement',fields[1]?.querySelector('select')?.value||'Loan Agreement',fields[2]?.querySelector('input')?.value||'—',fields[3]?.querySelector('input')?.value||'—',file.files[0].name].forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.appendChild(td)});
+ card.querySelector('.doc-table tbody').appendChild(tr);file.value='';
+}
+function uploadLoanDocument(id){
+ const entry=loanEntry(id),file=loanField(id,'docFile');if(!file?.files?.length){alert('Choose an agreement document to upload.');return;}
+ const tr=document.createElement('tr');
+ ['docType','docSubtype','docDate','execDate'].map(k=>loanField(id,k)?.value||'—').concat(file.files[0].name).forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.appendChild(td)});
+ loanField(id,'documentRows').appendChild(tr);file.value='';
+}
+function addExistingLoanDocument(){uploadLoanDocument('09-117184-001');}
+function makeLoanEntry(loan){
+ const key=loanKey(loan.id),project=projectRecords.find(p=>p.id===loan.projectId);
+ const entry=document.createElement('details');entry.className='selected-loan-entry';entry.id='loanEntry_'+key;entry.open=!!loan.primary;
+ const summary=document.createElement('summary');
+ const title=document.createElement('div');title.className='loan-entry-title';
+ const name=document.createElement('strong');name.textContent=loan.id+' · '+(project?.name||'Project');title.appendChild(name);
+ const meta=document.createElement('div');meta.className='loan-entry-meta';meta.textContent=(loan.primary?'Primary loan':'Additional loan')+' · Current principal: '+money(loan.balance);title.appendChild(meta);
+ summary.appendChild(title);
+ if(!loan.primary){const remove=document.createElement('button');remove.type='button';remove.className='loan-entry-remove';remove.textContent='Remove';remove.onclick=e=>{e.preventDefault();e.stopPropagation();removeLinkedLoan(loan.id)};summary.appendChild(remove)}
+ entry.appendChild(summary);
+ const content=document.createElement('div');content.className='loan-entry-content';
+ content.appendChild(document.getElementById('loanScopeTemplate').content.cloneNode(true));
+ const section=content.querySelector('.outgoing-loan');
+ section.querySelector('.section-head h2').textContent='Existing Loan Record and Scope of Change';
+ section.querySelector('.section-head p').textContent='Identify what happens to this City loan as part of the transaction.';
+ const row=section.querySelector('.outgoing-summary tbody tr');
+ const cells=row.cells;cells[0].textContent=loan.id;cells[1].textContent=loan.primary?'C-146838':'C-'+loan.id.split('-').slice(-1)[0];cells[2].textContent=loan.primary?'684':'—';cells[3].textContent=loan.primary?'$4,000,000.00':'—';cells[4].textContent=money(loan.balance);cells[5].textContent=loan.primary?'$231,436.09':'—';cells[6].textContent='3/31/2026';cells[7].textContent='Open';
+ const mapping={loanAction:'action',existingLoanDocuments:'documents',primaryPaydown:'paydown',primaryModify:'modify',primaryPayAmount:'payAmount',primaryRemaining:'remaining',replacementSelector:'replacementSelector',replacementCount:'replacementCount',replacementLoansSection:'replacementSection',newLoanBadge:'replacementBadge',loanCards:'replacementCards',existingDocFile:'docFile',existingDocType:'docType',existingDocSubtype:'docSubtype',existingDocDate:'docDate',existingExecDate:'execDate',existingLoanDocumentRows:'documentRows'};
+ for(const [old,field] of Object.entries(mapping)){
+  const el=content.querySelector('#'+old);if(!el)continue;
+  el.id=old+'_'+key;el.dataset.loanField=field;
+ }
+ // Replace global handlers with scoped handlers; every selected loan gets identical conditional behavior.
+ loanFieldIn(content,'action')?.setAttribute('onchange',`updateSelectedLoanAction('${loan.id}')`);
+ loanFieldIn(content,'replacementCount')?.setAttribute('onchange',`renderLoanReplacements('${loan.id}')`);
+ loanFieldIn(content,'payAmount')?.setAttribute('oninput',`calculateLoanPaydown('${loan.id}')`);
+ const docButton=content.querySelector('#existingLoanDocuments_'+key+' .upload-btn');if(docButton)docButton.setAttribute('onclick',`uploadLoanDocument('${loan.id}')`);
+ const balanceInput=loanFieldIn(content,'paydown')?.querySelector('input[readonly]');if(balanceInput)balanceInput.value=money(loan.balance);
+ const payAmount=loanFieldIn(content,'payAmount');if(payAmount)payAmount.max=loan.balance;
+ const remaining=loanFieldIn(content,'remaining');if(remaining)remaining.value=money(loan.balance);
+ const note=content.querySelector('.notes-field textarea');if(note){note.value='';note.placeholder='Enter loan-specific instructions';}
+ if(!loan.primary){const docs=loanFieldIn(content,'documentRows');if(docs)docs.innerHTML='';}
+ entry.appendChild(content);return entry;
+}
+function loanFieldIn(root,field){return root.querySelector('[data-loan-field="'+field+'"]');}
+function renderSelectedLoans(){
+ const list=document.getElementById('selectedLoanList');
+ const existing=new Map([...list.querySelectorAll('.selected-loan-entry')].map(e=>[e.id,e]));
+ for(const loan of selectedLoans){const id='loanEntry_'+loanKey(loan.id);let entry=existing.get(id);if(!entry)entry=makeLoanEntry(loan);list.appendChild(entry);existing.delete(id)}
+ existing.forEach(entry=>entry.remove());updateLoanCount();
+}
+document.addEventListener('DOMContentLoaded',()=>{renderProjects();renderLoanProjectSelect();renderSelectedLoans();});
 </script>
 </body>
 </html>
